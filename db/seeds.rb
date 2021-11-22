@@ -6,11 +6,10 @@ Tip.destroy_all
 
 puts "Creating users..."
 
-emanuel = User.create!(name:"Emanuel", email: "emanuel@lewagon.com", )
-gareth = User.create!(name:"Gareth", email: "gareth@lewagon.com")
-anju = User.create!(name:"Anju", email: "anju@lewagon.com")
-louis = User.create!(name:"Louis", email: "louis@lewagon.com")
-
+emanuel = User.create!(password:"123456", email: "emanuel@lewagon.com", )
+gareth = User.create!(password:"123456", email: "gareth@lewagon.com")
+anju = User.create!(password:"123456", email: "anju@lewagon.com")
+louis = User.create!(password:"123456", email: "louis@lewagon.com")
 
 puts "Creating artists..."
 
@@ -20,9 +19,9 @@ trashcan = Artist.new(name: "Trashcan Paradise", user: anju)
 
 puts "Creating performances..."
 
-trash_perf = Performance.create!(name:"Trashcans live on the streets", artist: trashcan)
-mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mighty)
-cups_perf = Performance.create!(name:"Cups live on the streets", artist: cups)
+trash_perf = Performance.create!(name:"Trashcans live on the streets", artist: trashcan, address: "Yoyogi Park, Tokyo, Japan", start_time: Date.new, end_time: Date.new)
+mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mighty, address: "Ferry Building, San Francisco, CA", start_time: Date.new, end_time: Date.new)
+cups_perf = Performance.create!(name:"Cups live on the streets", artist: cups, address: "Tokyo Tower", start_time: Date.new, end_time: Date.new)
 
 puts "Creating tips..."
 

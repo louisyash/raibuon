@@ -1,6 +1,6 @@
 class Performance < ApplicationRecord
-  belongs_to :artist
-  has_many :tips
+  belongs_to :artist, dependent: :destroy
+  has_many :tips, dependent: :destroy
 
   validates :name, presence: true
   validates :address, presence: true
