@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :photo
   has_many :tips, dependent: :destroy
   has_many :artists, dependent: :destroy
   # Include default devise modules. Others available are:
