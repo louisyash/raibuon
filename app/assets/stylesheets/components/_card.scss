@@ -1,0 +1,36 @@
+.perf-card-lg {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #142F43;
+    background-clip: border-box;
+    border-radius: 24px;
+    padding: 24px;
+    height: 360px;
+    color: rgb(240, 240,240);
+    margin-top: 12px;
+    box-shadow: 4px 4px rgba(0, 0, 0, 80%);
+}
+
+.perf-card-sm {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #142F43;
+    background-clip: border-box;
+    border-radius: 24px;
+    padding: 16px;
+    height: 120px;
+    color: rgb(240, 240,240);
+    margin-top: 12px;
+    box-shadow: 4px 4px rgba(0, 0, 0, 80%);
+}
+
+.perf-text {
+  position:absolute;
+  bottom:20px;
+}
