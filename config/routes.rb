@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :tips, only: %i[new create]
   end
 
-  resources :artists, only: %i[new create] do
+  resources :artists, only: %i[new create]
+  namespace :artist do
     resources :performances, only: %i[index show]
   end
 end
