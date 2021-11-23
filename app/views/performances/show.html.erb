@@ -45,11 +45,14 @@
   <!--Messages container-->
 
   <div class="container message-container my-2">
-    <h3>Messages</h3>
+    <h5>Messages</h5>
     <% @performance.messages.first(2).each do  |message|%>
       <div class="content-message">
         <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
-        <p><%= message.content%></p>
+        <div class="container">
+          <p><%= message.user.email %></p>
+          <p><%= message.content%></p>
+        </div>
       </div>
     <% end %>
 
