@@ -4,17 +4,57 @@
 
 <!--Artist profile part -->
 <div class="container d-flex justify-content-between">
-  <img src="https://www.aceshowbiz.com/images/photo/shakira.jpg" alt="no image" class="avatar-large">
+  <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
   <div class="container d-flex align-content-center justify-content-around flex-column">
-    <h3 class="m-0">Artist Name</h3>
+    <h3 class="m-0"><%= @performance.artist.name %></h3>
     <p class="m-0">10 performances to date</p>
   </div>
-  <%= link_to 'edit', "/", class:'btn btn-primary' %>
+  <%= link_to 'Edit', "/", class:'btn-performance' %>
 </div>
-
-
 <!--Streaming part -->
 
-
+<div class="container my-3">
+  <%= video_tag "stream.mp4", class:"w-100", controls: :controls, :loop => true%>
+  <div class="container d-flex">
+    <em class="fas fa-map-marker-alt text-light"></em>
+    <p class="ml-2">Yoyogi park</p>
+  </div>
+   <p>Tips today</p>
+</div>
 
 <!-- Cards space-->
+<div class="container d-flex justify-content-around flex-wrap">
+  <div class="container tip-container my-2">
+    <h3>TIPS</h3>
+    <h1>¥2850</h1>
+    <div class="tip-message">
+      <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
+      <p>Anju tipped you</p>
+      <span>¥100</span>
+    </div>
+
+    <div class="tip-message">
+      <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
+      <p>Anju tipped you</p>
+      <span>¥100</span>
+    </div>
+
+    <p>View 4 more tips</p>
+  </div>
+
+  <!--Messages container-->
+  <div class="container tip-container my-2">
+    <h3>Messages</h3>
+    <div class="tip-message">
+      <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
+      <p>Nice concert!</p>
+    </div>
+
+    <div class="tip-message">
+      <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
+      <p>perfect!</p>
+    </div>
+
+    <p>View 4 more messages</p>
+  </div>
+</div>
