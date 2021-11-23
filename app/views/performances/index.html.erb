@@ -2,18 +2,26 @@
   <br>
   <h3>Live now</h3>
   <% first_performance = @performances.first%>
-  <div class="perf-card-lg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/KOHH2016.jpg/800px-KOHH2016.jpg');">
+  <div class="perf-card-lg">
+    <div class="upper-components">
+      <i class="far fa-heart"></i>
+      <div class="live-button">
+        <p>LIVE</p>
+      </div>
+    </div>
     <div class="perf-text">
       <p><strong><%= first_performance.artist.name %></strong></p>
       <%# <i class="far fa-map-marker-alt"></i>  %>
       <p>[ICON] <%= first_performance.address %></p>
+      <p>[ICON] 18:00 - 20:00</p>
     </div>
   </div>
-  <h3>More lives</h3>
-  <div class="row">
+  <h3>More shows</h3>
+  <div class="card-row">
     <% @performances.each do |performance| %>
-      <div class="perf-card-sm col-6" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/KOHH2016.jpg/800px-KOHH2016.jpg');">
-        <div class="perf-text">
+      <div class="perf-card-sm col-5" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/KOHH2016.jpg/800px-KOHH2016.jpg');">
+        <i class="far fa-heart"></i>
+        <div class="perf-text-sm">
           <p><strong><%= performance.artist.name %></strong></p>
           <%# <i class="far fa-map-marker-alt"></i>  %>
           <p>[ICON] <%= performance.address %></p>

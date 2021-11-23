@@ -4,7 +4,6 @@
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #142F43;
     background-clip: border-box;
     border-radius: 24px;
     padding: 24px;
@@ -12,6 +11,9 @@
     color: rgb(240, 240,240);
     margin-top: 12px;
     box-shadow: 4px 4px rgba(0, 0, 0, 80%);
+    margin-bottom: 16px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/KOHH2016.jpg/800px-KOHH2016.jpg");
+    background-size: cover;
 }
 
 .perf-card-sm {
@@ -28,9 +30,45 @@
     color: rgb(240, 240,240);
     margin-top: 12px;
     box-shadow: 4px 4px rgba(0, 0, 0, 80%);
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/KOHH2016.jpg/800px-KOHH2016.jpg");
+    background-size: cover;
 }
 
 .perf-text {
   position:absolute;
   bottom:20px;
+}
+
+.perf-text-sm {
+  position:absolute;
+  height: 100%;
+  top: 40px;
+  text-shadow: 0 0 black;
+  p {
+    font-size: small;
+  }
+}
+
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  justify-content: space-evenly;
+}
+
+.live-button {
+  border: solid #C85C5C;
+  background-color: #C85C5C;
+  justify-content: space-between;
+  border-radius: 6px;
+  opacity: 80%;
+}
+
+.upper-components {
+  display: flex;
+  justify-content: space-between;
+  p {
+    margin: 1px;
+  }
 }
