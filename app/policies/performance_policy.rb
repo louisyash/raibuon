@@ -5,6 +5,10 @@ class PerformancePolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    true
+  end
+
   def show?
     return true
   end
