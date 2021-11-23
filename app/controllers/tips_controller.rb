@@ -4,6 +4,7 @@ class TipsController < ApplicationController
   def new
     @tip = Tip.new
     @performance = Performance.find(params[:performance_id])
+    authorize @tip
   end
 
   def create
