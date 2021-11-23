@@ -1,11 +1,17 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon wireframe"  style="position: -webkit-sticky; position: sticky; top: 0; background-color: transparent;">
+
+  <!-- background opacity shifting rectangle -->
+  <div id="test" class="navbar-background" style=""></div>
+
+  <!-- brand home -->
+  <%= link_to "#", class: "navbar-brand wireframe", style: "margin-right: 0px; z-index: 99; position: relative; padding: 0px;" do %>
     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -26,8 +32,14 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <li class="nav-item wireframe" style="">
+          <%= link_to new_user_session_path, class: "nav-link", style: "outline: 1px solid #fff; padding: 0px; border-radius: 50%; display: flex; overflow: hidden;"  do %>
+
+          <!-- login icon cloudinary id: uxjn6i0ah5lohevjxrzb -->
+          <%#= cl_image_tag("uxjn6i0ah5lohevjxrzb", width: 400, height: 300, crop: :fill) %>
+          <%#= image_tag "blank-profile-picture.png", alt: "user login", class: "ro-navbar__user-login-icon", style: "z-index: 99; position: relative;" %>
+          <i class="fas fa-user ro-navbar__user-login-icon" style=""></i>
+        <% end %>
         </li>
       <% end %>
     </ul>
