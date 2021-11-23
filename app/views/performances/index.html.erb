@@ -9,7 +9,7 @@
     <%= submit_tag "Search", class: "btn btn-ghost mt-2" %>
   <% end %>
   <h3>Live now</h3>
-  <% first_performance = @performances_filtered.first%>
+  <% first_performance = @performances.first%>
   <% if first_performance %>
     <%= link_to performance_path(first_performance) do %>
       <div class="perf-card-lg">
@@ -29,7 +29,7 @@
   <% end %>
   <h3>More shows</h3>
   <div class="card-row">
-    <% @performances_filtered.each do |performance| %>
+    <% @performances.each do |performance| %>
       <div class="perf-card-sm col-5">
         <%= link_to performance_path(performance) do %>
           <i class="far fa-heart"></i>

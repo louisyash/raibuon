@@ -1,16 +1,11 @@
 class PerformancesController < ApplicationController
 
   def index
-    # @performances = policy_scope(Performance).order(created_at: :desc)
-    # authorize @performances
+    @performances = policy_scope(Performance).order(created_at: :desc)
     if params[:query].present?
-      @performances = policy_scope(Performance).order(created_at: :desc)
-      @performances_filtered = @performances.where("name ILIKE ?", "%#{params[:query]}%")
-      authorize @performances
-    else
-      @performances = policy_scope(Performance).order(created_at: :desc)
-      authorize @performances
+      @performances = @performances.where("name ILIKE ?", "%#{params[:query]}%")
     end
+    authorize @performances
   end
 
   def show
