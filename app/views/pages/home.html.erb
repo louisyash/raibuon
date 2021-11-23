@@ -1,36 +1,19 @@
-
+<!-- banner image -->
 <div id="landing-wrapper-background"></div>
 
+<!--  -->
 <div class="wrapper" id="landing-wrapper"style="">
-  <div class="container wireframe" style="height: 100%; position: relative; padding-left: 0px; padding-right: 0px;">
+  <div class="ro-container wireframe" style="height: 100%; position: relative; padding-left: 0px; padding-right: 0px;">
 
-    <div class="vertical-offcenter wireframe" style="width: 100%; display: flex; align-items: center; flex-direction: column;">
-
-
-        <div class="wireframe" style="width: 100%; float: left; position: relative;">
-          <h1 class="ro-landing-title wireframe">RaibuOn</h1>
-        </div>
-        <div class="wireframe" style="width: 100%; float: left; position: relative;">
-          <h2 class="ro-landing-sub-title wireframe">Live music near you</h2>
-        </div>
-
-          <!-- Raibuon search bar -->
-        <div class="wireframe" style="width: 100%; float: left; position: relative;">
-          <%= form_tag performances_path, method: :get do %>
-            <div class="ro-search-bar-container wireframe" style="margin-left: 20%;">
-              <%= text_field_tag :query,
-              params[:query],
-              class: "ro-search-bar__bar ro-font-main",
-              placeholder: "artist, genre, or location"
-              %>
-              <%= button_tag(type: "Search", class: "ro-search-bar__button") do %>
-                <i class="fas fa-search"></i>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-
-
+    <div class="vertical-offcenter wireframe landing-text" style="">
+      <div class="wireframe landing-text__item-containers" style="">
+        <h1 class="ro-landing-title wireframe">RaibuOn</h1>
+      </div>
+      <div class="wireframe landing-text__item-containers" style="">
+        <h2 class="ro-landing-sub-title wireframe">Live music near you</h2>
+      </div>
+      <!-- Raibuon search bar -->
+      <%= render 'shared/searchbar', display_class: "searchbar-pc" %>
     </div>
 
   </div>

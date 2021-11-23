@@ -2,21 +2,35 @@
 ::placeholder {
   /* color: $ui-color-text-lowlight; */
 }
+
+.searchbar-pc {
+  margin-left: 20%;
+  float: left;
+  width: 70%;
+}
+
+.searchbar-mobile {
+  display: none;
+}
+
 .ro-search-bar-container {
   display: flex;
   flex-direction: row;
   position: relative;
-  float: left;
   height: 50px;
   padding-bottom: 10px;
   padding-top: 20px;
   z-index: 99;
   position: relative;
-
   padding-top: 0px;
   padding-bottom: 0px;
 
 }
+
+
+
+
+
 
 .ro-search-bar__bar {
   max-width: 512px;
@@ -48,5 +62,28 @@
   border: 0px;
   color: #fff;
   background-color: $ui-color-text-highlight;
-  margin-right: 10px;
+
+}
+
+
+/* 320px — 480px: Mobile devices. */
+/* 481px — 768px: iPads, Tablets. */
+/* 769px — 1024px: Small screens, laptops. */
+/* 1025px — 1200px: Desktops, large screens. */
+/* 1201px and more — Extra large screens, T */
+/* laptops */
+
+
+@media(max-width: 768px) {
+  .searchbar-pc {
+    display: none;
+  }
+
+  .searchbar-mobile {
+    display: block;
+  }
+
+  .ro-search-bar-container {
+    margin: auto;
+  }
 }

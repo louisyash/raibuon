@@ -1,0 +1,15 @@
+ <!-- Raibuon search bar -->
+<div class="wireframe <%= display_class %>" style="">
+  <%= form_tag performances_path, method: :get do %>
+    <div class="ro-search-bar-container wireframe" style="">
+      <%= text_field_tag :query,
+      params[:query],
+      class: "ro-search-bar__bar ro-font-main",
+      placeholder: "artist, genre, or location"
+      %>
+      <%= button_tag(type: "Search", class: "ro-search-bar__button") do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
