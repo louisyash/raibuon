@@ -11,3 +11,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+$background-color:#201F30;
+$card-color: #34344E;
+
+body{
+  background-color: $background-color;
+}
