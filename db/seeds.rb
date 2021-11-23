@@ -4,10 +4,11 @@ User.destroy_all
 Artist.destroy_all
 Performance.destroy_all
 Tip.destroy_all
+Message.destroy_all
 
 puts "Creating users..."
 
-emanuel = User.create!(password:"123456", email: "emanuel@lewagon.com", )
+emanuel = User.create!(password:"123456", email: "emanuel@lewagon.com")
 gareth = User.create!(password:"123456", email: "gareth@lewagon.com")
 anju = User.create!(password:"123456", email: "anju@lewagon.com")
 louis = User.create!(password:"123456", email: "louis@lewagon.com")
@@ -33,3 +34,19 @@ Tip.create!(amount:200, user:louis, performance:trash_perf)
 Tip.create!(amount:1200, user:emanuel, performance:trash_perf)
 
 puts "created #{User.count} users, #{Artist.count} artists, #{Performance.count} performances, and #{Tip.count} tips!"
+
+
+puts "creating messages"
+
+users = [emanuel, gareth, anju, louis]
+performances = [trash_perf, mighty_perf, cups_perf]
+messages = ["nice concert", "the best artist!", "More sessions please!", "i'm gonna tip right now!", "please more lives!"]
+
+15.times do
+  Message.create!(
+    content: messages.sample,
+    user: users.sample,
+    performance: performances.sample
+  )
+end
+puts "messages created"
