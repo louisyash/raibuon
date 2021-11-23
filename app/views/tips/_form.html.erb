@@ -1,4 +1,4 @@
-<%= simple_form_for [@performance, @tip] do |f| %>
-  <%= f.input :amount, collection: Tip::AMOUNT, include_blank: false, as: :radio_buttons%>
-  <%= f.submit class: 'btn btn-primary' %>
+<%= simple_form_for [@performance, @tip], input_html: { id: :tip } do |f| %>
+  <%= f.input :amount, collection: Tip::AMOUNT, as: :check_boxes, input_html: { class: "amount-selector" }, item_wrapper_class: 'amount-item' %>
+  <%= f.submit class: 'btn' %>
 <% end %>

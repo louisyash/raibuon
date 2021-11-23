@@ -13,6 +13,7 @@ class TipsController < ApplicationController
     @tip.performance = @performance
 
     @tip.user = current_user
+    authorize @tip
 
     if @tip.save
       redirect_to performance_path(@performance)
