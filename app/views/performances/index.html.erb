@@ -1,26 +1,35 @@
 <div class="container">
   <br>
+  <%= form_tag performances_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a show"
+    %>
+    <%= submit_tag "Search", class: "btn btn-ghost mt-2" %>
+  <% end %>
   <h3>Live now</h3>
-  <% first_performance = @performances.first%>
-  <%= link_to performance_path(first_performance) do %>
-    <div class="perf-card-lg">
-      <div class="upper-components">
-        <i class="far fa-heart"></i>
-        <div class="live-button">
-          <p>LIVE</p>
+  <% first_performance = @performances_filtered.first%>
+  <% if first_performance %>
+    <%= link_to performance_path(first_performance) do %>
+      <div class="perf-card-lg">
+        <div class="upper-components">
+          <i class="far fa-heart"></i>
+          <div class="live-button">
+            <p>LIVE</p>
+          </div>
+        </div>
+        <div class="perf-text">
+          <p><strong><%= first_performance.artist.name %></strong></p>
+          <p><em class="fas fa-map-marker-alt text-light"></em>  <%= first_performance.address %></p>
+          <p><em class="far fa-clock"></em> 18:00 - 20:00</p>
         </div>
       </div>
-      <div class="perf-text">
-        <p><strong><%= first_performance.artist.name %></strong></p>
-        <%# <i class="far fa-map-marker-alt"></i>  %>
-        <p><em class="fas fa-map-marker-alt text-light"></em>  <%= first_performance.address %></p>
-        <p><em class="far fa-clock"></em> 18:00 - 20:00</p>
-      </div>
-    </div>
+    <% end %>
   <% end %>
   <h3>More shows</h3>
   <div class="card-row">
-    <% @performances.each do |performance| %>
+    <% @performances_filtered.each do |performance| %>
       <div class="perf-card-sm col-5">
         <%= link_to performance_path(performance) do %>
           <i class="far fa-heart"></i>
