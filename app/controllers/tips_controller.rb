@@ -1,16 +1,17 @@
-class PagesController < ApplicationController
+class TipsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :tip ]
 
   def new
     @tip = Tip.new
-    authorize @tip
+    @performance = Performance.find(params[:performance_id])
   end
 
   def create
     @tip = Tip.new(tip_params)
+    @performance = Performance.find(params[:performance_id])
+    @tip.performance = @performance
 
     @tip.user = current_user
-    authorize @tip
 
     if @tip.save
       redirect_to performance_path(@performance)
