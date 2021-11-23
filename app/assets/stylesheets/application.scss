@@ -11,3 +11,25 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "performances/index";
+
+// Fonts
+
+@import url('http://fonts.cdnfonts.com/css/post-no-bills-colombo');
+
+$background-color:#201F30;
+$card-color: #34344E;
+
+
+body{
+  background-color: $background-color;
+}
+
+h1,h2,h3,h4,h5,h6{
+  color: white;
+  font-family: 'Post No Bills Colombo', sans-serif;
+}
+
+p, a{
+  color: white;
+}
