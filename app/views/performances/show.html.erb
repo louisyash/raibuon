@@ -43,17 +43,15 @@
   </div>
 
   <!--Messages container-->
-  <div class="container tip-container my-2">
-    <h3>Messages</h3>
-    <div class="tip-message">
-      <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
-      <p>Nice concert!</p>
-    </div>
 
-    <div class="tip-message">
-      <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
-      <p>perfect!</p>
-    </div>
+  <div class="container message-container my-2">
+    <h3>Messages</h3>
+    <% @performance.messages.first(2).each do  |message|%>
+      <div class="content-message">
+        <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
+        <p><%= message.content%></p>
+      </div>
+    <% end %>
 
     <p>View 4 more messages</p>
   </div>

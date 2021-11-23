@@ -50,3 +50,4 @@ messages = ["nice concert", "the best artist!", "More sessions please!", "i'm go
   )
 end
 puts "messages created"
+ c
