@@ -1,7 +1,8 @@
 class PerformancesController < ApplicationController
 
   def index
-    @performances = Performance.all
+    @performances = policy_scope(Performance).order(created_at: :desc)
+    authorize @performances
   end
 
   def show
