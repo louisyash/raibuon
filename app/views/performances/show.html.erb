@@ -44,7 +44,7 @@
 
   <!--Messages container-->
 
-  <div class="container message-container my-2">
+  <div class="container message-container my-2" data-controller="display-messages">
     <h5>Messages</h5>
     <!--Extension messages area-->
     <div class="container">
@@ -59,7 +59,7 @@
       <% end %>
     </div>
 
-    <p>View 4 more messages</p>
+    <p data-display-messages-target="display">View 4 more messages</p>
 
         <h5>Comment here!</h5>
     <%= simple_form_for [@performance, @message] do |f| %>
