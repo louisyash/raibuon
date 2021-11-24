@@ -5,13 +5,13 @@ class PerformancesController < ApplicationController
     if params[:query].present?
       @performances = @performances.where("name ILIKE ?", "%#{params[:query]}%")
     end
-    authorize @performances
+    # authorize @performances # allow public access to performance index - no login
   end
 
   def show
     @performance = Performance.find(params[:id])
     @performance.artist = @performance.artist
     @performance.messages = @performance.messages
-    authorize @performance
+    # authorize @performance
   end
 end
