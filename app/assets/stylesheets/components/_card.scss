@@ -71,6 +71,10 @@
   display: flex;
   justify-content: space-between;
   text-decoration: none;
+  position: absolute;
+  padding:12px;
+  z-index: 99999;
+  width: 100%;
   p {
     margin: 1px;
   }
