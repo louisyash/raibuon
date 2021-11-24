@@ -5,6 +5,6 @@
       <%= number_field_tag "tip[custom_amount]", nil, class: "custom-form", placeholder: 'Custom' %>
     </div>
     <div class="center">
-      <%= f.submit value: "TIP!", data: { confirm: "Tipping #{@performance.artist.name} for ¥#{@tip.amount}?" }, class: 'btn, custom-form' %>
+      <%= f.submit value: "TIP!", data: { confirm: "Tipping #{@performance.artist.name} for ¥#{@tip.amount}?" }, class: 'btn, custom-form', id: "pay" %>
     </div>
   <% end %>

@@ -1,5 +1,7 @@
 class PaymentsController < ApplicationController
   def new
-    @tip = current_user.tip.where(state: 'pending').find(params[:tip_id])
+    @performance = Performance.find(params[:performance_id])
+    @tip = Tip.find(params[:tip_id])
+    authorize @tip
   end
 end

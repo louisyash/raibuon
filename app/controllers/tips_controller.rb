@@ -2,7 +2,8 @@ class TipsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :tip ]
 
   def show
-    set_tip
+  @tip = Tip.find(params[:id])
+  authorize @tip
   end
 
   def new
@@ -12,7 +13,7 @@ class TipsController < ApplicationController
   end
 
   def create
-    @tip = Tip.new(tip_params)
+    @tip = Tip.create!(tip_params)
     @performance = Performance.find(params[:performance_id])
     @tip.performance = @performance
 
@@ -48,6 +49,6 @@ class TipsController < ApplicationController
     if params[:tip][:custom_amount].present?
       params[:tip][:amount] = params[:tip][:custom_amount]
     end
-    params.require(:tip).permit(:amount)
+    params.require(:tip).permit(:amount, :state)
   end
 end
