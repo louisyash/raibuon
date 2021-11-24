@@ -16,6 +16,21 @@
     <%= render 'shared/flashes' %>
 
     <%= yield %>
+    <div class="fixed-bottom bottom_navbar" style="background-color: #808080;">
+      <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="padding-left: 0px; padding-right: 0px;">
+        <div class="ro-container wireframe" style="">
+
+          <!-- brand home - hidden from top nav on small screens -->
+          <%= render 'shared/brand_logo_button', display_class: "bottom-nav-icons" %>
+
+          <!-- QR button - shown on bottom nav on small screens -->
+          <%= render 'shared/QRbutton', display_class: "bottom-nav-icons" %>
+
+          <!-- user options - hidden from top nav on small screens -->
+          <%= render 'shared/user_options_button', display_class: "bottom-nav-icons" %>
+        </div>
+      </div>
+    </div>
 
   </body>
 </html>
