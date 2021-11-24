@@ -53,6 +53,36 @@
   text-align: center;
 }
 
+.ro-navbar__brand-icon-outer-container {
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
+}
+
+
+.ro-navbar__brand-icon-container {
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
+  padding: 0px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: $ui-color-highlight;
+
+}
+
+.ro-navbar__brand-icon {
+  width: 90%;
+  height: 90%;
+  fill: #fff;
+  font-size: calc(#{$ui-nav-icons-size} - 5px);
+  padding-top: 0px;
+  z-index: 99;
+  position: relative;
+  left: 5%;
+  top: 5%;
+  vertical-align: bottom;
+
+}
+
 .bottom-bar {
   display: none;
   background: $background-color;
@@ -98,9 +128,11 @@
 /* 1201px and more — Extra large screens, T */
 
 @media(max-width: 480px) {
+
   .top-nav-icons {
   display: none;
   }
+
   .bottom-bar {
     display: block;
   }
