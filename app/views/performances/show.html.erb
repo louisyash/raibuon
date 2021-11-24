@@ -63,8 +63,8 @@
 
         <h5>Comment here!</h5>
     <%= simple_form_for [@performance, @message] do |f| %>
-      <%= f.input :content %>
-      <%= f.button :submit %>
+      <%= f.input :content  %>
+      <%= f.button :submit, value: 'send!', class:'w-100' %>
     <% end %>
   </div>
 
