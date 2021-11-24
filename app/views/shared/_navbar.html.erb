@@ -1,42 +1,18 @@
 
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon wireframe" style="">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style="padding-left: 0px; padding-right: 0px;">
 
   <!-- background opacity shifting rectangle -->
   <div id="test" class="navbar-background" style=""></div>
-  <div class="ro-container" style="padding-right: 0px; padding-left: 0px;">
-    <!-- brand home -->
-    <%= link_to "#", class: "navbar-brand wireframe", style: "margin-right: 0px; z-index: 99; position: relative; padding: 0px;" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+  <div class="ro-container wireframe" style="">
+
+    <!-- brand home - hidden from top nav on small screens -->
+    <%= render 'shared/brand_logo_button', display_class: "top-nav-icons" %>
 
     <!-- Raibuon search bar -->
     <%= render 'shared/searchbar', display_class: "searchbar-mobile" %>
 
-    <!-- user options -->
-    <div class="" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <% if user_signed_in? %>
+    <!-- user options - hidden from top nav on small screens -->
+    <%= render 'shared/user_options_button', display_class: "top-nav-icons" %>
 
-          <li class="nav-item dropdown wireframe">
-            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", style: "width: 50px; height: 50px;", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="wireframe" style="">
-            <%= link_to new_user_session_path, class: "wireframe", style: "padding: 0px; border-radius: 50%; display: flex; overflow: hidden;"  do %>
-
-            <!-- login icon cloudinary id: uxjn6i0ah5lohevjxrzb -->
-            <%#= cl_image_tag("uxjn6i0ah5lohevjxrzb", width: 400, height: 300, crop: :fill) %>
-            <%#= image_tag "blank-profile-picture.png", alt: "user login", class: "ro-navbar__user-login-icon", style: "z-index: 99; position: relative;" %>
-              <i class="fas fa-user ro-navbar__user-login-icon" style=""></i>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
   </div>
 </div>

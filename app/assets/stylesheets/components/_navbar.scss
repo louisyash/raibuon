@@ -11,7 +11,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 50px;
+  width: $ui-nav-icons-size;
 }
 
 .navbar-background {
@@ -26,10 +26,10 @@
 }
 
 .ro-navbar__user-login-icon {
-  width: 50px;
-  height: 50px;
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
   color: #fff;
-  font-size: 45px;
+  font-size: calc(#{$ui-nav-icons-size} - 5px);
   padding-top: 10px;
   z-index: 99;
   position: relative;
@@ -37,12 +37,29 @@
 }
 
 .ro-navbar__qrscan-icon {
-  width: 50px;
-  height: 50px;
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
   color: #fff;
-  font-size: 40px;
+  font-size: calc(#{$ui-nav-icons-size} - 10px);
   padding-top: 5px;
   z-index: 99;
   position: relative;
   text-align: center;
+}
+
+.top-nav-icons {
+  display: block;
+}
+
+
+/* 320px — 480px: Mobile devices. */
+/* 481px — 768px: iPads, Tablets. */
+/* 769px — 1024px: Small screens, laptops. */
+/* 1025px — 1200px: Desktops, large screens. */
+/* 1201px and more — Extra large screens, T */
+
+@media(max-width: 480px) {
+  .top-nav-icons {
+  display: none;
+  }
 }
