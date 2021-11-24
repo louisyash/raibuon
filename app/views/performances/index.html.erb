@@ -21,7 +21,7 @@
     <% end %>
   <% end %>
   <h3>More shows</h3>
-  <div data-test-target="container" class="card-row">
+  <div data-test-target="list" class="card-row">
     <% @performances.each do |performance| %>
       <div data-test-target="items" class="perf-card-sm col-5">
         <%= link_to performance_path(performance) do %>
