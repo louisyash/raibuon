@@ -42,6 +42,9 @@ gem 'stripe'
 # gem 'money-rails'
 gem 'money-rails', '~>1.12'
 
+# gem 'stripe_event'
+gem 'stripe_event'
+
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
