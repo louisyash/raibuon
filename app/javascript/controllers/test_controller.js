@@ -1,20 +1,19 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ['items', 'form'];
+  static targets = ['items', 'input', "container"];
 
   send(event) {
+
     event.preventDefault();
-    console.log(this.element);
-    console.log(this.itemsTarget);
-    console.log(this.formTarget);
-
-
+if (event) {
+    this.itemsTargets.forEach((card) => {
+      let query = this.inputTarget.value;
+      if (card.innerText.includes(query)) {
+        this.containerTarget.innerHTML = "";
+        this.containerTarget.insertAdjacentElement("beforeend", card);
+      }
+    });
   }
-
-  // send(event) {
-  //   event.preventDefault();
-
-  //   console.log('TODO: send request in AJAX');
-  // }
+  }
 }
