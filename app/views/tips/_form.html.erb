@@ -1,4 +1,5 @@
 <%= simple_form_for [@performance, @tip], input_html: { id: :tip } do |f| %>
   <%= f.input :amount, collection: Tip::AMOUNT, as: :radio_buttons, input_html: { class: "amount-selector" }, item_wrapper_class: 'amount-item' %>
-  <%= f.submit class: 'btn' %>
+  <%= f.input :amount, label: false, placeholder: 'Custom', label: "Custom", input_html: { class: "custom-form" } %>
+  <%= f.submit value: "TIP!", class: 'btn' %>
 <% end %>
