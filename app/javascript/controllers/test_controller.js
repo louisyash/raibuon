@@ -4,7 +4,8 @@ export default class extends Controller {
   static targets = ['items', 'input', "container"];
 
   update() {
-    const url = `${this.inputTarget.action}?query=${this.inputTarget.value}`
+    const url = `performances?query=${this.inputTarget.value}`
+    console.log(this.inputTarget.action)
     fetch(url, { headers: { 'Accept': 'text/plain' } })
       .then(response => response.text())
       .then((data) => {
