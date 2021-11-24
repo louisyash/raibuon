@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   namespace :artist do
     resources :performances, only: %i[index show]
   end
+
+  resources :messages, only: %i[create]
 end
