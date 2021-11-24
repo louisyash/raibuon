@@ -1,5 +1,8 @@
 <%= simple_form_for [@performance, @tip], input_html: { id: :tip } do |f| %>
-  <%= f.input :amount, collection: Tip::AMOUNT, as: :radio_buttons, input_html: { class: "amount-selector" }, item_wrapper_class: 'amount-item' %>
-  <%= f.input :amount, label: false, placeholder: 'Custom', label: "Custom", input_html: { class: "custom-form" } %>
-  <%= f.submit value: "TIP!", class: 'btn' %>
-<% end %>
+  <div class="col-md-6 offset-md-3">
+    <%= f.input :amount, collection: Tip::AMOUNT, as: :radio_buttons, input_html: { class: "amount-selector" }, item_wrapper_class: 'amount-item' %>
+    <%= f.input :amount, label: false, placeholder: 'Custom', input_html: { class: "custom-form" } %>
+    <div class="center">
+      <%= f.submit value: "TIP!", class: 'btn, custom-form' %>
+    </div>
+  <% end %>
