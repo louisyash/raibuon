@@ -1,0 +1,92 @@
+$background-color:#201F30;
+$card-color: #34344E;
+
+.tip-container{
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+  background-color: $card-color;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  h3{
+    padding-top: 10px;
+  }
+  h1{
+    text-align: center;
+  }
+  p{
+    margin: auto;
+    text-align: center;
+  }
+}
+
+.tip-message{
+  background-color: $background-color;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  p{
+    font-size: 30px;
+    margin: auto;
+  }
+  span{
+  color: white;
+  font-family: 'Post No Bills Colombo', sans-serif;
+  font-size: 30px;
+  margin: auto;
+  }
+}
+
+.message-container{
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+  background-color: $card-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  h3{
+    padding-top: 10px;
+  }
+  h1{
+    text-align: center;
+  }
+  p{
+    font-size: 20px;
+    margin: 5px;
+    text-align: center;
+  }
+}
+
+.content-message{
+  background-color: $background-color;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  p{
+    flex-grow: 2;
+    font-size: 20px;
+    margin: auto;
+  }
+  span{
+  color: white;
+  font-family: 'Post No Bills Colombo', sans-serif;
+  font-size: 30px;
+  margin: auto;
+  }
+}
+
+
+@media (max-width: 750px) {
+  .tip-container{
+    width: 100%;
+  }
+}
