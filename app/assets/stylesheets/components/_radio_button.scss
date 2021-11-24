@@ -10,17 +10,14 @@
 .amount-selector + label {
   cursor: pointer;
   display: inline-block;
-  font-size: 0.7rem;
-  border-radius: 16px;
-  padding: 0.1rem 0.5rem;
+  font-size: 24px;
+  border-radius: 45px;
   background-color: #4B4B6F;
   color: #dfdfdf;
   border: 1px solid #DFDFDF;
-  margin-right: 0.6rem;
-  margin-bottom: 0.4rem;
-  padding: 8px 24px;
+  padding: 8px 50px;
   opacity: 0.6;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
   }
 
@@ -34,7 +31,6 @@
 }
 
 .btn {
-    cursor: pointer;
   display: inline-block;
   font-size: 0.7rem;
   border-radius: 16px;

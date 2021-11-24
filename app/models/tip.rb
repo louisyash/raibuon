@@ -4,5 +4,5 @@ class Tip < ApplicationRecord
 
   validates :amount, presence: true
 
-  AMOUNT = [100, 500, 1000, 5000, 10_000]
+  AMOUNT = [100, 300, 500, 1000]
 end
