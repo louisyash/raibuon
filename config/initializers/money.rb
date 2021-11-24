@@ -114,4 +114,3 @@ end
   #
   # Example:
   # config.raise_error_on_money_parsing = false
-end
