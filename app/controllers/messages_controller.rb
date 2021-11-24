@@ -8,6 +8,8 @@ class MessagesController < ApplicationController
     authorize @message
     if @message.save
       redirect_to performance_path(@performance)
+    else
+      render 'performances/show'
     end
   end
 
