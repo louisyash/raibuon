@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :performances, only: %i[index show new create] do
     resources :tips, only: %i[new create]
+    resources :messages, only: %i[create]
   end
 
   resources :artists, only: %i[new create]
@@ -11,5 +12,5 @@ Rails.application.routes.draw do
     resources :performances, only: %i[index show]
   end
 
-  resources :messages, only: %i[create]
+
 end
