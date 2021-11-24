@@ -1,3 +1,11 @@
+.top-nav-icons {
+  display: block;
+}
+
+.bottom-nav-icons {
+  display: none;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   position: -webkit-sticky;
@@ -37,20 +45,42 @@
   text-align: center;
 }
 
-.ro-navbar__qrscan-icon {
-  width: $ui-nav-icons-size;
-  height: $ui-nav-icons-size;
-  color: #fff;
-  font-size: calc(#{$ui-nav-icons-size} - 10px);
-  padding-top: 5px;
-  z-index: 99;
-  position: relative;
-  text-align: center;
+.bottom-bar {
+  display: none;
+  background: $background-color;
+
+  padding-left: $ui-nav-icons-size;
+  padding-right: $ui-nav-icons-size;
 }
 
-.top-nav-icons {
-  display: block;
+.qrscan_icon_container {
+  padding: 0px;
+  border-radius: 50%;
+  display: none;
+  overflow: hidden;
+
+  .ro-navbar__qrscan-icon {
+    width: $ui-nav-bigger-icon-size;
+    height: $ui-nav-bigger-icon-size;
+    color: #fff;
+    background: $ui-color-highlight;
+
+    font-size: calc(#{$ui-nav-bigger-icon-size} * 0.8);
+    border-radius: 50%;
+    padding-top: calc(#{$ui-nav-bigger-icon-size} * 0.1);
+    z-index: 99;
+    position: fixed;
+    top: calc(98vh - #{$ui-nav-bigger-icon-size});
+    text-align: center;
+    margin-left: calc(50% - #{$ui-nav-bigger-icon-radius};
+  }
 }
+
+
+
+
+
+
 
 
 /* 320px — 480px: Mobile devices. */
@@ -63,7 +93,14 @@
   .top-nav-icons {
   display: none;
   }
+  .bottom-bar {
+    display: block;
+  }
   .bottom-nav-icons {
     display: block;
   }
+  .qrscan_icon_container {
+    display: flex;
+  }
+
 }
