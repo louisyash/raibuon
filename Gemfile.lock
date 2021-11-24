@@ -282,7 +282,7 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.2)
-  money-rails
+  money-rails (~> 1.12)
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails
