@@ -1,13 +1,6 @@
-<div class="container">
+<div data-controller="test" class="container">
   <br>
-  <%= form_tag performances_path, method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a show"
-    %>
-    <%= submit_tag "Search", class: "btn btn-ghost mt-2" %>
-  <% end %>
+  <%= render "form" %>
   <h3>Live now</h3>
   <% first_performance = @performances.first%>
   <% if first_performance %>
@@ -30,7 +23,7 @@
   <h3>More shows</h3>
   <div class="card-row">
     <% @performances.each do |performance| %>
-      <div class="perf-card-sm col-5">
+      <div data-test-target="items" class="perf-card-sm col-5">
         <%= link_to performance_path(performance) do %>
           <i class="far fa-heart"></i>
           <div class="perf-text-sm">
