@@ -54,7 +54,7 @@
   position: relative;
   float: left;
   width: 70%;
-}
+  }
 
   h2.ro-landing-sub-title {
     font-size:5vw;
@@ -63,5 +63,45 @@
     position: relative;
     float: left;
     width: 70%;
+  }
+}
+
+
+/* 320px — 480px: Mobile devices. */
+/* 481px — 768px: iPads, Tablets. */
+/* 769px — 1024px: Small screens, laptops. */
+/* 1025px — 1200px: Desktops, large screens. */
+/* 1201px and more — Extra large screens, T */
+
+@media(max-width: 1200px) {
+
+}
+
+@media(max-width: 1024px) {
+
+}
+
+
+@media(max-width: 768px) {
+  .landing-text {
+    h1.ro-landing-title {
+      font-weight:700;
+      font-size: 16vw;
+    }
+    .heading-inset {
+      margin-left: 66px;
+    }
+  }
+}
+
+@media(max-width: 480px) {
+  .landing-text {
+    h1.ro-landing-title {
+      font-weight:700;
+      font-size: 16vw;
+    }
+    .heading-inset {
+      margin-left: 20px;
+    }
   }
 }
