@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_071110) do
+
+ActiveRecord::Schema.define(version: 2021_11_24_085657) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,12 +77,13 @@ ActiveRecord::Schema.define(version: 2021_11_25_071110) do
   end
 
   create_table "tips", force: :cascade do |t|
-    t.integer "amount"
     t.string "state"
     t.bigint "user_id", null: false
     t.bigint "performance_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
     t.index ["performance_id"], name: "index_tips_on_performance_id"
     t.index ["user_id"], name: "index_tips_on_user_id"
   end
