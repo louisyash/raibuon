@@ -1,10 +1,11 @@
 <%= simple_form_for [@performance, @tip], input_html: { id: :tip } do |f| %>
   <div class="col-md-6 offset-md-3">
+    <%= hidden_field_tag 'tip_id', @tip.id %>
     <%= f.input :amount, collection: Tip::AMOUNT, as: :radio_buttons, input_html: { class: "amount-selector" }, item_wrapper_class: 'amount-item' %>
     <div class="center">
       <%= number_field_tag "tip[custom_amount]", nil, class: "custom-form", placeholder: 'Custom' %>
     </div>
     <div class="center">
-      <%= f.submit value: "TIP!", data: { confirm: "Tipping #{@performance.artist.name} for ¥#{@tip.amount}?" }, class: 'btn, custom-form' %>
+      <%= f.submit "TIP!", data: { confirm: "Tipping #{@performance.artist.name} for ¥#{@tip.amount}?" }, class: 'btn, custom-form', id: "pay" %>
     </div>
   <% end %>

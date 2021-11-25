@@ -1,8 +1,11 @@
 <div class="container">
   <h2>Post your show!</h2>
   <%= simple_form_for @performance do |f| %>
-    <%= f.input :name, :label => "Show Name" %>
+    <p>Name</p>
+    <%= f.input :name %>
+    <p>Description</p>
     <%= f.input :description %>
+    <p>Address</p>
     <%= f.input :address %>
     <%= f.input :performance_date, as: :date, html5: true %>
     <%= f.input :start_time, as: :time, html5: true %>

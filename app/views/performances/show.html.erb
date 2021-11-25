@@ -23,24 +23,23 @@
 <div class="container d-flex justify-content-around flex-wrap">
   <div class="container tip-container my-2">
     <h3>TIPS</h3>
-    <h1>¥2850</h1>
-    <div class="tip-message">
-      <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
-      <p>Anju tipped you</p>
-      <span>¥100</span>
-    </div>
-    <div class="tip-message">
-      <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
-      <p>Anju tipped you</p>
-      <span>¥100</span>
-    </div>
-    <p>View 4 more tips</p>
+    <h1><%= @tips.sum(:amount_cents) %> ¥</h1>
   </div>
+
   <!--Messages container-->
-  <div class="container message-container my-2" data-controller="display-messages">
-    <h5>Messages</h5>
-    <!--Extension messages area-->
-    <div id="messages" class="container messages-content" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
+
+  <div class="container message-container my-2 w-100" data-controller="display-messages">
+    <h3>Tips</h3>
+    <!--Tips message area-->
+    <div class="tip-message">
+      <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
+      <p>Anju tipped you</p>
+      <span>¥100</span>
+    </div>
+
+     <!--Extension messages area-->
+     <h3>Messages</h3>
+    <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
       <% @messages.each do  |message|%>
         <%= render "messages/message", message: message %>
       <% end %>

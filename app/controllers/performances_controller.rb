@@ -18,6 +18,7 @@ class PerformancesController < ApplicationController
     @message = Message.new
     @performance.artist = @performance.artist
     @messages = @performance.messages.order(created_at: :desc)
+    @tips = @performance.tips.order(created_at: :desc)
     authorize @performance
   end
 
