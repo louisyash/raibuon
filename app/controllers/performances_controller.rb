@@ -29,6 +29,7 @@ class PerformancesController < ApplicationController
 
   def create
     @performance = Performance.new(performance_params)
+    authorize @performance
     if @artist = Artist.find_by(user_id: current_user.id)
       @performance.artist = @artist
       if @performance.save
@@ -40,7 +41,7 @@ class PerformancesController < ApplicationController
     else
       redirect_to performances_path, notice: "You must be an artist to perform this action"
     end
-    authorize @performance
+
   end
 
   private
