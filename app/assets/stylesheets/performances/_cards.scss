@@ -27,8 +27,10 @@ $card-color: #34344E;
   padding: 10px;
   margin-top: 15px;
   margin-bottom: 15px;
-  p{
-    font-size: 30px;
+  h5{
+    font-size: 25px;
+    text-align: center;
+    flex-grow: 2;
     margin: auto;
   }
   span{
@@ -90,6 +92,9 @@ $card-color: #34344E;
   overflow: scroll;
 }
 
+.tip-text{
+  font-size: 30px;
+}
 @media (max-width: 750px) {
   .tip-container{
     width: 100%;
