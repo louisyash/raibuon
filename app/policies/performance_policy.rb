@@ -12,5 +12,4 @@ class PerformancePolicy < ApplicationPolicy
   def show?
     return true
   end
-
 end
