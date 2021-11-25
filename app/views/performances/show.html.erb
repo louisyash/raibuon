@@ -44,10 +44,10 @@
 
   <!--Messages container-->
 
-  <div id="messages" class="container message-container my-2" data-controller="display-messages" data-performance-id="<%= @performance.id %>">
+  <div class="container message-container my-2" data-controller="display-messages">
     <h5>Messages</h5>
     <!--Extension messages area-->
-    <div class="container messages-content" data-display-messages-target="box" >
+    <div id="messages" class="container messages-content" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
       <% @performance.messages.each do  |message|%>
         <%= render "messages/message", message: message %>
       <% end %>
