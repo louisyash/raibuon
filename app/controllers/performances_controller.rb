@@ -12,7 +12,7 @@ class PerformancesController < ApplicationController
     @performance = Performance.find(params[:id])
     @message = Message.new
     @performance.artist = @performance.artist
-    @performance.messages = @performance.messages
+    @messages = @performance.messages.order(created_at: :desc)
     authorize @performance
   end
 end

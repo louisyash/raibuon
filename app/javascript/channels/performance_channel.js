@@ -6,7 +6,7 @@ const initPerformanceCable = () => {
     const id = messagesContainer.dataset.performanceId;
     consumer.subscriptions.create({ channel: "PerformanceChannel", id: id }, {
       received(data) {
-        messagesContainer.insertAdjacentHTML('beforeend', data);
+        messagesContainer.insertAdjacentHTML('afterbegin', data);
       },
     });
   }
