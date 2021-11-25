@@ -24,6 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { initPerformanceCable } from '../channels/performance_channel';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -31,6 +32,18 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initPerformanceCable();
 });
 
 import "controllers"
+
+window.addEventListener('scroll', function () {
+  var currScrollPos2 = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  document.getElementById('test').style.opacity = 0;
+  if (currScrollPos2 < 200) {
+    document.getElementById('test').style.opacity = currScrollPos2 / 200;
+  } else {
+    document.getElementById('test').style.opacity = 1;
+  }
+}
+);

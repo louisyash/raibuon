@@ -83,6 +83,10 @@ $card-color: #34344E;
   }
 }
 
+.messages-content{
+  height: 200px;
+  overflow: hidden;
+}
 
 @media (max-width: 750px) {
   .tip-container{
