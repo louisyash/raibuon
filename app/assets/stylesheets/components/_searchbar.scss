@@ -1,0 +1,108 @@
+
+::placeholder {
+  /* color: $ui-color-text-lowlight; */
+}
+
+.searchbar-pc {
+  position: relative;
+  float: left;
+  width: 70%;
+  display: block;
+
+}
+
+.saerch_bar_heading-inset {
+    padding-left: $banner_items_indent;
+}
+
+.searchbar-mobile {
+  display: none;
+  width: 90%;
+  margin: auto;
+}
+
+.ro-search-bar-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height: $ui-nav-icons-size;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  z-index: 99;
+  position: relative;
+  padding-top: 0px;
+  padding-bottom: 0px;
+
+}
+
+
+
+
+
+
+.ro-search-bar__bar {
+  max-width: 512px;
+  width: 100%;
+
+  border-radius: 25px;
+  margin-right: 10px;
+  margin-right: calc(#{$ui-nav-icons-size} * -1);
+
+  /* color: $ui-color-text-lowlight; */
+
+  padding-top: -5px;
+  padding-left: 10px;
+  padding-right: $ui-nav-icons-size;
+}
+
+
+
+.ro-search-bar__bar:focus {
+  outline: none;
+}
+
+.ro-search-bar__button {
+  border-radius: 50%;
+  height: 50px;
+  width: 52px;
+  border: 0px;
+  color: #fff;
+  background-color: $ui-color-highlight;
+
+}
+
+
+/* 320px — 480px: Mobile devices. */
+/* 481px — 768px: iPads, Tablets. */
+/* 769px — 1024px: Small screens, laptops. */
+/* 1025px — 1200px: Desktops, large screens. */
+/* 1201px and more — Extra large screens, T */
+/* laptops */
+
+
+@media(max-width: 768px) {
+  .searchbar-pc {
+    display: none;
+  }
+
+  .searchbar-mobile {
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+
+  .ro-search-bar-container {
+    margin: auto;
+  }
+}
+
+
+@media(max-width: 480px) {
+    .searchbar-mobile {
+    display: block;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin: auto;
+  }
+}
