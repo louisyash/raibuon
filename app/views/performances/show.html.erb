@@ -48,7 +48,7 @@
     <h5>Messages</h5>
     <!--Extension messages area-->
     <div id="messages" class="container messages-content" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
-      <% @performance.messages.each do  |message|%>
+      <% @messages.each do  |message|%>
         <%= render "messages/message", message: message %>
       <% end %>
     </div>
