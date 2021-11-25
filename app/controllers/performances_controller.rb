@@ -6,7 +6,7 @@ class PerformancesController < ApplicationController
       @performances = @performances.where("name ILIKE ?", "%#{params[:query]}%")
     end
 
-    # authorize @performances # allow public access to performance index - no login
+    authorize @performances # allow public access to performance index - no login
 
 
     respond_to do |format|
@@ -21,7 +21,7 @@ class PerformancesController < ApplicationController
     @message = Message.new
     @performance.artist = @performance.artist
     @performance.messages = @performance.messages
-    # authorize @performance
+    authorize @performance
   end
 
   def new

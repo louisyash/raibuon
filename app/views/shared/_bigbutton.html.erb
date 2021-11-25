@@ -1,0 +1,17 @@
+<!-- QR code scan website https://qrcodescan.in/-->
+<%= link_to "https://qrcodescan.in/", class: "#{display_class} bigbutton_icon_container wireframe", style: ""  do %>
+
+  <!--  -->
+  <% path = request.env['PATH_INFO'] %>
+
+  <% if path.include?("performances/") == true %>
+    <i class="ro-navbar__tip-icon">tip</i>
+  <% elsif  path.include?("performances") == true %>
+    <i class="fas fa-search ro-navbar__search-icon"></i>
+  <% else %>
+    <i class="fas fa-qrcode ro-navbar__qrscan-icon"></i>
+  <% end %>
+
+
+
+<% end %>
