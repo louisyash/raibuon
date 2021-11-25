@@ -10,6 +10,7 @@ class PerformancesController < ApplicationController
 
   def show
     @performance = Performance.find(params[:id])
+    @message = Message.new
     @performance.artist = @performance.artist
     @performance.messages = @performance.messages
     authorize @performance

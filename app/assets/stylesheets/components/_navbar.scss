@@ -1,6 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: transparent;
+  z-index: 99;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +12,58 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: $ui-nav-icons-size;
+}
+
+.navbar-background {
+  outline: 1px solid #000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+.ro-navbar__user-login-icon {
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
+  color: #fff;
+  font-size: calc(#{$ui-nav-icons-size} - 5px);
+  padding-top: 10px;
+  z-index: 99;
+  position: relative;
+  text-align: center;
+}
+
+.ro-navbar__qrscan-icon {
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
+  color: #fff;
+  font-size: calc(#{$ui-nav-icons-size} - 10px);
+  padding-top: 5px;
+  z-index: 99;
+  position: relative;
+  text-align: center;
+}
+
+.top-nav-icons {
+  display: block;
+}
+
+
+/* 320px — 480px: Mobile devices. */
+/* 481px — 768px: iPads, Tablets. */
+/* 769px — 1024px: Small screens, laptops. */
+/* 1025px — 1200px: Desktops, large screens. */
+/* 1201px and more — Extra large screens, T */
+
+@media(max-width: 480px) {
+  .top-nav-icons {
+  display: none;
+  }
+  .bottom-nav-icons {
+    display: block;
+  }
 }

@@ -1,3 +1,5 @@
+require "open-uri"
+
 puts "Deleting everything...:0"
 
 User.destroy_all
@@ -9,9 +11,21 @@ Message.destroy_all
 puts "Creating users..."
 
 emanuel = User.create!(password:"123456", email: "emanuel@lewagon.com")
+emanuel_image_file = URI.open("https://avatars.githubusercontent.com/u/82207189?v=4")
+# emanuel.photo.attach(io: emanuel_image_file, filename: "emanuel_image_file", content_type: 'image/jpg')
+puts "Created user: Emanuel. User id: #{emanuel.id}."
 gareth = User.create!(password:"123456", email: "gareth@lewagon.com")
+gareth_image_file = URI.open("https://avatars.githubusercontent.com/u/44981193?v=4")
+# gareth.photo.attach(io: gareth_image_file, filename: "gareth_image_file", content_type: 'image/jpg')
+puts "Created user: Gareth. User id: #{gareth.id}."
 anju = User.create!(password:"123456", email: "anju@lewagon.com")
+anju_image_file = URI.open("https://avatars.githubusercontent.com/u/88181896?v=4")
+# anju.photo.attach(io: anju_image_file, filename: "anju_image_file", content_type: 'image/jpg')
+puts "Created user: Anju. User id: #{anju.id}."
 louis = User.create!(password:"123456", email: "louis@lewagon.com")
+louis_image_file = URI.open("https://avatars.githubusercontent.com/u/90910106?v=4")
+# louis.photo.attach(io: louis_image_file, filename: "louis_image_file", content_type: 'image/jpg')
+puts "Created user: Louis. User id: #{louis.id}."
 
 puts "Creating artists..."
 
@@ -50,4 +64,3 @@ messages = ["nice concert", "the best artist!", "More sessions please!", "i'm go
   )
 end
 puts "messages created"
- c
