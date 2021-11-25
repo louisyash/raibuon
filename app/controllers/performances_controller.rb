@@ -6,6 +6,11 @@ class PerformancesController < ApplicationController
       @performances = @performances.where("name ILIKE ?", "%#{params[:query]}%")
     end
     authorize @performances
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'performances/list', locals: { performances: @performances }, formats: [:html] }
+    end
   end
 
   def show

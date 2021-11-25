@@ -22,20 +22,7 @@
     <% end %>
   <% end %>
   <h3>More shows</h3>
-  <div data-test-target="container" class="test"></div>
-  <div class="card-row">
-    <% @performances.each do |performance| %>
-      <div data-test-target="items" class="perf-card-sm col-5">
-        <%= link_to performance_path(performance) do %>
-          <i class="far fa-heart"></i>
-          <div class="perf-text-sm">
-            <p><strong><%= performance.artist.name %></strong></p>
-            <p><em class="fas fa-map-marker-alt text-light"></em>  <%= performance.address %></p>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+  <%= render "list", performances: @performances %>
   <br>
   <h3>Explore more shows</h3>
 </div>
