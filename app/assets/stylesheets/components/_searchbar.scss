@@ -58,8 +58,6 @@
 
 
 .ro-search-bar__bar:focus {
-  /* color: $ui-color-text-highlight; */
-
   outline: none;
 }
 
@@ -69,7 +67,7 @@
   width: 52px;
   border: 0px;
   color: #fff;
-  background-color: $ui-color-text-highlight;
+  background-color: $ui-color-highlight;
 
 }
 
