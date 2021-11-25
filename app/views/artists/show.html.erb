@@ -1,1 +1,7 @@
-<h1>This is artist's page</h1>
+<%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
+<h2><%= @artist.name %></h2>
+<p><%= @artist.description %></p>
+<a href="https://<%= @artist.facebook %>"><i class="fab fa-facebook-square"></i></a>
+<a href="https://<%= @artist.instagram %>"><i class="fab fa-instagram"></i></a>
+<a href="https://<%= @artist.soundcloud %>"><i class="fab fa-soundcloud"></i></a>
+<a href="https://<%= @artist.spotify %>"><i class="fab fa-spotify"></i></a>

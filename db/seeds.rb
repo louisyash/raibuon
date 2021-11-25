@@ -29,9 +29,9 @@ puts "Created user: Louis. User id: #{louis.id} Username: #{louis.username}."
 
 puts "Creating artists..."
 
-cups = Artist.new(name: "Cups", user: emanuel)
-mighty = Artist.new(name: "Mighty Dumpling", user:gareth)
-trashcan = Artist.new(name: "Trashcan Paradise", user: anju)
+cups = Artist.new(name: "Cups", user: emanuel, facebook: "www.facebook.com")
+mighty = Artist.new(name: "Mighty Dumpling", user:gareth, instagram: "www.instagram.com")
+trashcan = Artist.new(name: "Trashcan Paradise", user: anju, spotify: "www.spotify.com")
 
 puts "Creating performances..."
 
