@@ -40,7 +40,7 @@ $card-color: #34344E;
 }
 
 .message-container{
-  max-height: 650px;
+  max-height: 900px;
   border-radius: 20px;
   background-color: $card-color;
   display: flex;
@@ -83,6 +83,10 @@ $card-color: #34344E;
 
 .messages-content{
   height: 180px;
+  overflow: scroll;
+}
+
+.messages-content-large{
   overflow: scroll;
 }
 

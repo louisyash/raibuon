@@ -32,7 +32,7 @@
   <!--Messages container-->
 
   <div class="container message-container my-2 w-100" data-controller="display-messages">
-    <h5>Messages</h5>
+    <h3>Tips</h3>
     <!--Tips message area-->
     <div class="tip-message">
       <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
@@ -40,7 +40,8 @@
       <span>¥100</span>
     </div>
      <!--Extension messages area-->
-    <div id="messages" class="container messages-content" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
+     <h3>Messages</h3>
+    <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
       <% @messages.each do  |message|%>
         <%= render "messages/message", message: message %>
       <% end %>
