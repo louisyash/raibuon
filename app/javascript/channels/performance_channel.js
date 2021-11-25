@@ -7,6 +7,7 @@ const initPerformanceCable = () => {
     consumer.subscriptions.create({ channel: "PerformanceChannel", id: id }, {
       received(data) {
         messagesContainer.insertAdjacentHTML('afterbegin', data);
+        messagesContainer.scrollTop = 0;
       },
     });
   }

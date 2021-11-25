@@ -84,8 +84,8 @@ $card-color: #34344E;
 }
 
 .messages-content{
-  height: 200px;
-  overflow: hidden;
+  height: 180px;
+  overflow: scroll;
 }
 
 @media (max-width: 750px) {
