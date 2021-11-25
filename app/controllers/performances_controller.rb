@@ -7,7 +7,6 @@ class PerformancesController < ApplicationController
     end
     authorize @performances
 
-
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render partial: 'performances/list', locals: { performances: @performances }, formats: [:html] }
