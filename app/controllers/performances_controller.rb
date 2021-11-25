@@ -5,6 +5,7 @@ class PerformancesController < ApplicationController
     if params[:query].present?
       @performances = @performances.where("name ILIKE ?", "%#{params[:query]}%")
     end
+
     authorize @performances
 
     respond_to do |format|
@@ -17,8 +18,10 @@ class PerformancesController < ApplicationController
     @performance = Performance.find(params[:id])
     @message = Message.new
     @performance.artist = @performance.artist
+
     @messages = @performance.messages.order(created_at: :desc)
     @tips = @performance.tips.order(created_at: :desc)
+
     authorize @performance
   end
 
