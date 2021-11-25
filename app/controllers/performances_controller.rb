@@ -8,12 +8,10 @@ class PerformancesController < ApplicationController
 
     # authorize @performances # allow public access to performance index - no login
 
-
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render partial: 'performances/list', locals: { performances: @performances }, formats: [:html] }
     end
-
   end
 
   def show
