@@ -44,18 +44,12 @@
 
   <!--Messages container-->
 
-  <div class="container message-container my-2" data-controller="display-messages">
+  <div id="messages" class="container message-container my-2" data-controller="display-messages" data-performance-id="<%= @performance.id %>">
     <h5>Messages</h5>
     <!--Extension messages area-->
-    <div class="container messages-content" data-display-messages-target="box">
+    <div class="container messages-content" data-display-messages-target="box" >
       <% @performance.messages.each do  |message|%>
-        <div class="content-message">
-          <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
-          <div class="container">
-            <p><%= message.user.email %></p>
-            <p><%= message.content%></p>
-          </div>
-        </div>
+        <%= render "messages/message", message: message %>
       <% end %>
     </div>
 
