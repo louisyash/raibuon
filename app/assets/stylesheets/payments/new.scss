@@ -1,0 +1,34 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group, .amount-item, .custom-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.radio_buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 10px;
+  row-gap: 1em;
+}
+
+.custom-form {
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 45px;
+  background-color: #4B4B6F;
+  color: #dfdfdf;
+  border: 1px solid #DFDFDF;
+  padding: 8px 50px;
+  width: 50%;
+  opacity: 0.6;
+  margin-bottom: 20px;
+  text-align: center;
+
+}

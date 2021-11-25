@@ -1,0 +1,20 @@
+
+<%= form_with url: performances_path, method: :get, html: { data: { test_target: "form" } } do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+  data: {
+          test_target: "input",
+          action: "keyup->test#update"
+        },
+
+<%#= simple_form_for @performances, html: { class:"form-control" }, data: { test_target: "input", action: "keyup->test#send" } do |f| %>
+  <%#= f.input :query %>
+  <%#= f.input :photo, as: :file %>
+  <%#= f.submit :submit, class:"btn btn-ghost mt-2" %>
+  <%# end %>
+
+    placeholder: "Find a show"
+    %>
+    <%= submit_tag "Search", class: "btn btn-ghost mt-2" %>
+  <% end %>

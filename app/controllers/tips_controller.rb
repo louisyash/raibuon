@@ -16,6 +16,7 @@ class TipsController < ApplicationController
     authorize @tip
 
     if @tip.save
+      flash[:notice] = "Thank you for tipping #{@performance.artist.name}!"
       redirect_to performance_path(@performance)
     else
       render :new
@@ -25,7 +26,9 @@ class TipsController < ApplicationController
   private
 
   def tip_params
+    if params[:tip][:custom_amount].present?
+      params[:tip][:amount] = params[:tip][:custom_amount]
+    end
     params.require(:tip).permit(:amount)
   end
-
 end

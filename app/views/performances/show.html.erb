@@ -44,18 +44,23 @@
 
   <!--Messages container-->
 
-  <div class="container message-container my-2">
+  <div class="container message-container my-2" data-controller="display-messages">
     <h5>Messages</h5>
-    <% @performance.messages.first(2).each do  |message|%>
-      <div class="content-message">
-        <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
-        <div class="container">
-          <p><%= message.user.email %></p>
-          <p><%= message.content%></p>
-        </div>
-      </div>
-    <% end %>
+    <!--Extension messages area-->
+    <div id="messages" class="container messages-content" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
+      <% @performance.messages.each do  |message|%>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
 
-    <p>View 4 more messages</p>
+    <p data-display-messages-target="display" data-action="click->display-messages#display">View 4 more messages</p>
+
+        <h5>Comment here!</h5>
+    <%= simple_form_for [@performance, @message], remote: true do |f| %>
+      <%= f.input :content  %>
+      <%= f.button :submit, value: 'send!', class:'w-100' %>
+    <% end %>
   </div>
 </div>
+
+  <!--Messages box-->
