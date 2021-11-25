@@ -7,6 +7,10 @@ class MessagesController < ApplicationController
     @message.performance = @performance
     authorize @message
     if @message.save
+      PerformanceChannel.broadcast_to(
+        @performance,
+        render_to_string(partial: "message", locals: { message: @message })
+      )
       redirect_to performance_path(@performance)
     else
       render 'performances/show'
