@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   def new
-    @performance = Performance.find(params[:performance_id])
     @tip = Tip.find(params[:tip_id])
+    @performance = @tip.performance
     authorize @tip
   end
 end

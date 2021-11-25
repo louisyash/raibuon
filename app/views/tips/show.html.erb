@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="col">
-    <h1>THANK YOU!</h1>
-    <p>You have tipped  <strong><%= @tip.performance.artist.name %></strong> for <strong>¥ <% @tip.amount %></strong></p>
-  </div>
+<div class="container-md">
+  <h1 class="red-circle center">Tip</h1>
+  <h2 class="center">Tip <%= @performance.artist.name %>?</h2>
+  <p class="center">How much?</p>
+  <%= render 'tips/form' %>
 </div>

@@ -3,6 +3,7 @@ class TipsController < ApplicationController
 
   def show
   @tip = Tip.find(params[:id])
+  @performance = @tip.performance
   authorize @tip
   end
 
@@ -13,9 +14,8 @@ class TipsController < ApplicationController
   end
 
   def create
-    @tip = Tip.create!(tip_params)
-    @performance = Performance.find(params[:performance_id])
-    @tip.performance = @performance
+    @tip = Tip.new(tip_params)
+    @performance = @tip.performance
 
     @tip.user = current_user
     authorize @tip
@@ -33,8 +33,8 @@ class TipsController < ApplicationController
         success_url: performance_url(@performance),
         cancel_url: performance_url(@performance)
       )
-      @tip.update(checkout_session_id: session.id)
-      redirect_to performance_path(@performance)
+      # @tip.update(checkout_session_id: session.id)
+      redirect_to new_tip_payment_path(@tip)
     else
       render :new
     end
