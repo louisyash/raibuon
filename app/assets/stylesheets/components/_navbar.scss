@@ -1,6 +1,18 @@
+.top-nav-icons {
+  display: block;
+}
+
+.bottom-nav-icons {
+  display: none;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: transparent;
+  z-index: 99;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +20,127 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: $ui-nav-icons-size;
+}
+
+.navbar-background {
+  outline: 1px solid #000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+.ro-navbar__user-login-icon-container {
+  padding: 0px;
+  border-radius: 50%;
+  display: flex;
+  overflow: hidden;
+  background: $ui-color-highlight;
+}
+
+.ro-navbar__user-login-icon {
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
+  color: #fff;
+  font-size: calc(#{$ui-nav-icons-size} - 5px);
+  padding-top: 10px;
+  z-index: 99;
+  position: relative;
+  text-align: center;
+}
+
+.ro-navbar__brand-icon-outer-container {
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
+}
+
+
+.ro-navbar__brand-icon-container {
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
+  padding: 0px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: $ui-color-highlight;
+
+}
+
+.ro-navbar__brand-icon {
+  width: 90%;
+  height: 90%;
+  fill: #fff;
+  font-size: calc(#{$ui-nav-icons-size} - 5px);
+  padding-top: 0px;
+  z-index: 99;
+  position: relative;
+  left: 5%;
+  top: 5%;
+  vertical-align: bottom;
+
+}
+
+.bottom-bar {
+  display: none;
+  background: $background-color;
+
+  padding-left: $ui-nav-icons-size;
+  padding-right: $ui-nav-icons-size;
+}
+
+.qrscan_icon_container {
+  padding: 0px;
+  border-radius: 50%;
+  display: none;
+  overflow: hidden;
+
+  .ro-navbar__qrscan-icon {
+    width: $ui-nav-bigger-icon-size;
+    height: $ui-nav-bigger-icon-size;
+    color: #fff;
+    background: $ui-color-highlight;
+
+    font-size: calc(#{$ui-nav-bigger-icon-size} * 0.8);
+    border-radius: 50%;
+    padding-top: calc(#{$ui-nav-bigger-icon-size} * 0.1);
+    z-index: 99;
+    position: fixed;
+    top: calc(98vh - #{$ui-nav-bigger-icon-size});
+    text-align: center;
+    margin-left: calc(50% - #{$ui-nav-bigger-icon-radius};
+  }
+}
+
+
+
+
+
+
+
+
+/* 320px — 480px: Mobile devices. */
+/* 481px — 768px: iPads, Tablets. */
+/* 769px — 1024px: Small screens, laptops. */
+/* 1025px — 1200px: Desktops, large screens. */
+/* 1201px and more — Extra large screens, T */
+
+@media(max-width: 480px) {
+
+  .top-nav-icons {
+  display: none;
+  }
+
+  .bottom-bar {
+    display: block;
+  }
+  .bottom-nav-icons {
+    display: block;
+  }
+  .qrscan_icon_container {
+    display: flex;
+  }
+
 }
