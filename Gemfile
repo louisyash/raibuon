@@ -35,6 +35,17 @@ gem 'cloudinary', '~> 1.16.0'
 # gem pundit
 
 gem 'pundit'
+
+# gem 'stripe'
+gem 'stripe'
+
+# gem 'money-rails'
+gem 'money-rails', '~>1.12'
+
+# gem 'stripe_event'
+gem 'stripe_event'
+
+
 gem 'turbolinks_render'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
