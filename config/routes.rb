@@ -12,5 +12,4 @@ Rails.application.routes.draw do
     resources :performances, only: %i[index show]
   end
 
-
 end
