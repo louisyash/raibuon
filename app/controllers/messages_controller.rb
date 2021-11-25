@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
         @performance,
         render_to_string(partial: "message", locals: { message: @message })
       )
-      redirect_to performance_path(@performance)
+      redirect_to performance_path(@performance, anchor: "message-#{@message.id}")
     else
       render 'performances/show'
     end
