@@ -6,7 +6,7 @@
             <% if display_class == "top-nav-icons" %>
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", style: "width: 50px; height: 50px; ", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
-              <div style="padding: 0px; border-radius: 50%; display: flex; overflow: hidden;">
+              <div class="ro-navbar__user-login-icon-container">
                 <i class="fas fa-user ro-navbar__user-login-icon" style=""></i>
               </div>
             <% end %>
@@ -29,7 +29,7 @@
           </li>
         <% else %>
           <li class="wireframe" style="">
-            <%= link_to new_user_session_path, class: "wireframe", style: "padding: 0px; border-radius: 50%; display: flex; overflow: hidden;"  do %>
+            <%= link_to new_user_session_path, class: "ro-navbar__user-login-icon-container wireframe", style: ""  do %>
               <i class="fas fa-user ro-navbar__user-login-icon" style=""></i>
             <% end %>
           </li>
