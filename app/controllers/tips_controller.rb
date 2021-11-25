@@ -22,7 +22,7 @@ class TipsController < ApplicationController
     authorize @tip
 
     if @tip.save
-      flash[:notice] = "Thank you for tipping #{@performance.artist.name}!"
+      # flash[:notice] = "Thank you for tipping #{@performance.artist.name}!"
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [{
