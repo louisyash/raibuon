@@ -43,12 +43,13 @@ $card-color: #34344E;
 
 .message-container{
   width: 400px;
+  max-height: 650px;
   border-radius: 20px;
   background-color: $card-color;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
+  overflow: scroll;
   h3{
     padding-top: 10px;
   }
