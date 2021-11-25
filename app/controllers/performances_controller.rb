@@ -28,12 +28,16 @@ class PerformancesController < ApplicationController
 
   def create
     @performance = Performance.new(performance_params)
-    @artist = Artist.find_by(user_id: current_user.id)
-    @performance.artist = @artist
-    if @performance.save
-      redirect_to performances_path
+    if @artist = Artist.find_by(user_id: current_user.id)
+      @performance.artist = @artist
+      if @performance.save
+        redirect_to performances_path
+        return
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to performances_path, notice: "You must be an artist to perform this action"
     end
     authorize @performance
   end
@@ -41,6 +45,6 @@ class PerformancesController < ApplicationController
   private
 
   def performance_params
-    params.require(:performance).permit(:name, :description, :address, :start_time)
+    params.require(:performance).permit(:name, :description, :address, :start_time, :performance_date)
   end
 end
