@@ -2,8 +2,6 @@ $background-color:#201F30;
 $card-color: #34344E;
 
 .tip-container{
-  width: 400px;
-  height: 400px;
   border-radius: 20px;
   background-color: $card-color;
   display: flex;
@@ -42,8 +40,7 @@ $card-color: #34344E;
 }
 
 .message-container{
-  width: 400px;
-  max-height: 650px;
+  max-height: 900px;
   border-radius: 20px;
   background-color: $card-color;
   display: flex;
@@ -86,6 +83,10 @@ $card-color: #34344E;
 
 .messages-content{
   height: 180px;
+  overflow: scroll;
+}
+
+.messages-content-large{
   overflow: scroll;
 }
 
