@@ -13,7 +13,7 @@ class PerformancePolicy < ApplicationPolicy
     return true
   end
 
-    def create?
+  def create?
     return true
   end
 
