@@ -1,7 +1,6 @@
 <div class="container d-flex justify-content-center">
   <h1>LiveHere</h1>
 </div>
-
 <!--Artist profile part -->
 <div class="container d-flex justify-content-between">
   <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
@@ -12,16 +11,14 @@
   <%= link_to 'Edit', "/", class:'btn-performance' %>
 </div>
 <!--Streaming part -->
-
 <div class="container my-3">
   <%= video_tag "stream.mp4", class:"w-100", controls: :controls, :loop => true%>
   <div class="container d-flex">
     <em class="fas fa-map-marker-alt text-light"></em>
     <p class="ml-2">Yoyogi park</p>
   </div>
-   <p>Tips today</p>
+  <p>Tips today</p>
 </div>
-
 <!-- Cards space-->
 <div class="container d-flex justify-content-around flex-wrap">
   <div class="container tip-container my-2">
@@ -32,18 +29,14 @@
       <p>Anju tipped you</p>
       <span>¥100</span>
     </div>
-
     <div class="tip-message">
       <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
       <p>Anju tipped you</p>
       <span>¥100</span>
     </div>
-
     <p>View 4 more tips</p>
   </div>
-
   <!--Messages container-->
-
   <div class="container message-container my-2" data-controller="display-messages">
     <h5>Messages</h5>
     <!--Extension messages area-->
@@ -52,15 +45,12 @@
         <%= render "messages/message", message: message %>
       <% end %>
     </div>
-
     <p data-display-messages-target="display" data-action="click->display-messages#display">View 4 more messages</p>
-
-        <h5>Comment here!</h5>
+    <h5>Comment here!</h5>
     <%= simple_form_for [@performance, @message], remote: true do |f| %>
-      <%= f.input :content  %>
+      <%= f.input :content, label: false %>
       <%= f.button :submit, value: 'send!', class:'w-100' %>
     <% end %>
   </div>
 </div>
-
-  <!--Messages box-->
+<!--Messages box-->
