@@ -1,6 +1,6 @@
-<div class="container d-flex justify-content-center">
+<%# <div class="container d-flex justify-content-center">
   <h1>LiveHere</h1>
-</div>
+</div> %>
 <!--Artist profile part -->
 <div class="container d-flex justify-content-between">
   <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
@@ -25,9 +25,7 @@
     <h3>TIPS</h3>
     <h1><%= @tips.sum(:amount_cents) %> ¥</h1>
   </div>
-
   <!--Messages container-->
-
   <div class="container message-container my-2 w-100" data-controller="display-messages">
     <h3>TIPS</h3>
     <!--Tips message area-->
@@ -38,11 +36,10 @@
           <h5 class="tip-text"><%= tip.user.username %> tipped!</h5>
           <span><%= tip.amount_cents %> ¥</span>
         </div>
-        <% end %>
+      <% end %>
     </div>
-
-     <!--Extension messages area-->
-     <h3>Messages</h3>
+    <!--Extension messages area-->
+    <h3>Messages</h3>
     <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
       <% @messages.each do  |message|%>
         <%= render "messages/message", message: message %>
