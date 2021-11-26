@@ -1,5 +1,7 @@
 <div data-controller="test" class="container">
-  <br>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Post your performance", new_performance_path, class:"btn btn-dark d-flex align-items-center justify-content-center w-50" %>
+  </div>
   <%= render "form" %>
   <h3>Live now</h3>
   <% first_performance = @performances.first%>
@@ -15,6 +17,7 @@
         <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
         <div class="perf-text">
           <p><strong><%= first_performance.artist.name %></strong></p>
+          <p><strong><%= first_performance.name %></strong></p>
           <p><em class="fas fa-map-marker-alt text-light"></em>  <%= first_performance.address %></p>
           <p><em class="far fa-clock"></em> <%= first_performance.start_time %></p>
         </div>

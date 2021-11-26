@@ -2,42 +2,46 @@ require "open-uri"
 
 puts "Deleting everything...:0"
 
+Tip.destroy_all
+Message.destroy_all
 User.destroy_all
 Artist.destroy_all
 Performance.destroy_all
-Tip.destroy_all
-Message.destroy_all
 
 puts "Creating users..."
 
-emanuel = User.create!(password:"123456", email: "emanuel@lewagon.com")
+emanuel = User.create!(password:"123456", email: "emanuel@lewagon.com", username:"darkemlord")
 emanuel_image_file = URI.open("https://avatars.githubusercontent.com/u/82207189?v=4")
 # emanuel.photo.attach(io: emanuel_image_file, filename: "emanuel_image_file", content_type: 'image/jpg')
-puts "Created user: Emanuel. User id: #{emanuel.id}."
-gareth = User.create!(password:"123456", email: "gareth@lewagon.com")
+puts "Created user: Emanuel. User id: #{emanuel.id} Username: #{emanuel.username}."
+gareth = User.create!(password:"123456", email: "gareth@lewagon.com", username:"gperilli")
 gareth_image_file = URI.open("https://avatars.githubusercontent.com/u/44981193?v=4")
 # gareth.photo.attach(io: gareth_image_file, filename: "gareth_image_file", content_type: 'image/jpg')
-puts "Created user: Gareth. User id: #{gareth.id}."
-anju = User.create!(password:"123456", email: "anju@lewagon.com")
+puts "Created user: Gareth. User id: #{gareth.id} Username: #{gareth.username}."
+anju = User.create!(password:"123456", email: "anju@lewagon.com", username:"ansanigom")
 anju_image_file = URI.open("https://avatars.githubusercontent.com/u/88181896?v=4")
 # anju.photo.attach(io: anju_image_file, filename: "anju_image_file", content_type: 'image/jpg')
-puts "Created user: Anju. User id: #{anju.id}."
-louis = User.create!(password:"123456", email: "louis@lewagon.com")
+puts "Created user: Anju. User id: #{anju.id} Username: #{anju.username}."
+louis = User.create!(password:"123456", email: "louis@lewagon.com", username: "louisyash")
 louis_image_file = URI.open("https://avatars.githubusercontent.com/u/90910106?v=4")
 # louis.photo.attach(io: louis_image_file, filename: "louis_image_file", content_type: 'image/jpg')
-puts "Created user: Louis. User id: #{louis.id}."
+puts "Created user: Louis. User id: #{louis.id} Username: #{louis.username}."
 
 puts "Creating artists..."
 
 cups = Artist.new(name: "Cups", user: emanuel)
 mighty = Artist.new(name: "Mighty Dumpling", user:gareth)
 trashcan = Artist.new(name: "Trashcan Paradise", user: anju)
+coolkids = Artist.new(name: "The Wagons", user: louis)
 
 puts "Creating performances..."
 
-trash_perf = Performance.create!(name:"Trashcans live on the streets", artist: trashcan, address: "Yoyogi Park, Tokyo, Japan", performance_date: Date.new ,start_time: Time.now)
-mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mighty, address: "Ferry Building, San Francisco, CA", performance_date: Date.new, start_time: 137.minutes.ago)
+trash_perf = Performance.create!(name:"Trashcans live on the streets", artist: trashcan, address: "Yoyogi Park", performance_date: Date.new ,start_time: Time.now)
+mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mighty, address: "Yoyogi Park", performance_date: Date.new, start_time: 137.minutes.ago)
 cups_perf = Performance.create!(name:"Cups live on the streets", artist: cups, address: "Tokyo Tower", performance_date: Date.new, start_time: 57.minutes.ago)
+mighty_perf_two = Performance.create!(name:"Blast at the park", artist: mighty, address: "Nishi-Shinjuku", performance_date: Date.new, start_time: 250.minutes.ago)
+cups_perf_two = Performance.create!(name:"Sonic blast", artist: cups, address: "Yoyogi Park", performance_date: Date.new, start_time: 30.minutes.ago)
+cups_perf_three = Performance.create!(name:"Yoyogi park sonic", artist: cups, address: "Yoyogi Park", performance_date: Date.new, start_time: 30.minutes.ago)
 
 puts "Creating tips..."
 
