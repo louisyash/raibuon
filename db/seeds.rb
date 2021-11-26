@@ -2,11 +2,11 @@ require "open-uri"
 
 puts "Deleting everything...:0"
 
+Tip.destroy_all
+Message.destroy_all
 User.destroy_all
 Artist.destroy_all
 Performance.destroy_all
-Tip.destroy_all
-Message.destroy_all
 
 puts "Creating users..."
 
@@ -29,15 +29,25 @@ puts "Created user: Louis. User id: #{louis.id} Username: #{louis.username}."
 
 puts "Creating artists..."
 
+<<<<<<< HEAD
 cups = Artist.new(name: "Cups", user: emanuel, facebook: "www.facebook.com")
 mighty = Artist.new(name: "Mighty Dumpling", user:gareth, instagram: "www.instagram.com")
 trashcan = Artist.new(name: "Trashcan Paradise", user: anju, spotify: "www.spotify.com")
+=======
+cups = Artist.new(name: "Cups", user: emanuel)
+mighty = Artist.new(name: "Mighty Dumpling", user:gareth)
+trashcan = Artist.new(name: "Trashcan Paradise", user: anju)
+coolkids = Artist.new(name: "The Wagons", user: louis)
+>>>>>>> 7365c6a3c809fdcd015563c46328745c3fb02c57
 
 puts "Creating performances..."
 
-trash_perf = Performance.create!(name:"Trashcans live on the streets", artist: trashcan, address: "Yoyogi Park, Tokyo, Japan", performance_date: Date.new ,start_time: Time.now)
-mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mighty, address: "Ferry Building, San Francisco, CA", performance_date: Date.new, start_time: 137.minutes.ago)
+trash_perf = Performance.create!(name:"Trashcans live on the streets", artist: trashcan, address: "Yoyogi Park", performance_date: Date.new ,start_time: Time.now)
+mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mighty, address: "Yoyogi Park", performance_date: Date.new, start_time: 137.minutes.ago)
 cups_perf = Performance.create!(name:"Cups live on the streets", artist: cups, address: "Tokyo Tower", performance_date: Date.new, start_time: 57.minutes.ago)
+mighty_perf_two = Performance.create!(name:"Blast at the park", artist: mighty, address: "Nishi-Shinjuku", performance_date: Date.new, start_time: 250.minutes.ago)
+cups_perf_two = Performance.create!(name:"Sonic blast", artist: cups, address: "Yoyogi Park", performance_date: Date.new, start_time: 30.minutes.ago)
+cups_perf_three = Performance.create!(name:"Yoyogi park sonic", artist: cups, address: "Yoyogi Park", performance_date: Date.new, start_time: 30.minutes.ago)
 
 puts "Creating tips..."
 
