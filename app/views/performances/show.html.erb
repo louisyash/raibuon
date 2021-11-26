@@ -30,23 +30,21 @@
 
   <div class="container message-container my-2 w-100" data-controller="display-messages">
     <h3>TIPS</h3>
-    <!--Tips message area-->
-    <div class="container">
-      <% @tips.last(2).each do |tip| %>
-        <div class="tip-message">
-          <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
-          <h5 class="tip-text"><%= tip.user.username %> tipped!</h5>
-          <span><%= tip.amount_cents %> ¥</span>
-        </div>
-        <% end %>
-    </div>
+
 
      <!--Extension messages area-->
      <h3>Messages</h3>
+
     <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
-      <% @messages.each do  |message|%>
-        <%= render "messages/message", message: message %>
+    <% @messages_tips.each do |element| %>
+      <% if element.is_a?(Message) %>
+        <%= render "messages/message", message: element %>
+        <% else %>
+        <%= render "tips/tip", tip: element %>
       <% end %>
+    <% end %>
+
+
     </div>
     <p data-display-messages-target="display" data-action="click->display-messages#display">View 4 more messages</p>
     <h5>Comment here!</h5>
