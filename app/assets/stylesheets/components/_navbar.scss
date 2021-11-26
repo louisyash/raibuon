@@ -99,7 +99,7 @@
   z-index: 99;
   position: fixed;
   top: calc(98vh - #{$ui-nav-bigger-icon-size});
-  margin-left: calc(50% - #{$ui-nav-bigger-icon-radius});
+  left: calc(50% - #{$ui-nav-bigger-icon-radius});
   background: $ui-color-highlight;
 
 
@@ -108,7 +108,6 @@
     height: $ui-nav-bigger-icon-size;
     color: #fff;
     font-size: calc(#{$ui-nav-bigger-icon-size} * 0.8);
-
     padding-top: calc(#{$ui-nav-bigger-icon-size} * 0.1);
     text-align: center;
   }
