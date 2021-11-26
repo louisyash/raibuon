@@ -6,7 +6,6 @@
         <%# <% if display_class == "top-nav-icons" %>
         <% if current_user.photo.attached? %>
           <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", style: "width: 50px; height: 50px; ", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-
         <% else %>
           <div class="ro-navbar__user-login-icon-container">
             <i class="fas fa-user ro-navbar__user-login-icon" style=""></i>

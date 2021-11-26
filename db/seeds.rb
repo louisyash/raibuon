@@ -12,19 +12,19 @@ puts "Creating users..."
 
 emanuel = User.create!(password:"123456", email: "emanuel@lewagon.com", username:"darkemlord")
 emanuel_image_file = URI.open("https://avatars.githubusercontent.com/u/82207189?v=4")
-# emanuel.photo.attach(io: emanuel_image_file, filename: "emanuel_image_file", content_type: 'image/jpg')
+emanuel.photo.attach(io: emanuel_image_file, filename: "emanuel_image_file", content_type: 'image/jpg')
 puts "Created user: Emanuel. User id: #{emanuel.id} Username: #{emanuel.username}."
 gareth = User.create!(password:"123456", email: "gareth@lewagon.com", username:"gperilli")
 gareth_image_file = URI.open("https://avatars.githubusercontent.com/u/44981193?v=4")
-# gareth.photo.attach(io: gareth_image_file, filename: "gareth_image_file", content_type: 'image/jpg')
+gareth.photo.attach(io: gareth_image_file, filename: "gareth_image_file", content_type: 'image/jpg')
 puts "Created user: Gareth. User id: #{gareth.id} Username: #{gareth.username}."
 anju = User.create!(password:"123456", email: "anju@lewagon.com", username:"ansanigom")
 anju_image_file = URI.open("https://avatars.githubusercontent.com/u/88181896?v=4")
-# anju.photo.attach(io: anju_image_file, filename: "anju_image_file", content_type: 'image/jpg')
+anju.photo.attach(io: anju_image_file, filename: "anju_image_file", content_type: 'image/jpg')
 puts "Created user: Anju. User id: #{anju.id} Username: #{anju.username}."
 louis = User.create!(password:"123456", email: "louis@lewagon.com", username: "louisyash")
 louis_image_file = URI.open("https://avatars.githubusercontent.com/u/90910106?v=4")
-# louis.photo.attach(io: louis_image_file, filename: "louis_image_file", content_type: 'image/jpg')
+louis.photo.attach(io: louis_image_file, filename: "louis_image_file", content_type: 'image/jpg')
 puts "Created user: Louis. User id: #{louis.id} Username: #{louis.username}."
 
 puts "Creating artists..."
