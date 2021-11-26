@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.user = current_user
+    @message.avatar_id = current_user.photo.key
     @performance =  Performance.find(params[:performance_id])
     @message.performance = @performance
     authorize @message
@@ -21,6 +22,6 @@ class MessagesController < ApplicationController
 
 
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :avatar_id)
   end
 end

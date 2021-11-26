@@ -1,5 +1,13 @@
 <div class="content-message" id="message-<%= message.id %>">
-  <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
+  <%#= cl_image_tag current_user.photo.key, class: "avatar-large" %>
+  <% if message.avatar_id.nil? %>
+    <%#= cl_image_tag message.avatar_id, class: "avatar-large" %>
+    <%= image_tag "blank-profile-picture.png", class:"avatar-large" %>
+  <% else %>
+    <%= cl_image_tag message.avatar_id, class: "avatar-large" %>
+  <% end %>
+
+  <%#= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
   <div class="container">
     <p><%= message.user.username %></p>
     <p><%= message.content%></p>
