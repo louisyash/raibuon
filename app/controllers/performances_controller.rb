@@ -5,13 +5,51 @@ class PerformancesController < ApplicationController
     if params[:query].present?
       @performances = @performances.where("name ILIKE ?", "%#{params[:query]}%")
     end
+
     authorize @performances
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'performances/list', locals: { performances: @performances }, formats: [:html] }
+    end
   end
 
   def show
     @performance = Performance.find(params[:id])
+    @message = Message.new
     @performance.artist = @performance.artist
-    @performance.messages = @performance.messages
+
+    @messages = @performance.messages.order(created_at: :desc)
+    @tips = @performance.tips.order(created_at: :desc)
+
     authorize @performance
+  end
+
+  def new
+    @performance = Performance.new
+    authorize @performance
+  end
+
+  def create
+    @performance = Performance.new(performance_params)
+    authorize @performance
+    if @artist = Artist.find_by(user_id: current_user.id)
+      @performance.artist = @artist
+      if @performance.save
+        redirect_to performances_path
+        return
+      else
+        render :new
+      end
+    else
+      redirect_to performances_path, notice: "You must be an artist to perform this action"
+    end
+
+  end
+
+  private
+
+  def performance_params
+    params.require(:performance).permit(:name, :description, :address, :start_time, :performance_date)
   end
 end

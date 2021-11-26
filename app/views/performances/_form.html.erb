@@ -1,0 +1,12 @@
+<%= form_with url: performances_path, method: :get, html: { data: { test_target: "form" } } do %>
+  <%= text_field_tag :query,
+    params[:query],
+
+    class: "form-control",
+    data: {
+          test_target: "input",
+          action: "keyup->test#update"
+        } %>
+
+  <%= submit_tag "Search", class: "btn btn-ghost mt-2" %>
+<% end %>

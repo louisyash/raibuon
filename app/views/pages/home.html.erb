@@ -1,2 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- banner image -->
+<div id="landing-wrapper-background"></div>
+
+<!--  -->
+<div class="wrapper" id="landing-wrapper"style="">
+  <div class="ro-container wireframe" style="">
+
+    <div class="vertical-offcenter landing-text wireframe" style="">
+      <div class="landing-text__item-containers wireframe" style="">
+        <h1 class="ro-landing-title heading-inset wireframe" style="z-index: 50;">RaibuOn</h1>
+      </div>
+      <div class="landing-text__item-containers wireframe" style="">
+        <h2 class="ro-landing-sub-title heading-inset wireframe">Live music near you</h2>
+      </div>
+      <!-- Raibuon search bar -->
+      <div class="landing-text__item-containers wireframe " style="padding-left: 20%;">
+        <%= render 'shared/searchbar', display_class: "searchbar-pc" %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="wrapper" style="background-color: #000; height: 100vh;">
+</div>

@@ -1,19 +1,20 @@
 .perf-card-lg {
     position: relative;
-    display: flex;
+    // display: flex;
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
     background-clip: border-box;
     border-radius: 24px;
-    padding: 24px;
+    // padding: 24px;
     height: 360px;
     color: rgb(240, 240,240);
-    margin-top: 12px;
+    // margin-top: 12px;
     box-shadow: 4px 4px rgba(0, 0, 0, 80%);
-    margin-bottom: 16px;
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/KOHH2016.jpg/800px-KOHH2016.jpg");
+    // margin-bottom: 16px;
+    // background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/KOHH2016.jpg/800px-KOHH2016.jpg");
     background-size: cover;
+    width: 100%;
 }
 
 .perf-card-sm {
@@ -22,7 +23,6 @@
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #142F43;
     background-clip: border-box;
     border-radius: 16px;
     padding: 16px;
@@ -32,11 +32,13 @@
     box-shadow: 4px 4px rgba(0, 0, 0, 80%);
     background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/KOHH2016.jpg/800px-KOHH2016.jpg");
     background-size: cover;
+    width: 280px;
 }
 
 .perf-text {
   position:absolute;
   bottom:20px;
+  left: 20px;
 }
 
 .perf-text-sm {
@@ -69,6 +71,10 @@
   display: flex;
   justify-content: space-between;
   text-decoration: none;
+  position: absolute;
+  padding:12px;
+  z-index: 99999;
+  width: 100%;
   p {
     margin: 1px;
   }

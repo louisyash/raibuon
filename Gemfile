@@ -29,7 +29,7 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
-# gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
 
 # gem pundit
@@ -45,6 +45,8 @@ gem 'money-rails', '~>1.12'
 # gem 'stripe_event'
 gem 'stripe_event'
 
+
+gem 'turbolinks_render'
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'

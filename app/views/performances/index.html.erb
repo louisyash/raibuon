@@ -1,13 +1,6 @@
-<div class="container">
+<div data-controller="test" class="container">
   <br>
-  <%= form_tag performances_path, method: :get do %>
-    <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a show"
-    %>
-    <%= submit_tag "Search", class: "btn btn-ghost mt-2" %>
-  <% end %>
+  <%= render "form" %>
   <h3>Live now</h3>
   <% first_performance = @performances.first%>
   <% if first_performance %>
@@ -19,28 +12,18 @@
             <p>LIVE</p>
           </div>
         </div>
+        <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
         <div class="perf-text">
           <p><strong><%= first_performance.artist.name %></strong></p>
+          <p><strong><%= first_performance.name %></strong></p>
           <p><em class="fas fa-map-marker-alt text-light"></em>  <%= first_performance.address %></p>
-          <p><em class="far fa-clock"></em> 18:00 - 20:00</p>
+          <p><em class="far fa-clock"></em> <%= first_performance.start_time %></p>
         </div>
       </div>
     <% end %>
   <% end %>
   <h3>More shows</h3>
-  <div class="card-row">
-    <% @performances.each do |performance| %>
-      <div class="perf-card-sm col-5">
-        <%= link_to performance_path(performance) do %>
-          <i class="far fa-heart"></i>
-          <div class="perf-text-sm">
-            <p><strong><%= performance.artist.name %></strong></p>
-            <p><em class="fas fa-map-marker-alt text-light"></em>  <%= performance.address %></p>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+  <%= render "list", performances: @performances %>
   <br>
   <h3>Explore more shows</h3>
 </div>
