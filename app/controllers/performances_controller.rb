@@ -3,7 +3,7 @@ class PerformancesController < ApplicationController
   def index
     @performances = policy_scope(Performance).order(created_at: :desc)
     if params[:query].present?
-      @performances = @performances.where("name ILIKE ?", "%#{params[:query]}%")
+      @performances = @performances.where("address ILIKE ?", "%#{params[:query]}%")
     end
 
     authorize @performances
@@ -21,6 +21,7 @@ class PerformancesController < ApplicationController
 
     @messages = @performance.messages.order(created_at: :desc)
     @tips = @performance.tips.order(created_at: :desc)
+    @messages_tips = (@messages + @tips).sort_by(&:created_at).reverse
 
     authorize @performance
   end
