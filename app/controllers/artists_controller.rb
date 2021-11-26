@@ -8,7 +8,7 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
-
+    authorize @artist
   end
 
   private
