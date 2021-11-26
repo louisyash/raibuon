@@ -14,7 +14,6 @@ $banner_items_indent: 20%;
 .ro-container {
   position: relative;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   max-width: 1200px;
   width: 100%;
@@ -22,6 +21,11 @@ $banner_items_indent: 20%;
   height: 100%;
   margin: auto;
 }
+
+.ro-wrapper {
+  display: flex;
+}
+
 
 /* 320px — 480px: Mobile devices. */
 /* 481px — 768px: iPads, Tablets. */
