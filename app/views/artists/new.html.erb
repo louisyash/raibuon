@@ -1,23 +1,18 @@
-<h1>Make your artist page</h1>
-
 <div class="container">
-  <h2>Make an artist page!</h2>
-  <%= simple_form_for @artist do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
+  <h1>Make your artist page</h1>
 
-    <%= f.input :facebook %>
-    <%= f.input :instagram %>
-    <%= f.input :soundcloud %>
-    <%= f.input :spotify %>
-    <%= f.input :photo, as: :file, label: "Image" %>
-    <%= f.submit :Submit, class:"btn btn-dark" %>
-  <% end %>
+  <div class="container">
+    <h2>Make an artist page!</h2>
+    <%= simple_form_for @artist do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <p>Enter social media urls.</p>
+      <%= f.input :facebook %>
+      <%= f.input :instagram %>
+      <%= f.input :soundcloud %>
+      <%= f.input :spotify %>
+      <%= f.input :photo, as: :file, label: "Image" %>
+      <%= f.submit :Submit, class:"btn btn-dark" %>
+    <% end %>
+  </div>
 </div>
-
-<!-- t.string "name" -->
-<!-- t.string "description" -->
-<!-- t.string "facebook" -->
-<!-- t.string "instagram" -->
-<!-- t.string "soundcloud" -->
-<!-- t.string "spotify" -->
