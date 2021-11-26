@@ -1,6 +1,6 @@
-<div class="container d-flex justify-content-center">
+<%# <div class="container d-flex justify-content-center">
   <h1>LiveHere</h1>
-</div>
+</div> %>
 <!--Artist profile part -->
 <div class="container d-flex justify-content-between">
   <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
@@ -25,11 +25,10 @@
     <h3>TIPS</h3>
     <h1><%= @tips.sum(:amount_cents) %> ¥</h1>
   </div>
-
   <!--Messages container-->
-
   <div class="container message-container my-2 w-100" data-controller="display-messages">
     <h3>TIPS</h3>
+
     <!--Tips message area-->
     <div class="container">
       <% @tips.last(2).each do |tip| %>
@@ -38,15 +37,21 @@
           <h5 class="tip-text"><%= tip.user.username %> tipped!</h5>
           <span><%= tip.amount_cents %> ¥</span>
         </div>
-        <% end %>
-    </div>
-
-     <!--Extension messages area-->
-     <h3>Messages</h3>
-    <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
-      <% @messages.each do  |message|%>
-        <%= render "messages/message", message: message %>
       <% end %>
+    </div>
+    
+    <!--Extension messages area-->
+    <h3>Messages</h3>
+    <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
+    <% @messages_tips.each do |element| %>
+      <% if element.is_a?(Message) %>
+        <%= render "messages/message", message: element %>
+        <% else %>
+        <%= render "tips/tip", tip: element %>
+      <% end %>
+    <% end %>
+
+
     </div>
     <p data-display-messages-target="display" data-action="click->display-messages#display">View 4 more messages</p>
     <h5>Comment here!</h5>
@@ -56,4 +61,6 @@
     <% end %>
   </div>
 </div>
+
+<%= link_to "sign out", destroy_user_session_path, method: :delete%>
 <!--Messages box-->
