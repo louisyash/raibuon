@@ -1,6 +1,6 @@
 
 <!-- position relative square -->
-<div class="wireframe ro-button-useroptions-outer-container <%= display_class %>" style="">
+<div class="wireframe ro-button-useroptions-outer-container <%= local_assigns[:display_class] %>" style="">
   <!-- position fixed square -->
   <div class="wireframe ro-button-useroptions-inner-container">
 
@@ -14,13 +14,13 @@
         </div>
       <% end %>
 
-      <div id="myDropdown" class="ro-button-useroptions-cssdropdown-content">
+      <div id="<%= local_assigns[:drop_menu_id] %>" class="ro-button-useroptions-cssdropdown-content">
         <a href="#">Link 1</a>
         <a href="#">Link 2</a>
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       </div>
       <!-- button is z-indexed above everything else and given 0 opacity -->
-      <div id="myDropdownBtn" class="ro-button-useroptions-cssdropbtn"></div>
+      <div id="<%= local_assigns[:drop_button_id] %>" class="ro-button-useroptions-cssdropbtn"></div>
 
     <% else %>
 

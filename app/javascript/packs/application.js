@@ -53,18 +53,26 @@ window.addEventListener('scroll', function () {
 //
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-const myDropdownBtn = document.querySelector("#myDropdownBtn");
-myDropdownBtn.addEventListener("click", (event) => {
+
+// #useroptions-dropdown
+// #useroptions-dropdown-menu
+const dropDownBtn = document.querySelector("#useroptions-dropdown");
+dropDownBtn.addEventListener("click", (event) => {
   console.log(event);
-  document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("useroptions-dropdown-menu").classList.toggle("show");
 });
 
 
-//document.querySelectorAll(".myDropdownBtn").forEach((button) => {
-//  button.addEventListener("click", (event) => {
-//    event.currentTarget.classList.toggle("img-circle");
-//  });
-//});
+// #useroptions-dropup
+// #useroptions-dropup-menu
+const dropUpBtn = document.querySelector("#useroptions-dropup");
+dropUpBtn.addEventListener("click", (event) => {
+  console.log(event);
+  document.getElementById("useroptions-dropup-menu").classList.toggle("show");
+});
+
+
+//.ro-button-useroptions-cssdropbtn
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function (event) {

@@ -2,7 +2,6 @@
   width: $ui-nav-icons-size;
   height: $ui-nav-icons-size;
   position: relative;
-
   z-index: 80;
 }
 
@@ -30,6 +29,7 @@
 
 
 .ro-button-useroptions-cssdropdown-content {
+
   right: 0;
   margin-top: 10px;
   display: none;
@@ -41,6 +41,7 @@
   z-index: 1;
   border-radius: 5px;
 }
+
 
 
 
@@ -82,13 +83,13 @@
   .ro-button-useroptions-cssdropdown-content {
   left: 0;
   bottom: 50px;
-  display: none;
+  margin-bottom: 10px;
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 200;
   border-radius: 5px;
 }
 }
