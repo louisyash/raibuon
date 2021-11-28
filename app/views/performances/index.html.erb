@@ -24,8 +24,13 @@
       </div>
     <% end %>
   <% end %>
-  <h3>More shows</h3>
-  <%= render "list", performances: @performances %>
-  <br>
-  <h3>Explore more shows</h3>
+
+  <div class="wrapper wireframe ro-section">
+    <h3>More shows</h3>
+    <%= render "list", performances: @performances %>
+    <br>
+  </div>
+  <div class="wrapper wireframe ro-section">
+    <h3>Explore more shows</h3>
+  </div>
 </div>

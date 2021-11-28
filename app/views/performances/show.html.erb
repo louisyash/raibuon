@@ -9,7 +9,10 @@
     <h3 class="m-0"><%= @performance.artist.name %></h3>
     <p class="m-0">10 performances to date</p>
   </div>
-  <%= link_to 'Edit', "/", class:'btn-performance' %>
+  <% if @performance.artist.user.username == @current_user.username %>
+    <%= link_to 'Edit', "/", class:'btn-performance' %>
+  <% end %>
+
 </div>
 <!--Streaming part -->
 <div class="container my-3">
@@ -57,12 +60,10 @@
     <p data-display-messages-target="display" data-action="click->display-messages#display">View 4 more messages</p>
     <h5>Comment here!</h5>
     <%= simple_form_for [@performance, @message], remote: true do |f| %>
-      <#% @message.avatar_id = current_user.photo.key %>
       <%= f.input :content, label: false %>
       <%= f.button :submit, value: 'send!', class:'w-100' %>
     <% end %>
   </div>
 </div>
 
-<%= link_to "sign out", destroy_user_session_path, method: :delete%>
 <!--Messages box-->
