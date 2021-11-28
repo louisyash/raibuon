@@ -1,0 +1,46 @@
+.ro-button-bigbutton-icon-container {
+  width: $ui-nav-bigger-icon-size;
+  height: $ui-nav-bigger-icon-size;
+  padding: 0px;
+  border-radius: 50%;
+  z-index: 99;
+  position: fixed;
+  top: calc(98vh - #{$ui-nav-bigger-icon-size});
+  left: calc(50% - #{$ui-nav-bigger-icon-radius});
+  background: $ui-color-highlight;
+
+
+  .ro-button-bigbutton-qrscan-icon {
+    width: $ui-nav-bigger-icon-size;
+    height: $ui-nav-bigger-icon-size;
+    color: #fff;
+    font-size: calc(#{$ui-nav-bigger-icon-size} * 0.8);
+    padding-top: calc(#{$ui-nav-bigger-icon-size} * 0.1);
+    text-align: center;
+  }
+
+  .ro-button-bigbutton-search-icon {
+    width: $ui-nav-bigger-icon-size;
+    height: $ui-nav-bigger-icon-size;
+    color: #fff;
+    font-size: calc(#{$ui-nav-bigger-icon-size} * 0.6);
+    padding-top: calc(#{$ui-nav-bigger-icon-size} * 0.2);
+    text-align: center;
+  }
+
+  .ro-button-bigbutton-tip-icon {
+    font-size: 48px;
+    text-align: center;
+    font-weight: bold;
+    margin-left: calc(#{$ui-nav-bigger-icon-radius} - 26px);
+    position: relative;
+    top: 3px;
+  }
+}
+
+.ro-button-bigbutton-icon-container:hover {
+  text-decoration: none;
+  .ro-navbar__tip-icon {
+    color: #fff;
+  }
+}

@@ -3,12 +3,15 @@ $ui-nav-icons-size: 50px;
 $ui-nav-icons-yoffset: $ui-nav-icons-size + 17px;
 $ui-nav-bigger-icon-size: $ui-nav-icons-size * 1.5;
 $ui-nav-bigger-icon-radius: $ui-nav-bigger-icon-size / 2;
+$ui-nav-double-icon-size: $ui-nav-icons-size * 2;
+
+
 
 /* x pos indent on home page banner */
 $banner_items_indent: 20%;
 
 .wireframe {
-  outline: 0px solid #fff;
+  outline: 1px solid #fff;
 }
 
 .ro-container {
