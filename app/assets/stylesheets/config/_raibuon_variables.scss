@@ -4,10 +4,7 @@ $ui-nav-icon-radius: $ui-nav-icons-size / 2;
 $ui-nav-icons-yoffset: $ui-nav-icons-size + 17px;
 $ui-nav-bigger-icon-size: $ui-nav-icons-size * 1.5;
 $ui-nav-bigger-icon-radius: $ui-nav-bigger-icon-size / 2;
-
 $ui-nav-double-icon-size: $ui-nav-icons-size * 2;
-
-
 
 /* x pos indent on home page banner */
 $banner_items_indent: 20%;
@@ -30,7 +27,6 @@ $banner_items_indent: 20%;
 .ro-wrapper {
   display: flex;
 }
-
 
 /* 320px — 480px: Mobile devices. */
 /* 481px — 768px: iPads, Tablets. */
