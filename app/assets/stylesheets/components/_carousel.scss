@@ -1,0 +1,22 @@
+@media screen and (max-width: 480px){
+.scroll_list{
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;  /* コンテンツが見切れて見えるようにする */
+  overflow-x: auto;  /* 横スクロールの指定 */
+  white-space: nowrap;  /* 横スクロールの指定 */
+  overflow-scrolling: touch;  /* スクロールを滑らかにする */
+  -webkit-overflow-scrolling: touch;  /* スクロールを滑らかにする */
+}
+.scroll_list li{
+  display: inline-block;  /* 横並びにする指定 */
+  list-style: none;
+  height: 450px;  /* 横スクロールする範囲の高さを指定 */
+}
+.list1{
+  margin-left: 0;
+}
+.list2, .list3{
+  margin-left: 30px;
+}
+}
