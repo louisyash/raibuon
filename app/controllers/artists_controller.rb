@@ -1,5 +1,13 @@
 class ArtistsController < ApplicationController
 
+<<<<<<< HEAD
+=======
+  def show
+    @artist = Artist.find(params[:id])
+    authorize @artist
+  end
+
+>>>>>>> b82025d9288b12b196069fba590d9b9d20c8df0f
 
   def new
     @artist = Artist.new
