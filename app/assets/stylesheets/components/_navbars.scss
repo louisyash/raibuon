@@ -1,7 +1,7 @@
 @import "navbar_top";
 @import "navbar_bottom";
 
-.top-nav-icons {
+.wide-screen-buttons {
   display: block;
 }
 
@@ -18,7 +18,7 @@
 
 @media(max-width: 480px) {
 
-  .top-nav-icons {
+  .wide-screen-buttons {
   display: none;
   }
   .bottom-bar {

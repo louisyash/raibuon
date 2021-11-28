@@ -46,7 +46,7 @@
   }
 
   .searchbar-inset {
-    padding-left: $banner_items_indent;;
+    padding-left: $banner_items_indent;
   }
 
   h1.ro-landing-title {
@@ -94,6 +94,10 @@
     }
     .heading-inset {
       margin-left: 66px;
+    }
+    .searchbar-inset {
+      padding-left: 66px;
+
     }
   }
 }

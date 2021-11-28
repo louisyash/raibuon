@@ -24,6 +24,7 @@ body{
   padding-top: 0px;
   margin-top: 0px;
   margin-bottom: calc(#{$ui-nav-icons-yoffset} + 30px); /* provides space for bottom nav */
+  padding-top: $ui-nav-icons-yoffset;
 }
 
 h1,h2,h3,h4,h5,h6{

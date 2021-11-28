@@ -10,10 +10,10 @@
 
   <div class="ro-container wireframe" style="">
     <!-- brand home - hidden from top nav on small screens -->
-    <%= render 'shared/brand_logo_button', display_class: "top-nav-icons" %>
+    <%= render 'shared/brand_logo_button', display_class: "wide-screen-buttons" %>
     <!-- Raibuon search bar -->
     <%= render 'shared/searchbar', display_class: "searchbar-main #{home_page_switch}" %>
     <!-- user options - hidden from top nav on small screens -->
-    <%= render partial: 'shared/user_options_button', locals: {:display_class => "top-nav-icons", :drop_button_id => "useroptions-dropdown", :drop_menu_id => "useroptions-dropdown-menu"} %>
+    <%= render partial: 'shared/user_options_button', locals: {:display_class => "wide-screen-buttons", :drop_button_id => "useroptions-dropdown", :drop_menu_id => "useroptions-dropdown-menu"} %>
   </div>
 </div>
