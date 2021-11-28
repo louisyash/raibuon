@@ -3,10 +3,11 @@
   height: $ui-nav-bigger-icon-size;
   padding: 0px;
   border-radius: 50%;
-  z-index: 99;
-  position: fixed;
-  top: calc(98vh - #{$ui-nav-bigger-icon-size});
-  left: calc(50% - #{$ui-nav-bigger-icon-radius});
+  z-index: 50;
+  position: absolute;
+  top: calc(#{$ui-nav-icon-radius} * -1);
+  margin-left: calc(50% - #{$ui-nav-bigger-icon-radius});
+
   background: $ui-color-highlight;
 
 
