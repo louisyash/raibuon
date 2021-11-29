@@ -1,4 +1,4 @@
-<%= simple_form_for [@performance, @tip], input_html: { id: :tip } do |f| %>
+<%= simple_form_for [@performance, @tip], remote: true, input_html: { id: :tip } do |f| %>
   <div class="col-md-6 offset-md-3">
     <%= hidden_field_tag 'tip_id', @tip.id %>
     <%= f.input :amount, collection: Tip::AMOUNT, as: :radio_buttons, input_html: { class: "amount-selector" }, item_wrapper_class: 'amount-item' %>
@@ -8,4 +8,5 @@
     <div class="center">
       <%= f.submit "¥¥¥", class: 'btn, tip-btn', id: "pay" %>
     </div>
-  <% end %>
+  </div>
+<% end %>
