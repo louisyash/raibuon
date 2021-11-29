@@ -48,17 +48,17 @@
           <p><strong><%= one_performance.name %></strong></p>
           <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
           <p><em class="far fa-clock"></em> <%= one_performance.start_time %></p>
-      </div>
-  <% end %>
+        </div>
+      <% end %>
     </li>
   </ul>
-
-  <div class="wrapper wireframe ro-section">
-    <h3>More shows</h3>
-    <%= render "list", performances: @performances %>
-    <br>
-  </div>
-  <div class="wrapper wireframe ro-section">
-    <h3>Explore more shows</h3>
-  </div>
+<% end %>
+<div class="wrapper wireframe ro-section">
+  <h3 class="ml-3">More shows</h3>
+  <%= render "list", performances: @performances %>
+  <br>
+</div>
+<div class="wrapper wireframe ro-section">
+  <h3 class="ml-3">Explore more shows</h3>
+</div>
 </div>

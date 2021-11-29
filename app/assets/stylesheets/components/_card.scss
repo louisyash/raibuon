@@ -35,6 +35,7 @@
   position:absolute;
     bottom: 0px;
     left: 1em;
+    text-shadow: 0 0 black
 }
 
 .perf-text-sm {
@@ -50,8 +51,6 @@
 .card-row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
   justify-content: space-evenly;
 }
 
