@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
     if @message.save
       PerformanceChannel.broadcast_to(
         @performance,
-        render_to_string(partial: "message", locals: { message: @message })
+        message: render_to_string(partial: "message", locals: { message: @message })
       )
       redirect_to performance_path(@performance, anchor: "message-#{@message.id}")
     else

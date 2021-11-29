@@ -28,13 +28,11 @@
 <div class="container d-flex justify-content-around flex-wrap">
   <div class="container tip-container my-2">
     <h3>TIPS</h3>
-    <h1><%= @tips.sum(:amount_cents) %> ¥</h1>
+    <%= render "tips/amount", amount: @tips.sum(:amount_cents) %>
   </div>
   <!--Messages container-->
   <div class="container message-container my-2 w-100" data-controller="display-messages">
     <h3>TIPS</h3>
-
-
     <!--Extension messages area-->
     <h3>Messages</h3>
     <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
