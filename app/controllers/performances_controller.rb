@@ -20,7 +20,7 @@ class PerformancesController < ApplicationController
     @performance.artist = @performance.artist
 
     @messages = @performance.messages.order(created_at: :desc)
-    @tips = @performance.tips.order(created_at: :desc)
+    @tips = @performance.tips.where(state:"paid").order(created_at: :desc)
 
     authorize @performance
   end
