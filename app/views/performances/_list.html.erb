@@ -1,13 +1,19 @@
 <div data-test-target="list" class="card-row">
   <% @performances.each do |performance| %>
-    <div data-test-target="items" class="perf-card-sm col-5">
-      <%= link_to performance_path(performance) do %>
-        <i class="far fa-heart"></i>
-        <div class="perf-text-sm">
-          <p><strong><%= performance.artist.name %></strong></p>
-          <p><em class="fas fa-map-marker-alt text-light"></em>  <%= performance.address %></p>
-        </div>
+    <%# <div data-test-target="items" class=""> %>
+    <%= link_to performance_path(performance), class: "mb-3 w-50 p-1" do %>
+      <% if performance.artist.photo.attached? %>
+        <%= cl_image_tag performance.artist.photo.key, height: 300, width: 400, crop: :fill, class:"perf-card-sm" %>
+      <% else %>
+        <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 300, width: 400, crop: :fill, class:"perf-card-sm" %>
       <% end %>
-    </div>
+      <%# </div> %>
+      <%# <i class="far fa-heart"></i>
+      <div class="perf-text-sm">
+        <p><strong><%= performance.artist.name %/></strong></p>
+        <p><em class="fas fa-map-marker-alt text-light"></em>  <%= performance.address</p>
+    <%# </div>  %>
+    <% end %>
+    <%# </div> %>
   <% end %>
 </div>

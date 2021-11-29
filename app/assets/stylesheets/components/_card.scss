@@ -21,14 +21,11 @@
     word-wrap: break-word;
     background-clip: border-box;
     border-radius: 16px;
-    padding: 16px;
-    height: 120px;
+    width: 100%;
+    height: 100%;
     color: rgb(240, 240,240);
-    margin-top: 12px;
     box-shadow: 4px 4px rgba(0, 0, 0, 80%);
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/KOHH2016.jpg/800px-KOHH2016.jpg");
     background-size: cover;
-    width: 280px;
 }
 
 .perf-text {
@@ -52,6 +49,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  margin:12px;
 }
 
 .live-button {
