@@ -39,6 +39,8 @@
   position:absolute;
   top: 40px;
   text-shadow: 0 0 black;
+  left: 16px;
+    top: 80px;
   p {
     font-size: small;
   }
@@ -72,4 +74,11 @@
   p {
     margin: 1px;
   }
+}
+
+.small-cards {
+  margin-bottom: 1em;
+  width: 50%;
+  padding: 4px;
+  position:relative;
 }
