@@ -2,11 +2,11 @@ require "open-uri"
 
 puts "Deleting everything...:0"
 
-Tip.destroy_all
-Message.destroy_all
-User.destroy_all
-Artist.destroy_all
-Performance.destroy_all
+# Tip.destroy_all
+# Message.destroy_all
+# User.destroy_all
+# Artist.destroy_all
+# Performance.destroy_all
 
 puts "Creating users..."
 

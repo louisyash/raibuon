@@ -10,16 +10,24 @@
   position: relative;
   border-radius: 16px;
 }
+
 .scroll_list li{
   display: inline-block;
   list-style: none;
   height: 450px;
 }
+
 .list1{
   margin-left: 0;
 }
-.list2, .list3{
+
+.list2{
+  position: relative;
   // margin-left: 30px;
+}
+
+.list3 {
+  position: relative;
 }
 }
 
