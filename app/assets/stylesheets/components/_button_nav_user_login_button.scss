@@ -3,6 +3,7 @@
   height: $ui-nav-icons-size;
   position: relative;
   z-index: 80;
+  flex-shrink: 0;
 }
 
 .ro-button-useroptions-inner-container {

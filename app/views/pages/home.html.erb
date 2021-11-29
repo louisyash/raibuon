@@ -1,5 +1,10 @@
 <!-- banner image -->
-<div id="landing-wrapper-background"></div>
+<div id="landing-wrapper-background">
+  <div class="landing-container">
+    <div id="landing-image">
+    </div>
+  </div>
+</div>
 
 <!--  -->
 <div class="wrapper" id="landing-wrapper">
@@ -12,12 +17,13 @@
       <div class="landing-text__item-containers wireframe">
         <h2 class="ro-landing-sub-title heading-inset wireframe">Live music near you</h2>
       </div>
+        <% if false %>
       <!-- Raibuon search bar -->
-      <div class="landing-text__item-containers wireframe searchbar-inset">
-        <%= render 'shared/searchbar', display_class: "searchbar-home" %>
-        <%= render 'shared/qr_button', display_class: "wide-screen-buttons" %>
-      </div>
-
+      <!-- <div class="landing-text__item-containers wireframe searchbar-inset"> -->
+      <!--  <%= render 'shared/searchbar', display_class: "searchbar-home" %> -->
+      <!--  <%= render 'shared/qr_button', display_class: "wide-screen-buttons" %> -->
+      <!-- </div> -->
+      <% end %>
 
     </div>
   </div>

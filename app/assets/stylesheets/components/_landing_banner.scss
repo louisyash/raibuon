@@ -1,12 +1,44 @@
 
 
 #landing-wrapper-background {
-  height: 100vh;
-  margin-top: calc(#{$ui-nav-icons-yoffset} * -1);
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url("ro-landing-image.jpg");
+  height: calc(100vh - #{$ui-nav-icons-yoffset});
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+
+
+.landing-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+
+  overflow: hidden;
+  height: 100%;
+  margin: auto;
+  outline: 1px solid red;
+
+  background-image: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0) 0vh,
+    rgba(0, 0, 0, 0) 60vh,
+    rgba(0, 0, 0, 1) 100vh
+    ), url("ro-landing-image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 15px;
 }
+
+#landing-image {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+
+}
+
+
 
 #landing-wrapper {
   position: absolute;
@@ -85,11 +117,17 @@
 /* 1201px and more — Extra large screens, T */
 
 @media(max-width: 1200px) {
-
+  .landing-container  {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
 }
 
 @media(max-width: 1024px) {
-
+  .landing-container  {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 
 
@@ -107,6 +145,11 @@
 
     }
   }
+  .landing-container  {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
 }
 
 @media(max-width: 480px) {
@@ -119,4 +162,16 @@
       margin-left: 20px;
     }
   }
+  .landing-container {
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+  }
+  #landing-wrapper-background {
+  height: calc(100vh - #{$ui-nav-icons-yoffset});
+  margin-top: calc(#{$ui-nav-icons-yoffset} * -1);
+  padding-top: 0px;
+  padding-bottom: 0px;
+  }
+
 }
