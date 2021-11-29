@@ -36,6 +36,8 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 import "controllers"
+
+// Opacity fade for top nav search bar
 document.getElementById('test').style.opacity = 0;
 window.addEventListener('scroll', function () {
   var currScrollPos2 = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -47,3 +49,41 @@ window.addEventListener('scroll', function () {
   }
 }
 );
+
+//
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+
+// #useroptions-dropdown
+// #useroptions-dropdown-menu
+const dropDownBtn = document.querySelector("#useroptions-dropdown");
+dropDownBtn.addEventListener("click", (event) => {
+  console.log(event);
+  document.getElementById("useroptions-dropdown-menu").classList.toggle("show");
+});
+
+
+// #useroptions-dropup
+// #useroptions-dropup-menu
+const dropUpBtn = document.querySelector("#useroptions-dropup");
+dropUpBtn.addEventListener("click", (event) => {
+  console.log(event);
+  document.getElementById("useroptions-dropup-menu").classList.toggle("show");
+});
+
+
+//.ro-button-useroptions-cssdropbtn
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function (event) {
+  if (!event.target.matches('.ro-button-useroptions-cssdropbtn')) {
+    var dropdowns = document.getElementsByClassName("ro-button-useroptions-cssdropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}

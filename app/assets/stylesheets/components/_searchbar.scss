@@ -3,22 +3,29 @@
   /* color: $ui-color-text-lowlight; */
 }
 
-.searchbar-pc {
+.searchbar-home {
   position: relative;
   float: left;
-  width: 70%;
   display: block;
-
+  margin-right: 10px;
 }
 
 .saerch_bar_heading-inset {
     padding-left: $banner_items_indent;
 }
 
-.searchbar-mobile {
-  display: none;
-  width: 90%;
+/* by default search bar appears at top of page on all srceens */
+.searchbar-main {
+  display: block;
+  width: calc(100% - #{$ui-nav-double-icon-size});
   margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* searchbar-pageswitch is applied to home page to make search bar disappear for bigger screens */
+.searchbar-pageswitch {
+  display: none;
 }
 
 .ro-search-bar-container {
@@ -32,24 +39,15 @@
   position: relative;
   padding-top: 0px;
   padding-bottom: 0px;
-
+  width: 400px;
 }
-
-
-
-
-
 
 .ro-search-bar__bar {
   max-width: 512px;
   width: 100%;
-
   border-radius: 25px;
   margin-right: 10px;
   margin-right: calc(#{$ui-nav-icons-size} * -1);
-
-  /* color: $ui-color-text-lowlight; */
-
   padding-top: -5px;
   padding-left: 10px;
   padding-right: $ui-nav-icons-size;
@@ -81,28 +79,44 @@
 
 
 @media(max-width: 768px) {
-  .searchbar-pc {
+  .searchbar-home {
     display: none;
   }
 
-  .searchbar-mobile {
-    display: block;
-    margin-left: 10px;
-    margin-right: 10px;
+  .searchbar-main {
+    flex-grow: 0;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 
+  .searchbar-pageswitch {
+    display: block;
+  }
 
   .ro-search-bar-container {
     margin: auto;
+    width: 90%;
+    float: left;
   }
 }
 
 
 @media(max-width: 480px) {
-    .searchbar-mobile {
+    .searchbar-main {
     display: block;
     margin-left: 0px;
     margin-right: 0px;
     margin: auto;
+    width: 100%;
+
+  }
+
+  .searchbar-pageswitch {
+    display: block;
+  }
+  .ro-search-bar-container {
+    margin: auto;
+    width: 90%;
+    float: none
   }
 }

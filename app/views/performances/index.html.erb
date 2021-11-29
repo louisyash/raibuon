@@ -1,29 +1,64 @@
 <div data-controller="test" class="container">
-  <br>
-  <%= render "form" %>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Post your performance", new_performance_path, class:"btn btn-dark d-flex align-items-center justify-content-center w-50" %>
+  </div>
+  <%# <%= render "form" %>
   <h3>Live now</h3>
-  <% first_performance = @performances.first%>
-  <% if first_performance %>
-    <%= link_to performance_path(first_performance) do %>
-      <div class="perf-card-lg">
-        <div class="upper-components">
-          <i class="far fa-heart"></i>
-          <div class="live-button">
-            <p>LIVE</p>
-          </div>
-        </div>
-        <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
-        <div class="perf-text">
-          <p><strong><%= first_performance.artist.name %></strong></p>
-          <p><strong><%= first_performance.name %></strong></p>
-          <p><em class="fas fa-map-marker-alt text-light"></em>  <%= first_performance.address %></p>
-          <p><em class="far fa-clock"></em> <%= first_performance.start_time %></p>
+  <% one_performance = @performances.sample%>
+  <% if one_performance %>
+  </div>
+  <ul class="scroll_list">
+    <li class="list1">
+      <div class="upper-components">
+        <i style="color: white" class="far fa-heart"></i>
+        <div class="live-button">
+          <p>LIVE</p>
         </div>
       </div>
-    <% end %>
+      <%= link_to performance_path(one_performance) do %>
+        <% if one_performance.artist.photo.attached? %>
+          <%= cl_image_tag one_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+        <% else %>
+          <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+        <% end %>
+        <div class="perf-text">
+          <p><strong><%= one_performance.artist.name %></strong></p>
+          <p><strong><%= one_performance.name %></strong></p>
+          <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
+          <p><em class="far fa-clock"></em> <%= one_performance.start_time %></p>
+        </div>
+      <% end %>
+    </li>
+    <li class="list2">
+      <%= link_to performance_path(one_performance) do %>
+        <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQukGObmBom3DhziFq5jBY5lmhW4yjkwL83sA&usqp=CAU", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+        <div class="perf-text">
+          <p><strong>This is the SECOND ONE</strong></p>
+          <p><strong><%= one_performance.name %></strong></p>
+          <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
+          <p><em class="far fa-clock"></em> <%= one_performance.start_time %></p>
+        </div>
+      <% end %>
+    </li>
+    <li class="list3">
+      <%= link_to performance_path(one_performance) do %>
+        <%= image_tag "https://www.pngitem.com/pimgs/m/374-3741684_music-artist-png-transparent-png.png", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+        <div class="perf-text">
+          <p><strong>This is the THIRD ONE</strong></p>
+          <p><strong><%= one_performance.name %></strong></p>
+          <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
+          <p><em class="far fa-clock"></em> <%= one_performance.start_time %></p>
+      </div>
   <% end %>
-  <h3>More shows</h3>
-  <%= render "list", performances: @performances %>
-  <br>
-  <h3>Explore more shows</h3>
+    </li>
+  </ul>
+
+  <div class="wrapper wireframe ro-section">
+    <h3>More shows</h3>
+    <%= render "list", performances: @performances %>
+    <br>
+  </div>
+  <div class="wrapper wireframe ro-section">
+    <h3>Explore more shows</h3>
+  </div>
 </div>

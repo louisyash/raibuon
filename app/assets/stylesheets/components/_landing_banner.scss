@@ -3,7 +3,11 @@
 #landing-wrapper-background {
   height: 100vh;
   margin-top: calc(#{$ui-nav-icons-yoffset} * -1);
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url("ro-landing-image.jpg");
+  background-image: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0) 0vh,
+    rgba(0, 0, 0, 0) 60vh,
+    rgba(0, 0, 0, 1) 100vh
+    ), url("ro-landing-image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -39,17 +43,26 @@
     float: left;
     position: relative;
     outline: 0px solid #fff;
+    display: flex;
   }
 
   .heading-inset {
     margin-left: $banner_items_indent;
   }
 
+  .searchbar-inset {
+    padding-left: $banner_items_indent;
+  }
+
   h1.ro-landing-title {
   /* font-size: 64px; */
   font-weight:700;
   color: #fff;
-  text-shadow: 1px 1px 3px #808080;
+  /* text-shadow: 1px 1px 3px #808080; */
+  text-shadow: 10px 10px 25px rgb(81,67,21),
+    -10px 10px 25px rgb(81,67,21),
+    -10px -10px 25px rgb(81,67,21),
+    10px -10px 25px rgb(81,67,21);
   font-size:7vw;
   position: relative;
   float: left;
@@ -58,7 +71,10 @@
 
   h2.ro-landing-sub-title {
     font-size:5vw;
-
+    text-shadow: 10px 10px 25px rgb(81,67,21),
+    -10px 10px 25px rgb(81,67,21),
+    -10px -10px 25px rgb(81,67,21),
+    10px -10px 25px rgb(81,67,21);
     color: #fff;
     position: relative;
     float: left;
@@ -90,6 +106,10 @@
     }
     .heading-inset {
       margin-left: 66px;
+    }
+    .searchbar-inset {
+      padding-left: 66px;
+
     }
   }
 }

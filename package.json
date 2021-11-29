@@ -6,11 +6,13 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
+    "animejs": "^3.2.1",
     "bootstrap": "4.6",
     "jquery": "^3.6.0",
     "ngrok": "^4.2.2",
     "popper.js": "^1.16.1",
     "stimulus": "^3.0.1",
+    "stimulus-animated-number": "^4.0.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
