@@ -44,7 +44,7 @@ class TipsController < ApplicationController
         success_url: performance_url(@performance),
         cancel_url: performance_url(@performance)
       )
-      @tip.update(checkout_session_id: session.id)
+      @tip.update(checkout_session_id: session.id, state: "pending")
       redirect_to new_tip_payment_path(@tip)
     else
       render :new

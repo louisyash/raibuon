@@ -21,7 +21,6 @@ class PerformancesController < ApplicationController
     @messages = @performance.messages.order(created_at: :desc)
     @tips = @performance.tips.where(state: "paid").order(created_at: :desc)
     @messages_tips = (@messages + @tips).sort_by(&:created_at).reverse
-
     authorize @performance
   end
 
