@@ -124,9 +124,10 @@
 
   .ro-navbar__tip-icon {
     font-size: 48px;
+    color: #fff;
     text-align: center;
     font-weight: bold;
-    margin-left: calc(#{$ui-nav-bigger-icon-radius} - 26px);
+    margin-left: calc(#{$ui-nav-bigger-icon-radius} - 35px);
     position: relative;
     top: 3px;
   }
