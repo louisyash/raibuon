@@ -18,7 +18,6 @@ class PerformancesController < ApplicationController
     @performance = Performance.find(params[:id])
     @message = Message.new
     @performance.artist = @performance.artist
-
     @messages = @performance.messages.order(created_at: :desc)
 
     @tips = @performance.tips.where(state:"paid").order(created_at: :desc)
