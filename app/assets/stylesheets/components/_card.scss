@@ -61,6 +61,7 @@
   justify-content: space-between;
   border-radius: 6px;
   opacity: 80%;
+  z-index: 5;
 }
 
 .upper-components {
@@ -69,7 +70,8 @@
   text-decoration: none;
   position: absolute;
   padding:16px;
-  z-index: 99999;
+  z-index: 50;
+
   width: 100%;
   p {
     margin: 1px;
