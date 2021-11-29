@@ -5,6 +5,8 @@
   <%# <%= render "form" %>
   <h3>Live now</h3>
   <% one_performance = @performances.sample%>
+  <% first_performance = @performances.first %>
+  <% last_performance = @performances.last %>
   <% if one_performance %>
   </div>
   <ul class="scroll_list">
@@ -30,22 +32,30 @@
       <% end %>
     </li>
     <li class="list2">
-      <%= link_to performance_path(one_performance) do %>
-        <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQukGObmBom3DhziFq5jBY5lmhW4yjkwL83sA&usqp=CAU", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+      <%= link_to performance_path(first_performance) do %>
+        <% if first_performance.artist.photo.attached? %>
+          <%= cl_image_tag first_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+        <% else %>
+          <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+        <% end %>
         <div class="perf-text">
-          <p><strong>This is the SECOND ONE</strong></p>
-          <p><strong><%= one_performance.name %></strong></p>
+          <p><strong><%= first_performance.artist.name %></strong></p>
+          <p><strong><%= first_performance.name %></strong></p>
           <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
           <p><em class="far fa-clock"></em> <%= one_performance.start_time %></p>
         </div>
       <% end %>
     </li>
     <li class="list3">
-      <%= link_to performance_path(one_performance) do %>
-        <%= image_tag "https://www.pngitem.com/pimgs/m/374-3741684_music-artist-png-transparent-png.png", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+      <%= link_to performance_path(last_performance) do %>
+        <% if last_performance.artist.photo.attached? %>
+          <%= cl_image_tag last_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+        <% else %>
+          <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+        <% end %>
         <div class="perf-text">
-          <p><strong>This is the THIRD ONE</strong></p>
-          <p><strong><%= one_performance.name %></strong></p>
+          <p><strong><%= last_performance.artist.name %></strong></p>
+          <p><strong><%= last_performance.name %></strong></p>
           <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
           <p><em class="far fa-clock"></em> <%= one_performance.start_time %></p>
         </div>

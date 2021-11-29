@@ -30,16 +30,16 @@ puts "Created user: Louis. User id: #{louis.id} Username: #{louis.username}."
 puts "Creating artists..."
 
 cup_monsters = Artist.new(name: "Cup Monsters", user: emanuel)
-cups_image_file = URI.open("https://www.flickr.com/photos/7c0/22624751006/in/photolist-YVejMH-AtgLeU-az5J5k-VdroQ3-2bn92-dXitrB-sppscG-w1Swz2-5vrDKp-kQzHs6-dXp9rC-c1yDg9-93S9z5-bZ6RWQ-8vcepn-5y63Fh-9yK1cY-dkKd5h-7y9XB6-aonVjC-jQHWxr-VdrpDs-fLDk2d-aTns1t-eN6efs-8vceN6-dWZoG5-8eorSY-8eGCzU-8eGBdQ-51m9X2-9gnUdz-51ma4F-51qmH5-51mijv-6ZweHY-528CAC-br9BrB-6wNRdT-51qs2A-6wNRFe-6w6Sh4-mkYSa8-a1L7Ba-8eGCCm-xDZYcj-bWndpT-bZ6CPA-8eDjfT-4EPk2B/")
+cups_image_file = URI.open("https://bandmaid.tokyo/s3/skiyaki/uploads/link/image/14580/top22.jpg")
 cup_monsters.photo.attach(io: cups_image_file, filename: "cups_image_file", content_type: 'image/jpg')
 mighty = Artist.new(name: "Mighty Dumplings", user: gareth)
-mighty_image_file = URI.open("https://www.flickr.com/photos/madu/13047979113/in/photolist-kT1iB8-dL2CfZ-dL2BeK-dL2CrM-dL2CkV-dL88tA-dL2B1P-nJsD-dL2CUk-dL2AMB-8tU84A-dL87Tw-dL895s-5wyMk1-dL89SW-7j3gpf-dL87K9-dL89f3-2jWxSDh-4L5rc7-89UCgv-8FQcBU-6NbB7w-dL2Awk-dL2DYp-dL87hE-5f9TFV-8BYtA-6VUptk-dL872j-dL8amy-BYTtDc-dL8767-Hk8AV6-dL8ars-dL88WY-BYL9ZU-94eXfP-k3JsXx-CnLHJ8-2hnVT2c-696S5i-8pJeTz-89qk32-iNNNh-dL87Pw-94i2XY-2hDqvmj-CnLNgV-2hCXnZG")
+mighty_image_file = URI.open("https://gp1.wac.edgecastcdn.net/802892/http_public_production/artists/images/1583855/original/crop:x0y0w762h1125/hash:1467178977/1358173104_F_G_Band_feat._Sandra_Taylor_FINAL.jpg?1467178977")
 mighty.photo.attach(io: mighty_image_file, filename: "mighty_image_file", content_type: 'image/jpg')
 trashcan = Artist.new(name: "Trashcan Paradise", user: anju)
-trashcan_image_file = URI.open("https://www.flickr.com/photos/gerrypops/48606777798/in/photolist-PfkUDw-2cm5KKu-Vi2Exh-978yq-Hk6TSr-qJ5QAz-GdUnux-cTEEts-Xvgrmy-2h4drB5-9TZB7S-7oPACx-bG3ma-7A5BYs-RbJrhE-2h6ukcX-nPfhPq-dCb7PM-nPfhUL-3P1jR-GJ2gWk-2fmFY6W-3P1iN-9YGQj8-9AZpGo-2DZTfA-sLoLk-2kZdc7b-z4k8E5-247Y3tc-LFjM8V-5btSKj-VYWYcb-dpWCRN-2iPnHev-7mYq7-e4iwfC-67dNfR-5z8815-5mHgqh-bdi7Pv-5jBzcP-5jFMMS-sLoQu-7TP7UN-5jFPFQ-8qL7Xe-5jBwHv-5jBy82-5jBtxZ/")
+trashcan_image_file = URI.open("https://www.irishtimes.com/polopoly_fs/1.4644581.1628679581!/image/image.jpg")
 trashcan.photo.attach(io: trashcan_image_file, filename: "trashcan_image_file", content_type: 'image/jpg')
 wagons = Artist.new(name: "The Wagons", user: louis)
-wagons_image_file = URI.open("https://www.flickr.com/photos/132702242@N02/20340475880/in/photolist-wZqfQ1-22yc9dZ-8xvaNE-3viqoZ-8NNBtK-e3dfV8-vi3KGS-rvvKK2-253ZSPD-8TNyXm-3KCcUN-4ykxs1-7E6TD8-8naExH-aesBiw-5cYCcm-62rkxi-dLX1cr-5qMrF1-dFFnnr-6RMbuH-5JiU2h-2jmSpJM-SLatLh-8NrJhU-dFFndK-j5tUy-i5M7Ho-26RDGgQ-2k7fiTJ-JbsAX9-2mE2E2v-J9og33-23qkCCi-r5NTCc-adycua-XPEoXW-2jAQdmS-26L1yq7-4xTcVA-nBaJV3-6o5rHe-8nypNz-jgz2Te-8nBAzG-dfvn2U-5mTnCF-dDFpds-ePkL3F-dFFmFD")
+wagons_image_file = URI.open("https://images.vice.com/vice/images/articles/meta/2015/10/05/japans-biggest-metal-band-features-two-underaged-girls-and-a-bearded-cross-dressing-singer-111-1444063035.jpg")
 wagons.photo.attach(io: wagons_image_file, filename: "wagons_image_file", content_type: 'image/jpg')
 
 
