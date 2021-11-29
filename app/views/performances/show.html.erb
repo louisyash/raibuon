@@ -33,17 +33,6 @@
   <div class="container message-container my-2 w-100" data-controller="display-messages">
     <h3>TIPS</h3>
 
-    <!--Tips message area-->
-    <div class="container">
-      <% @tips.last(2).each do |tip| %>
-        <div class="tip-message">
-          <%= cl_image_tag current_user.photo.key, class: "avatar-large" %>
-          <%#= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
-          <h5 class="tip-text"><%= tip.user.username %> tipped!</h5>
-          <span><%= tip.amount_cents %> ¥</span>
-        </div>
-      <% end %>
-    </div>
 
     <!--Extension messages area-->
     <h3>Messages</h3>

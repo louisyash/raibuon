@@ -34,6 +34,7 @@ mighty = Artist.new(name: "Mighty Dumpling", user:gareth)
 trashcan = Artist.new(name: "Trashcan Paradise", user: anju)
 coolkids = Artist.new(name: "The Wagons", user: louis)
 
+
 puts "Creating performances..."
 
 trash_perf = Performance.create!(name:"Trashcans live on the streets", artist: trashcan, address: "Yoyogi Park", performance_date: Date.new ,start_time: Time.now)
