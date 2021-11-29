@@ -6,7 +6,6 @@
 .searchbar-home {
   position: relative;
   float: left;
-  width: 70%;
   display: block;
   margin-right: 10px;
 }
@@ -40,6 +39,7 @@
   position: relative;
   padding-top: 0px;
   padding-bottom: 0px;
+  width: 400px;
 }
 
 .ro-search-bar__bar {
@@ -95,6 +95,8 @@
 
   .ro-search-bar-container {
     margin: auto;
+    width: 90%;
+    float: left;
   }
 }
 
@@ -105,10 +107,16 @@
     margin-left: 0px;
     margin-right: 0px;
     margin: auto;
-    width: 90%;
+    width: 100%;
+
   }
 
   .searchbar-pageswitch {
     display: block;
+  }
+  .ro-search-bar-container {
+    margin: auto;
+    width: 90%;
+    float: none
   }
 }
