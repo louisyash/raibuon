@@ -6,15 +6,15 @@
   <h3>Live now</h3>
   <% one_performance = @performances.sample%>
   <% if one_performance %>
-    <%# <div class="perf-card-lg"> %>
   </div>
   <ul class="scroll_list">
-    <%# <div class="upper-components">
-        <i class="far fa-heart"></i>
+    <li class="list1">
+      <div class="upper-components">
+        <i style="color: white" class="far fa-heart"></i>
         <div class="live-button">
           <p>LIVE</p>
-        </div> %>
-    <li class="list1">
+        </div>
+      </div>
       <%= link_to performance_path(one_performance) do %>
         <% if one_performance.artist.photo.attached? %>
           <%= cl_image_tag one_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
@@ -52,8 +52,6 @@
       <% end %>
     </li>
   </ul>
-  <%# <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
-  <%# </div> %>
 <% end %>
 <h3>More shows</h3>
 <%= render "list", performances: @performances %>
