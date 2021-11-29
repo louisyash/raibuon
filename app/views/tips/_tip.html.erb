@@ -1,5 +1,9 @@
 <div class="tip-message">
-            <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
-            <h5 class="tip-text"><%= tip.user.username %> tipped!</h5>
-            <span><%= tip.amount_cents %> ¥</span>
+  <% if tip.user.photo.attached? %>
+    <%= cl_image_tag tip.user.photo.key, class:"avatar-large" %>
+  <% else %>
+    <%= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
+  <% end %>
+    <h5 class="tip-text"><%= tip.user.username %> tipped!</h5>
+  <span><%= tip.amount_cents %> ¥</span>
 </div>

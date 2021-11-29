@@ -5,3 +5,11 @@
   padding-left: $ui-nav-icons-size;
   padding-right: $ui-nav-icons-size;
 }
+
+
+@media(max-width: 480px) {
+  .bottom-bar {
+    padding-left: calc(#{$ui-nav-icons-size} / 2);
+    padding-right: calc(#{$ui-nav-icons-size} / 2);
+  }
+}
