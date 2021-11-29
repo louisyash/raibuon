@@ -1,3 +1,29 @@
+@media screen and (max-width: 1080px){
+.scroll_list{
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+  overflow-x: auto;
+  white-space: nowrap;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  border-radius: 16px;
+}
+.scroll_list li{
+  display: inline-block;
+  list-style: none;
+  height: 450px;
+}
+.list1{
+  margin-left: 0;
+}
+.list2, .list3{
+  // margin-left: 30px;
+}
+}
+
+
 @media screen and (max-width: 480px){
 .scroll_list{
   margin: 0 auto;
