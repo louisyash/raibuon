@@ -1,0 +1,23 @@
+.tipping-form {
+  position: relative;
+
+  .tipping-form-hidden {
+    display: none;
+  }
+
+  .tipping-form-show {
+    border: 1px solid white;
+    position: absolute;
+    bottom: -200px;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    max-height: 100vh;
+    background-color: $background-color;
+    transform: translateY(-50vh);
+    overflow-y: hidden;
+    transition: transform 0.5s ease-out;
+
+  }
+}
+

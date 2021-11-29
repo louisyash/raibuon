@@ -25,9 +25,7 @@
     <h3>TIPS</h3>
     <h1><%= @tips.sum(:amount_cents) %> ¥</h1>
   </div>
-
   <!--Messages container-->
-
   <div class="container message-container my-2 w-100" data-controller="display-messages">
     <h3>TIPS</h3>
     <!--Tips message area-->
@@ -38,11 +36,10 @@
           <h5 class="tip-text"><%= tip.user.username %> tipped!</h5>
           <span><%= tip.amount_cents %> ¥</span>
         </div>
-        <% end %>
+      <% end %>
     </div>
-
-     <!--Extension messages area-->
-     <h3>Messages</h3>
+    <!--Extension messages area-->
+    <h3>Messages</h3>
     <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
       <% @messages.each do  |message|%>
         <%= render "messages/message", message: message %>
@@ -56,4 +53,17 @@
     <% end %>
   </div>
 </div>
+<div data-controller="tip-popup">
+  <div data-action="click->tip-popup#toggle" class="bigbutton_icon_container wireframe">
+    <i class="ro-navbar__tip-icon">tip</i>
+  </div>
+  <div class="tipping-form">
+    <div class="container-md mt-4 tipping-form-hidden" data-tip-popup-target="form">
+      <h2 class="center">Tip <%= @performance.artist.name %>?</h2>
+      <p class="center">How much?</p>
+      <%= render 'tips/form' %>
+    </div>
+  </div>
+</div>
 <!--Messages box-->
+
