@@ -50,6 +50,17 @@
   text-align: center;
 }
 
+.tip-btn {
+  display: inline-block;
+  font-size: 26px;
+  border-radius: 16px;
+  background-color: $ui-color-highlight;
+  color: #dfdfdf;
+  padding: 8px 24px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
