@@ -9,13 +9,6 @@ const initPerformanceCable = () => {
       received(data) {
         if(data.message) {
           addMessages(data.message, messagesContainer)
-            anime({
-              targets: `#message-${data.id}`,
-              translateX: 0,
-              rotate: '1turn',
-              backgroundColor: 'black',
-              duration: 800
-            });
         }else if(data.tip){
           addTips(data.tip);
         }
@@ -23,7 +16,7 @@ const initPerformanceCable = () => {
     });
   }
 }
-
+//targets: `#message-${data.id}`,
 const addMessages = (message, messagesContainer) => {
   messagesContainer.insertAdjacentHTML('afterbegin', message);
   messagesContainer.scrollTop = 0;
