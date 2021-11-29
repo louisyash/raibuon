@@ -1,7 +1,6 @@
 <% path = request.env['PATH_INFO'] %>
-
 <!-- QR code scan website https://qrcodescan.in/ -->
-<% if path.include?("performances/") == true %>
+<% if path.include?("performances/") %>
   <% action_link = "/performances/#{@performance.id}/tips/new" %>
   <% icon = "ro-button-bigbutton-tip-icon" %>
   <% icon_text = "tip" %>
@@ -18,7 +17,8 @@
   <% icon = "fas fa-search ro-button-bigbutton-search-icon" %>
   <% icon_text = "" %>
 <% end %>
-
-<%= link_to action_link, class: "#{display_class} ro-button-bigbutton-icon-container wireframe", style: ""  do %>
+<% unless !path.include?("performances/") %>
+  <%= link_to action_link, class: "#{display_class} ro-button-bigbutton-icon-container wireframe", style: ""  do %>
     <i class="<%= icon %>"><%= icon_text %></i>
+  <% end %>
 <% end %>

@@ -1,0 +1,23 @@
+.tipping-form {
+  position: relative;
+
+  .tipping-form-hidden {
+    display: none;
+  }
+
+  .tipping-form-show {
+    background-color: #100f18;
+    background: linear-gradient( #1c1b29, $background-color);
+    border-radius: 40px 40px 0 0;
+    position: fixed;
+    bottom: 0px;
+    top: 0;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    max-height: 100vh;
+    transform: translateY(20vh);
+    overflow-y: hidden;
+    transition: transform 1.0s ease-out;
+  }
+}
