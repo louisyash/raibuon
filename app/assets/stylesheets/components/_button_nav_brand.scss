@@ -11,7 +11,8 @@
   border-radius: 50%;
   overflow: hidden;
   background: $ui-color-highlight;
-  z-index: 100;
+  z-index: 200;
+  position: relative;
 }
 
 .ro-button-brand-icon {
