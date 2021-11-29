@@ -35,4 +35,9 @@
     <% end %>
   </div>
   <p><%= @artist.description %></p>
-</div>
+  <div class="container d-flex justify-content-around flex-wrap">
+    <div class="container tip-container my-2">
+      <h3>TOTAL TIPS</h3>
+      <h1><%# @artist.tips.sum(:amount_cents) %> ¥3000</h1>
+    </div>
+  </div>

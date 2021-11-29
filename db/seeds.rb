@@ -29,16 +29,10 @@ puts "Created user: Louis. User id: #{louis.id} Username: #{louis.username}."
 
 puts "Creating artists..."
 
-<<<<<<< HEAD
 cups = Artist.new(name: "Cups", user: emanuel, facebook: "www.facebook.com")
 mighty = Artist.new(name: "Mighty Dumpling", user:gareth, instagram: "www.instagram.com")
 trashcan = Artist.new(name: "Trashcan Paradise", user: anju, spotify: "www.spotify.com")
-=======
-cups = Artist.new(name: "Cups", user: emanuel)
-mighty = Artist.new(name: "Mighty Dumpling", user:gareth)
-trashcan = Artist.new(name: "Trashcan Paradise", user: anju)
 coolkids = Artist.new(name: "The Wagons", user: louis)
->>>>>>> 7365c6a3c809fdcd015563c46328745c3fb02c57
 
 puts "Creating performances..."
 
