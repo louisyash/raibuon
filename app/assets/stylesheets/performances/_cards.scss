@@ -2,20 +2,18 @@ $background-color:#201F30;
 $card-color: #34344E;
 
 .tip-container{
+  height: 100px;
   border-radius: 20px;
   background-color: $card-color;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   overflow: hidden;
   h3{
-    padding-top: 10px;
+    font-family: 'Rock Salt', sans-serif;
+    margin: auto;
   }
   h1{
-    text-align: center;
-  }
-  p{
     margin: auto;
-    text-align: center;
   }
 }
 
@@ -98,5 +96,11 @@ $card-color: #34344E;
 @media (max-width: 750px) {
   .tip-container{
     width: 100%;
+    h1{
+      font-size: 20px;
+    }
+    h3{
+      font-size: 20px;
+    }
   }
 }
