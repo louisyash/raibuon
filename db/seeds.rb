@@ -36,10 +36,10 @@ mighty = Artist.new(name: "Mighty Dumplings", user: gareth)
 mighty_image_file = URI.open("https://www.flickr.com/photos/madu/13047979113/in/photolist-kT1iB8-dL2CfZ-dL2BeK-dL2CrM-dL2CkV-dL88tA-dL2B1P-nJsD-dL2CUk-dL2AMB-8tU84A-dL87Tw-dL895s-5wyMk1-dL89SW-7j3gpf-dL87K9-dL89f3-2jWxSDh-4L5rc7-89UCgv-8FQcBU-6NbB7w-dL2Awk-dL2DYp-dL87hE-5f9TFV-8BYtA-6VUptk-dL872j-dL8amy-BYTtDc-dL8767-Hk8AV6-dL8ars-dL88WY-BYL9ZU-94eXfP-k3JsXx-CnLHJ8-2hnVT2c-696S5i-8pJeTz-89qk32-iNNNh-dL87Pw-94i2XY-2hDqvmj-CnLNgV-2hCXnZG")
 mighty.photo.attach(io: mighty_image_file, filename: "mighty_image_file", content_type: 'image/jpg')
 trashcan = Artist.new(name: "Trashcan Paradise", user: anju)
-trashcan_image_file = URI.open("")
+trashcan_image_file = URI.open("https://www.flickr.com/photos/gerrypops/48606777798/in/photolist-PfkUDw-2cm5KKu-Vi2Exh-978yq-Hk6TSr-qJ5QAz-GdUnux-cTEEts-Xvgrmy-2h4drB5-9TZB7S-7oPACx-bG3ma-7A5BYs-RbJrhE-2h6ukcX-nPfhPq-dCb7PM-nPfhUL-3P1jR-GJ2gWk-2fmFY6W-3P1iN-9YGQj8-9AZpGo-2DZTfA-sLoLk-2kZdc7b-z4k8E5-247Y3tc-LFjM8V-5btSKj-VYWYcb-dpWCRN-2iPnHev-7mYq7-e4iwfC-67dNfR-5z8815-5mHgqh-bdi7Pv-5jBzcP-5jFMMS-sLoQu-7TP7UN-5jFPFQ-8qL7Xe-5jBwHv-5jBy82-5jBtxZ/")
 trashcan.photo.attach(io: trashcan_image_file, filename: "trashcan_image_file", content_type: 'image/jpg')
 wagons = Artist.new(name: "The Wagons", user: louis)
-wagons_image_file = URI.open("")
+wagons_image_file = URI.open("https://www.flickr.com/photos/132702242@N02/20340475880/in/photolist-wZqfQ1-22yc9dZ-8xvaNE-3viqoZ-8NNBtK-e3dfV8-vi3KGS-rvvKK2-253ZSPD-8TNyXm-3KCcUN-4ykxs1-7E6TD8-8naExH-aesBiw-5cYCcm-62rkxi-dLX1cr-5qMrF1-dFFnnr-6RMbuH-5JiU2h-2jmSpJM-SLatLh-8NrJhU-dFFndK-j5tUy-i5M7Ho-26RDGgQ-2k7fiTJ-JbsAX9-2mE2E2v-J9og33-23qkCCi-r5NTCc-adycua-XPEoXW-2jAQdmS-26L1yq7-4xTcVA-nBaJV3-6o5rHe-8nypNz-jgz2Te-8nBAzG-dfvn2U-5mTnCF-dDFpds-ePkL3F-dFFmFD")
 wagons.photo.attach(io: wagons_image_file, filename: "wagons_image_file", content_type: 'image/jpg')
 
 
