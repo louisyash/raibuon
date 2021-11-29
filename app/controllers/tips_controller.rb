@@ -22,7 +22,12 @@ class TipsController < ApplicationController
     authorize @tip
 
     if @tip.save
-      # flash[:notice] = "Thank you for tipping #{@performance.artist.name}!"
+      PerformanceChannel.broadcast_to(
+        @performance,
+        render_to_string(partial: "tips/tip", locals: { tip: @tip })
+      )
+      flash[:notice] = "Thank you for tipping #{@performance.artist.name}!"
+
       session = Stripe::Checkout::Session.create(
         payment_method_types: ['card'],
         line_items: [{

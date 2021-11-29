@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :payments, only: :new
   end
 
-  resources :artists, only: %i[new create]
+  resources :artists, only: %i[new create show]
   namespace :artist do
     resources :performances, only: %i[index show]
   end

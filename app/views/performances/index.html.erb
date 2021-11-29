@@ -1,5 +1,7 @@
 <div data-controller="test" class="container">
-  <br>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Post your performance", new_performance_path, class:"btn btn-dark d-flex align-items-center justify-content-center w-50" %>
+  </div>
   <%= render "form" %>
   <h3>Live now</h3>
   <% first_performance = @performances.first%>
@@ -22,8 +24,13 @@
       </div>
     <% end %>
   <% end %>
-  <h3>More shows</h3>
-  <%= render "list", performances: @performances %>
-  <br>
-  <h3>Explore more shows</h3>
+
+  <div class="wrapper wireframe ro-section">
+    <h3>More shows</h3>
+    <%= render "list", performances: @performances %>
+    <br>
+  </div>
+  <div class="wrapper wireframe ro-section">
+    <h3>Explore more shows</h3>
+  </div>
 </div>

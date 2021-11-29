@@ -1,0 +1,22 @@
+.ro-button-standard-icon-outer-container {
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
+}
+
+.ro-button-standard-icon-container {
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
+  padding: 0px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: $ui-color-highlight;
+}
+
+.ro-button-standard-qrscan-icon {
+  width: $ui-nav-icons-size;
+  height: $ui-nav-icons-size;
+  color: #fff;
+  font-size: calc(#{$ui-nav-icons-size} * 0.8);
+  padding-top: calc(#{$ui-nav-icons-size} * 0.1);
+  text-align: center;
+}

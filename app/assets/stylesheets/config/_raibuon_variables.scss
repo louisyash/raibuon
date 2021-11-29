@@ -1,8 +1,10 @@
 $ui-nav-icons-size: 50px;
+$ui-nav-icon-radius: $ui-nav-icons-size / 2;
 /* 17px is margin space so icon height + 17px is total top nav height */
 $ui-nav-icons-yoffset: $ui-nav-icons-size + 17px;
 $ui-nav-bigger-icon-size: $ui-nav-icons-size * 1.5;
 $ui-nav-bigger-icon-radius: $ui-nav-bigger-icon-size / 2;
+$ui-nav-double-icon-size: $ui-nav-icons-size * 2;
 
 /* x pos indent on home page banner */
 $banner_items_indent: 20%;
@@ -11,16 +13,23 @@ $banner_items_indent: 20%;
   outline: 0px solid #fff;
 }
 
+.ro-section {
+  margin-top: 20px;
+}
+
 .ro-container {
   position: relative;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   max-width: 1200px;
   width: 100%;
   overflow: hidden;
   height: 100%;
   margin: auto;
+}
+
+.ro-wrapper {
+  display: flex;
 }
 
 /* 320px — 480px: Mobile devices. */
