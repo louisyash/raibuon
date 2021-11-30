@@ -1,5 +1,4 @@
 class PerformancesController < ApplicationController
-
   def index
     @performances = policy_scope(Performance).order(created_at: :desc)
     if params[:query].present?
@@ -44,7 +43,6 @@ class PerformancesController < ApplicationController
     else
       redirect_to performances_path, notice: "You must be an artist to perform this action"
     end
-
   end
 
   private
