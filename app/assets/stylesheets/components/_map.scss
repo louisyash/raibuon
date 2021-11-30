@@ -4,5 +4,15 @@
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: row;
+}
+
+.info-window__performance-name {
+  color: $ui-color-highlight;
+}
+
+.info-window__performance-name {
+  color: $ui-color-highlight;
+  margin-bottom: 0px;
 }
