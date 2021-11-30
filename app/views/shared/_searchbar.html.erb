@@ -1,5 +1,5 @@
  <!-- Raibuon search bar -->
-<div class="wireframe <%= display_class %>" style="display: relative; z-index: 99; ">
+<div class="wireframe searchbar-main <%= display_class %>" style="z-index: 99; position: relative;">
   <%= form_tag performances_path, method: :get do %>
     <div class="ro-search-bar-container wireframe" style="">
       <%= text_field_tag :query,
@@ -12,5 +12,6 @@
       <% end %>
     </div>
   <% end %>
-
+  <!-- QR scan link within search container -->
+  <%= render 'shared/qr_button', display_class: "wide-screen-buttons" %>
 </div>

@@ -1,18 +1,11 @@
-<!-- make search bar only disappear for larger screens for home page -->
-<% home_page_switch = "" %>
-<% if current_page?('/')%>
-  <% home_page_switch = "searchbar-pageswitch" %>
-<% end %>
-
 <div class="fixed-top top-bar wireframe" style="">
   <!-- background opacity shifting rectangle -->
   <div id="test" class="navbar-background" style=""></div>
-
   <div class="ro-container wireframe" style="">
     <!-- brand home - hidden from top nav on small screens -->
-    <%= render 'shared/brand_logo_button', display_class: "wide-screen-buttons" %>
+    <%= render 'shared/brand_logo_button', display_class: "wide-screen-buttons", style: "z-index: 200;"%>
     <!-- Raibuon search bar -->
-    <%= render 'shared/searchbar', display_class: "searchbar-main #{home_page_switch}" %>
+    <%= render 'shared/searchbar', display_class: "" %>
     <!-- user options - hidden from top nav on small screens -->
     <%= render partial: 'shared/user_options_button', locals: {:display_class => "wide-screen-buttons", :drop_button_id => "useroptions-dropdown", :drop_menu_id => "useroptions-dropdown-menu"} %>
   </div>

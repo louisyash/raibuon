@@ -9,6 +9,10 @@ class PerformancePolicy < ApplicationPolicy
     true
   end
 
+  def home?
+    true
+  end
+
   def show?
     return true
   end

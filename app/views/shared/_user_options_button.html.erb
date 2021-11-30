@@ -1,11 +1,8 @@
-
 <!-- position relative square -->
 <div class="wireframe ro-button-useroptions-outer-container <%= local_assigns[:display_class] %>" style="">
   <!-- position fixed square -->
   <div class="wireframe ro-button-useroptions-inner-container">
-
     <% if user_signed_in? %>
-
       <% if current_user.photo.attached? %>
         <%= cl_image_tag current_user.photo.key, class: "ro-button-useroptions-avatar" %>
       <% else %>
@@ -13,7 +10,6 @@
           <i class="fas fa-user ro-navbar__user-login-icon" style=""></i>
         </div>
       <% end %>
-
       <div id="<%= local_assigns[:drop_menu_id] %>" class="ro-button-useroptions-cssdropdown-content">
         <a href="#">Link 1</a>
         <a href="#">Link 2</a>
@@ -21,14 +17,10 @@
       </div>
       <!-- button is z-indexed above everything else and given 0 opacity -->
       <div id="<%= local_assigns[:drop_button_id] %>" class="ro-button-useroptions-cssdropbtn"></div>
-
     <% else %>
-
       <%= link_to new_user_session_path, class: "ro-navbar__user-login-icon-container wireframe", style: ""  do %>
         <i class="fas fa-user ro-navbar__user-login-icon" style=""></i>
       <% end %>
-
     <% end %>
-
- </div>
+  </div>
 </div>

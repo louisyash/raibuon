@@ -1,6 +1,7 @@
 .ro-button-brand-icon-outer-container {
   width: $ui-nav-icons-size;
   height: $ui-nav-icons-size;
+  z-index: 99;
 }
 
 .ro-button-brand-icon-container {
@@ -10,6 +11,8 @@
   border-radius: 50%;
   overflow: hidden;
   background: $ui-color-highlight;
+  z-index: 200;
+  position: relative;
 }
 
 .ro-button-brand-icon {
@@ -23,4 +26,5 @@
   left: 5%;
   top: 5%;
   vertical-align: bottom;
+  z-index: 101;
 }

@@ -33,7 +33,6 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
 
 # gem pundit
-
 gem 'pundit'
 
 # gem 'stripe'
@@ -45,6 +44,8 @@ gem 'money-rails', '~>1.12'
 # gem 'stripe_event'
 gem 'stripe_event'
 
+# geocoder
+gem 'geocoder'
 
 gem 'turbolinks_render'
 gem 'autoprefixer-rails', '10.2.5'
