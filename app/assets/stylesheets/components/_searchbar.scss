@@ -1,7 +1,7 @@
-
 ::placeholder {
   /* color: $ui-color-text-lowlight; */
 }
+
 
 .searchbar-home {
   position: relative;
@@ -16,16 +16,13 @@
 
 /* by default search bar appears at top of page on all srceens */
 .searchbar-main {
-  display: block;
-  width: calc(100% - #{$ui-nav-double-icon-size});
-  margin: auto;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-/* searchbar-pageswitch is applied to home page to make search bar disappear for bigger screens */
-.searchbar-pageswitch {
-  display: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  flex-grow: 0;
+  width: 100%;
+  padding-left: 0px;
+  outline: 0px solid blue;
 }
 
 .ro-search-bar-container {
@@ -33,27 +30,27 @@
   flex-direction: row;
   position: relative;
   height: $ui-nav-icons-size;
-  padding-bottom: 10px;
-  padding-top: 20px;
   z-index: 99;
   position: relative;
   padding-top: 0px;
   padding-bottom: 0px;
-  width: 400px;
+  margin: auto;
+  float: left;
+  width: 512px;
+  outline: 0px solid red;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .ro-search-bar__bar {
   max-width: 512px;
   width: 100%;
   border-radius: 25px;
-  margin-right: 10px;
   margin-right: calc(#{$ui-nav-icons-size} * -1);
   padding-top: -5px;
   padding-left: 10px;
   padding-right: $ui-nav-icons-size;
 }
-
-
 
 .ro-search-bar__bar:focus {
   outline: none;
@@ -66,7 +63,6 @@
   border: 0px;
   color: #fff;
   background-color: $ui-color-highlight;
-
 }
 
 
@@ -77,22 +73,23 @@
 /* 1201px and more — Extra large screens, T */
 /* laptops */
 
-
 @media(max-width: 768px) {
-  .searchbar-home {
-    display: none;
-  }
 
   .searchbar-main {
     flex-grow: 0;
     margin-left: 0px;
     margin-right: 0px;
+    width: 100%;
   }
 
-  .searchbar-pageswitch {
-    display: block;
+  .ro-search-bar-container {
+    margin-left: 10px;
+    float: left;
+    width: 312px;
   }
+}
 
+@media(max-width: 550px) {
   .ro-search-bar-container {
     margin: auto;
     width: 90%;
@@ -108,11 +105,14 @@
     margin-right: 0px;
     margin: auto;
     width: 100%;
-
   }
 
-  .searchbar-pageswitch {
-    display: block;
+
+
+  .ro-search-bar-container {
+    margin: auto;
+    width: 90%;
+    float: none
   }
   .ro-search-bar-container {
     margin: auto;

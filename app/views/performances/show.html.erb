@@ -15,12 +15,15 @@
     <%= link_to 'Edit', "/", class:'btn-performance' %>
   <% end %>
 </div>
-<!--Streaming part -->
-<div class="container my-3">
-  <%= video_tag "stream.mp4", class:"w-100", controls: :controls, :loop => true%>
-  <div class="container d-flex">
-    <em class="fas fa-map-marker-alt text-light"></em>
-    <p class="ml-2">Yoyogi park</p>
+<!--Streaming part / photo part -->
+<div class="container">
+  <div class="container tip-container my-2">
+    <h1 id="performance-title">Performance Memories!</h1>
+  </div>
+  <div class="photo-container my-3 owl-carousel owl-theme">
+    <%= image_tag "yoyogi2.jpg" %>
+    <%= image_tag "yoyogi3.jpg" %>
+    <%= image_tag "yoyogi-park-tokyo.jpg" %>
   </div>
 </div>
 <!-- Cards space-->

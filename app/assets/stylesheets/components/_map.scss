@@ -1,0 +1,18 @@
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.info-window__performance-name {
+  color: $ui-color-highlight;
+}
+
+.info-window__performance-name {
+  color: $ui-color-highlight;
+  margin-bottom: 0px;
+}

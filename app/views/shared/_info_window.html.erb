@@ -1,0 +1,13 @@
+<%= link_to performance_path(performance.id) do %>
+  <div class="wireframe">
+    <% if performance.artist.photo.attached? %>
+      <%= cl_image_tag performance.artist.photo.key, class:"avatar-large" %>
+    <% else %>
+      <%= image_tag "blank-profile-picture.png", class:"avatar-large" %>
+    <% end %>
+  </div>
+  <div class="wireframe">
+    <h2 class="info-window__performance-name"><%= performance.name %></h2>
+    <p class="info-window__performance-name"><%= performance.address %></p>
+  </div>
+<% end %>
