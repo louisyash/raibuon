@@ -88,11 +88,3 @@ window.onclick = function (event) {
     }
   }
 }
-
-
-
-
-function mapset() {
-  initMapbox();
-  map.resize();
-}
