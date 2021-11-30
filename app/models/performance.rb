@@ -1,5 +1,5 @@
 class Performance < ApplicationRecord
-  belongs_to :artist, dependent: :destroy
+  belongs_to :artist
   has_many :tips, dependent: :destroy
   has_many :messages, dependent: :destroy
 
