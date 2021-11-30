@@ -14,12 +14,11 @@
   <% end %>
 </div>
 <!--Streaming part / photo part -->
-<div class="container my-3">
-  <%= video_tag "stream.mp4", class:"w-100", controls: :controls, :loop => true%>
-  <div class="container d-flex">
-    <em class="fas fa-map-marker-alt text-light"></em>
-    <p class="ml-2">Yoyogi park</p>
-  </div>
+<div class="photo-container my-3 owl-carousel owl-theme">
+  <%= image_tag "yoyogi2.jpg" %>
+  <%= image_tag "yoyogi3.jpg" %>
+  <%= image_tag "yoyogi-park-tokyo.jpg" %>
+</div>
 </div>
 <!-- Cards space-->
 <div class="container d-flex justify-content-around flex-wrap">
