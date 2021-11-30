@@ -22,8 +22,16 @@
 </div>
 <div class="wrapper ro-wrapper wireframe"  style="flex-direction: column; position: relative;">
   <div class="overlay-wrapper">
-    <div class="ro-container wireframe"></div>
+    <div class="ro-container big-center-card-container wireframe">
+      <div class="big-center-card" style="position: relative; border-radius: 15px; overflow: hidden;">
+        <div id="map"
+     style="width: 100%; height: 50%;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+    </div>
   </div>
   <div class="wrapper ro-wrapper home-halfscreen-upper"  style=""></div>
   <div class="wrapper ro-wrapper home-halfscreen-lower"  style=""></div>
 </div>
+<button onclick="mapset()">map</button>

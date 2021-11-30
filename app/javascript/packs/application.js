@@ -25,7 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initPerformanceCable } from '../channels/performance_channel';
-
+import { initMapbox } from '../plugins/init_mapbox';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -33,15 +33,16 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initPerformanceCable();
+  initMapbox();
 });
 
 import "controllers"
+import { MapMouseEvent } from "mapbox-gl";
 
 // Opacity fade for top nav search bar
 document.getElementById('test').style.opacity = 0;
 window.addEventListener('scroll', function () {
   var currScrollPos2 = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-
   if (currScrollPos2 < 200) {
     document.getElementById('test').style.opacity = currScrollPos2 / 200;
   } else {
@@ -50,9 +51,9 @@ window.addEventListener('scroll', function () {
 }
 );
 
-//
+
 /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
+toggle between hiding and showing the drop content */
 
 // #useroptions-dropdown
 // #useroptions-dropdown-menu
@@ -86,4 +87,12 @@ window.onclick = function (event) {
       }
     }
   }
+}
+
+
+
+
+function mapset() {
+  initMapbox();
+  map.resize();
 }

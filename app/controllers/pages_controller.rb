@@ -3,7 +3,14 @@ class PagesController < ApplicationController
 
   def home
     @performances = policy_scope(Performance).order(created_at: :desc)
-    authorize @performances
 
+
+    @markers = @performances.geocoded.map do |performance|
+      {
+        lat: performance.latitude,
+        lng: performance.longitude
+      }
+    end
+    authorize @performances
   end
 end
