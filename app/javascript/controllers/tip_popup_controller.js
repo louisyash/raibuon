@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = ['form'];
 
   toggle() {
-    this.formTarget.classList.toggle('tipping-form-hidden');
-    this.formTarget.classList.toggle('tipping-form-show');
+    this.formTarget.classList.toggle('show');
   }
 }
