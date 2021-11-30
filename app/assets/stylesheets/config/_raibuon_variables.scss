@@ -7,8 +7,10 @@ $ui-nav-bigger-icon-radius: $ui-nav-bigger-icon-size / 2;
 $ui-nav-double-icon-size: $ui-nav-icons-size * 2;
 
 
+
+
 .wireframe {
-  outline: 1px solid #fff;
+  outline: 1px solid #808080;
 }
 
 .ro-section {
@@ -28,6 +30,16 @@ $ui-nav-double-icon-size: $ui-nav-icons-size * 2;
 
 .ro-wrapper {
   display: flex;
+}
+
+.ro-button-link {
+  background-color: $ui-color-highlight;
+  color: #fff;
+  float: right;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border-radius: 10px;
 }
 
 /* 320px — 480px: Mobile devices. */

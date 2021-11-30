@@ -21,15 +21,18 @@
     </div>
   </div>
 </div>
+<!-- spacer dark purple -->
+<%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
 <!-- map title section -->
 <div class="ro-wrapper wireframe">
-  <div class="ro-container wireframe" style="outline: 1px solid red; height: 100px;">
+  <div class="ro-container wireframe" style="outline: 1px solid red;">
+    <h3 class="wireframe section-title white-text" style=""><%= @performances.all.count %> upcoming shows and performances across Japan</h3>
   </div>
 </div>
 <!-- map section -->
 <div class="ro-wrapper wireframe"  style="flex-direction: column; position: relative;">
   <div class="overlay-wrapper">
-    <div class="ro-container wireframe" style="outline: 1px solid red;">
+    <div class="ro-container wireframe" style="">
       <div class="big-center-card" style="">
         <div id="map"
           style="width: 100%; height: 100%;"
@@ -43,4 +46,14 @@
   <div class="wrapper ro-wrapper home-halfscreen-upper half_and_half-wrapper"  style=""></div>
   <div class="wrapper ro-wrapper home-halfscreen-lower half_and_half-wrapper"  style=""></div>
 </div>
+<!-- spacer white -->
+<%= render "shared/section_spacer", background_color: "white_background"  %>
 <!-- secondary banner -->
+<div class="ro-wrapper wireframe secondary-landing-banner-wrapper white_background" >
+  <div class="ro-container wireframe secondary-landing-banner-content" style="flex-direction: column;">
+    <h3 class="wireframe section-title white-text secondary-cta-question" style="padding-top: 30px;">Want to publicize your next performance?</h3>
+    <div class="wireframe" style="width: 100%; display: flex; justify-content: center; padding-bottom: 30px;">
+      <%= link_to "Raibuon Artists", new_artist_path, class: "ro-button-link", style: "" %>
+    </div>
+  </div>
+</div>

@@ -15,3 +15,19 @@ $ui-color-highlight-rgba-fade: rgba(107,25,45, .4);
 
 $background-color:#201F30;
 $card-color: #34344E;
+
+.dark_purple_background {
+  background: $background-color;
+}
+
+.white_background {
+  background: #fff;
+}
+
+.white-text {
+  color: #fff;
+}
+
+.dark-mauve-text {
+  color: $ui-color-highlight;
+}
