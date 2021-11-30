@@ -65,10 +65,6 @@
     display: flex;
   }
 
-  .heading-inset {
-    margin-left: $banner_items_indent;
-  }
-
 
   h1.ro-landing-title {
   /* font-size: 64px; */
@@ -86,7 +82,7 @@
   }
 
   h2.ro-landing-sub-title {
-    font-size:5vw;
+    font-size:6vw;
     text-shadow: 10px 10px 25px rgb(81,67,21),
     -10px 10px 25px rgb(81,67,21),
     -10px -10px 25px rgb(81,67,21),
@@ -99,6 +95,39 @@
 
   }
 }
+
+/* go to index button */
+.ro-button-h2text-sized-outer-outer-container {
+  margin-top: calc(5vw * 0.2);
+}
+
+.ro-button-h2text-sized-outer-container {
+  width: 5vw;
+  height: 5vw;
+}
+
+.ro-button-go-icon-container {
+  width: 5vw;
+  height: 5vw;
+  padding: 0px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: $ui-color-highlight;
+  display: flex;
+  justify-content: center;
+}
+
+.ro-button-standard-go-icon {
+  width: 5vw;
+  height: 5vw;
+  color: #fff;
+  font-size: calc(5vw * 0.8);
+  padding: calc(5vw * 0.1);
+  text-align: center;
+  align-items: center;
+  vertical-align: baseline;
+}
+
 
 /* 320px — 480px: Mobile devices. */
 /* 481px — 768px: iPads, Tablets. */
@@ -126,9 +155,6 @@
       font-weight:700;
       font-size: 16vw;
     }
-    .heading-inset {
-      margin-left: 66px;
-    }
   }
   .landing-container  {
     margin-left: 30px;
@@ -137,15 +163,50 @@
 }
 
 @media(max-width: 480px) {
+
+  .vertical-offcenter {
+  top: 10%;
+  }
   .landing-text {
     h1.ro-landing-title {
       font-weight:700;
       font-size: 16vw;
     }
-    .heading-inset {
-      margin-left: 0px;
+
+    h2.ro-landing-sub-title {
+      font-weight:500;
+      font-size: 10vw;
     }
+
   }
+
+  .ro-button-h2text-sized-outer-outer-container {
+    margin-top: calc(9vw * 0.2);
+  }
+
+  .ro-button-h2text-sized-outer-container {
+    width: 9vw;
+    height: 9vw;
+  }
+
+  .ro-button-go-icon-container {
+    width: 9vw;
+    height: 9vw;
+    padding: 0px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: $ui-color-highlight;
+    display: flex;
+    justify-content: center;
+  }
+
+  .ro-button-standard-go-icon {
+    width: 9vw;
+    height: 9vw;
+    font-size: calc(9vw * 0.8);
+    padding: calc(9vw * 0.1);
+  }
+
   .landing-container {
     margin-left: 0px;
     margin-right: 0px;

@@ -10,6 +10,10 @@
   top: 250px;
 }
 
+.home-halfscreen-upper {
+  background-color: $background-color;
+}
+
 .overlay-wrapper {
     position: absolute;
   display: flex;
@@ -36,9 +40,7 @@
   height: 50vh;
 }
 
-.home-halfscreen-upper {
-  background-color: $background-color;
-}
+
 
 .home-halfscreen-lower {
   background-color: #fff;
