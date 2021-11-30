@@ -1,5 +1,6 @@
 .owl-carousel {
   display: flex;
+
   .owl-prev {
     position: absolute;
     top: 0;
@@ -23,6 +24,7 @@
 .owl-item img{
   height: 400px;
   object-fit: cover;
+  border-radius: 20px;
 }
 
 .photo-container{
