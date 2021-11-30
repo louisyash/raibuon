@@ -43,7 +43,6 @@ wagons = Artist.new(name: "The Wagons", user: louis)
 wagons_image_file = URI.open("https://images.vice.com/vice/images/articles/meta/2015/10/05/japans-biggest-metal-band-features-two-underaged-girls-and-a-bearded-cross-dressing-singer-111-1444063035.jpg")
 wagons.photo.attach(io: wagons_image_file, filename: "wagons_image_file", content_type: 'image/jpg')
 
-
 puts "Creating performances..."
 
 trash_perf = Performance.create!(name:"Trashcans live on the streets", artist: trashcan, address: "Yoyogi Park", performance_date: Date.new ,start_time: Time.now)
@@ -63,7 +62,6 @@ Tip.create!(amount: 200, user: louis, performance: trash_perf)
 Tip.create!(amount: 1200, user: emanuel, performance: trash_perf)
 
 puts "created #{User.count} users, #{Artist.count} artists, #{Performance.count} performances, and #{Tip.count} tips!"
-
 
 puts "creating messages"
 

@@ -1,14 +1,16 @@
 <!--Artist profile part -->
 <div class="container d-flex justify-content-between pt-3">
-  <% if @performance.artist.photo.attached?  %>
-    <%= cl_image_tag @performance.artist.photo.key, class: "avatar-large" %>
-  <% else %>
-    <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
+  <%= link_to artist_path(@performance.artist), class: "d-flex" do %>
+    <% if @performance.artist.photo.attached?  %>
+      <%= cl_image_tag @performance.artist.photo.key, class: "avatar-large" %>
+    <% else %>
+      <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
+    <% end %>
+    <div class="container d-flex align-content-center justify-content-around flex-column">
+      <h3 class="m-0"><%= @performance.artist.name %></h3>
+      <p class="m-0">10 performances to date</p>
+    </div>
   <% end %>
-  <div class="container d-flex align-content-center justify-content-around flex-column">
-    <h3 class="m-0"><%= @performance.artist.name %></h3>
-    <p class="m-0">10 performances to date</p>
-  </div>
   <% if @performance.artist.user.username == @current_user.username %>
     <%= link_to 'Edit', "/", class:'btn-performance' %>
   <% end %>

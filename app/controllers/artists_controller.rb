@@ -2,9 +2,9 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
+    @messages = @artist.messages.order(created_at: :desc)
     authorize @artist
   end
-
 
   def new
     @artist = Artist.new

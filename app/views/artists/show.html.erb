@@ -1,38 +1,53 @@
 <div class="container">
-  <div class="d-flex justify-content-between mt-3">
-    <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
-    <div class="container d-flex align-content-center justify-content-around flex-column">
-      <div class="profile-top">
-        <h3 class="m-0"><%= @artist.name %></h3>
-        <div class="social-media">
-          <% if @artist.facebook.present? %>
-            <a href="https://<%= @artist.facebook %>"><i class="fab fa-facebook-square"></i></a>
-          <% else %>
-            <a href="https://<%= @artist.facebook %>" style="color: grey"><i class="fab fa-facebook-square"></i></a>
-          <% end %>
-          <% if @artist.instagram.present? %>
-            <a href="https://<%= @artist.instagram %>"><i class="fab fa-instagram"></i></a>
-          <% else %>
-            <a href="https://<%= @artist.instagram %>" style="color: grey"><i class="fab fa-instagram"></i></a>
-          <% end %>
-          <% if @artist.soundcloud.present? %>
-            <a href="https://<%= @artist.soundcloud %>"><i class="fab fa-soundcloud"></i></a>
-          <% else %>
-            <a href="https://<%= @artist.soundcloud %>" style="color: grey"><i class="fab fa-soundcloud"></i></a>
-          <% end %>
-          <% if @artist.spotify.present? %>
-            <a href="https://<%= @artist.spotify %>"><i class="fab fa-spotify"></i></a>
-          <% else %>
-            <a href="https://<%= @artist.spotify %>" style="color: grey"><i class="fab fa-spotify"></i></a>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <% if @artist.user_id = current_user %>
-      <%= link_to 'Edit', "/", class:'btn-performance' %>
+  <div class="center mt-3">
+    <% if @artist.photo.attached?  %>
+      <%= cl_image_tag @artist.photo.key, class: "profile-photo" %>
     <% else %>
-      <%= link_to 'Follow', "/", class:'btn-performance' %>
+      <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"profile-photo" %>
     <% end %>
   </div>
-  <p><%= @artist.description %></p>
-</div>
+  <div class="center pt-3">
+    <h3 class="display-name"><%= @artist.name %></h3>
+  </div>
+  <p class="center"><%= @artist.description %>Hi this is hard-coded artist description!</p>
+  <div class="user-buttons">
+    <% if @artist.user_id == current_user %>
+      <%= link_to 'Edit', "/", class:'btn profile-btn' %>
+    <% else %>
+      <%= link_to 'Follow', "/", class:'btn profile-btn' %>
+    <% end %>
+    <a href="#schedule" class="btn profile-btn">Live Schedule</a>
+  </div>
+  <div class="sns-container center mb-3">
+    <% if @artist.facebook.present? %>
+      <a href="https://<%= @artist.facebook %>"><i class="fab fa-facebook-square social-media"></i></a>
+    <% else %>
+      <div style="color: gray;"><%= @artist.facebook %><i class="fab fa-facebook-square social-media"></i></div>
+    <% end %>
+    <% if @artist.instagram.present? %>
+      <a href="https://<%= @artist.facebook %>"><i class="fab fa-instagram social-media"></i></a>
+    <% else %>
+      <div style="color: gray;"><%= @artist.instagram %><i class="fab fa-instagram social-media"></i></div>
+    <% end %>
+    <% if @artist.soundcloud.present? %>
+      <a href="https://<%= @artist.soundcloud %>"><i class="fab fa-soundcloud social-media"></i></a>
+    <% else %>
+      <div style="color: gray;"><%= @artist.soundcloud %><i class="fab fa-soundcloud social-media"></i></div>
+    <% end %>
+    <% if @artist.spotify.present? %>
+      <a href="https://<%= @artist.spotify %>"><i class="fab fa-spotify social-media"></i></a>
+    <% else %>
+      <div style="color: gray;"><%= @artist.spotify %>><i class="fab fa-spotify social-media"></i></div>
+    <% end %>
+  </div>
+  <div class="container d-flex justify-content-around flex-wrap">
+    <div class="container profile-container my-2">
+      <h3>Total Tips</h3>
+      <%= render "tips/amount", amount: @artist.tips.sum(:amount_cents) %>
+    </div>
+  </div>
+  <div id="schedule" class="container profile-container">
+    <% @artist.performances.each do |performance| %>
+      <%= performance.name %>
+    <% end %>
+  </div>
