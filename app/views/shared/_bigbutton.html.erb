@@ -22,12 +22,18 @@
   <%# <i class="ro-button-bigbutton-tip-icon">tip</i> %>
   <%# end %>
   <%# end %>
-  <div data-controller="tip-popup">
-    <div data-action="click->tip-popup#toggle" class="ro-button-bigbutton-icon-container wireframe">
-      <i class="ro-button-bigbutton-tip-icon">tip</i>
+  <% if params[:controller] == "performances" && params[:action] == "show" %>
+    <div data-controller="tip-popup">
+      <div data-action="click->tip-popup#toggle" class="ro-button-bigbutton-icon-container wireframe">
+        <i class="ro-button-bigbutton-tip-icon">tip</i>
+      </div>
+      <div class="mt-4 tipping-form" data-tip-popup-target="form">
+        <h2 class="my-5 center">How much?</h2>
+        <%= render 'tips/form' %>
+      </div>
     </div>
-    <div class="mt-4 tipping-form" data-tip-popup-target="form">
-      <h2 class="my-5 center">How much?</h2>
-      <%= render 'tips/form' %>
-    </div>
-  </div>
+  <% else %>
+    <%= link_to action_link, class: "#{display_class} ro-button-bigbutton-icon-container wireframe", style: ""  do %>
+      <i class="<%= icon %>"><%= icon_text %></i>
+    <% end %>
+  <% end %>
