@@ -1,39 +1,19 @@
-<% path = request.env['PATH_INFO'] %>
-<!-- QR code scan website https://qrcodescan.in/ -->
-<%# if path.include?("performances/") %>
-<%# action_link = "/performances/#{@performance.id}/tips/new" %>
-<%# icon = "ro-button-bigbutton-tip-icon" %>
-<%# icon_text = "tip" %>
-<% if current_page?('/')%>
-  <% action_link = "https://qrcodescan.in/" %>
-  <% icon = "fas fa-qrcode ro-button-bigbutton-qrscan-icon" %>
-  <% icon_text = "" %>
-<% elsif path.include?("/performances") == true %>
-  <% action_link = "https://qrcodescan.in/" %>
-  <% icon = "fas fa-qrcode ro-button-bigbutton-qrscan-icon" %>
-  <% icon_text = "" %>
-<% else %>
-  <% action_link = "/performances" %>
-  <% icon = "fas fa-search ro-button-bigbutton-search-icon" %>
-  <% icon_text = "" %>
-<% end %>
-<%# unless !path.include?("performances/") %>
-<%#= link_to "#", class: "ro-button-bigbutton-icon-container wireframe", style: ""  do %>
-  <%# <i class="ro-button-bigbutton-tip-icon">tip</i> %>
-  <%# end %>
-  <%# end %>
-  <% if params[:controller] == "performances" && params[:action] == "show" %>
-    <div data-controller="tip-popup">
-      <div data-action="click->tip-popup#toggle" class="ro-button-bigbutton-icon-container wireframe">
-        <i class="ro-button-bigbutton-tip-icon">tip</i>
-      </div>
-      <div class="mt-4 tipping-form" data-tip-popup-target="form">
-        <h2 class="my-5 center">How much?</h2>
-        <%= render 'tips/form' %>
-      </div>
+<% if params[:controller] == "performances" && params[:action] == "show" %>
+  <div data-controller="tip-popup">
+    <div data-action="click->tip-popup#toggle" class="ro-button-bigbutton-icon-container wireframe">
+      <i class="ro-button-bigbutton-tip-icon">tip</i>
     </div>
-  <% else %>
-    <%= link_to action_link, class: "#{display_class} ro-button-bigbutton-icon-container wireframe", style: ""  do %>
-      <i class="<%= icon %>"><%= icon_text %></i>
-    <% end %>
+    <div class="mt-4 tipping-form" data-tip-popup-target="form">
+      <h2 class="my-5 center">How much?</h2>
+      <%= render 'tips/form' %>
+    </div>
+  </div>
+<% else %>
+  <%
+=begin %>
+  <%= link_to action_link, class: "#{display_class} ro-button-bigbutton-icon-container wireframe", style: ""  do %>
+    <i class="fas fa-qrcode ro-button-bigbutton-qrscan-icon"></i>
   <% end %>
+  <%
+=end %>
+<% end %>

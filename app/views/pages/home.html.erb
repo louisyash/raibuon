@@ -13,8 +13,8 @@
         <h1 class="ro-landing-title heading-inset wireframe" style="z-index: 50;">RaibuOn</h1>
       </div>
       <div class="landing-text__item-containers wireframe">
-        <%= link_to performances_path  do %>
-          <h2 class="ro-landing-sub-title heading-inset wireframe">Live music near you</h2>
+        <%= link_to performances_path, class: "heading-inset"  do %>
+          <h2 class="ro-landing-sub-title wireframe">Live music near you</h2>
         <% end %>
         <%= render 'shared/go_button' %>
       </div>
@@ -24,25 +24,18 @@
 <!-- map section -->
 <div class="wrapper ro-wrapper wireframe"  style="flex-direction: column; position: relative;">
   <div class="overlay-wrapper">
-    <div class="ro-container big-center-card-container wireframe" style="outline: 0px solid red;">
+    <div class="ro-container big-center-card-container wireframe" style="outline: 1px solid red;">
       <div class="big-center-card" style="">
         <div id="map"
-     style="width: 100%; height: 100%;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-        
-      <!-- Raibuon search bar -->
-      <div class="landing-text__item-containers wireframe searchbar-inset" style="">
-        <%= render 'shared/searchbar', display_class: "searchbar-home" %>
-        <%= render 'shared/qr_button', display_class: "wide-screen-buttons" %>
+          style="width: 100%; height: 100%;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
   </div>
+  <!-- background colors -->
   <div class="wrapper ro-wrapper home-halfscreen-upper half_and_half-wrapper"  style=""></div>
   <div class="wrapper ro-wrapper home-halfscreen-lower half_and_half-wrapper"  style=""></div>
 </div>
 <!-- secondary banner -->
-<div class="wrapper" style="height: 50vh; background: #fff; position: relative; display: flex;">
-  <div class="ro-container wireframe">
-  </div>
-</div>
