@@ -26,11 +26,31 @@ require("channels")
 import "bootstrap";
 import { initPerformanceCable } from '../channels/performance_channel';
 import { initMapbox } from '../plugins/init_mapbox';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel';
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
+  $('.owl-carousel').owlCarousel({
+  loop: true,
+  margin: 10,
+  responsive:{
+    0:{
+      items:1
+     },
+    600:{
+      items:2
+     },
+    1000: {
+      items: 3
+    }
+   },
+   nav: true,
+   navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"]
+ });
   // initSelect2();
   initPerformanceCable();
   initMapbox();

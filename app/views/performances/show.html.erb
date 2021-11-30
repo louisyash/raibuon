@@ -1,10 +1,10 @@
-<%# <div class="container d-flex justify-content-center">
-  <h1>LiveHere</h1>
-</div> %>
 <!--Artist profile part -->
-<div class="container d-flex justify-content-between">
-  <%#= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
-  <%= cl_image_tag @performance.artist.user.photo.key, class: "avatar-large" %>
+<div class="container d-flex justify-content-between pt-3">
+  <% if @performance.artist.photo.attached?  %>
+    <%= cl_image_tag @performance.artist.photo.key, class: "avatar-large" %>
+  <% else %>
+    <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
+  <% end %>
   <div class="container d-flex align-content-center justify-content-around flex-column">
     <h3 class="m-0"><%= @performance.artist.name %></h3>
     <p class="m-0">10 performances to date</p>
@@ -12,50 +12,37 @@
   <% if @performance.artist.user.username == @current_user.username %>
     <%= link_to 'Edit', "/", class:'btn-performance' %>
   <% end %>
-
 </div>
-<!--Streaming part -->
-<div class="container my-3">
-  <%= video_tag "stream.mp4", class:"w-100", controls: :controls, :loop => true%>
-  <div class="container d-flex">
-    <em class="fas fa-map-marker-alt text-light"></em>
-    <p class="ml-2">Yoyogi park</p>
+<!--Streaming part / photo part -->
+<div class="container">
+  <div class="container tip-container my-2">
+    <h1 id="performance-title">Performance Memories!</h1>
   </div>
-  <p>Tips today</p>
+  <div class="photo-container my-3 owl-carousel owl-theme">
+    <%= image_tag "yoyogi2.jpg" %>
+    <%= image_tag "yoyogi3.jpg" %>
+    <%= image_tag "yoyogi-park-tokyo.jpg" %>
+  </div>
 </div>
 <!-- Cards space-->
 <div class="container d-flex justify-content-around flex-wrap">
   <div class="container tip-container my-2">
-    <h3>TIPS</h3>
-    <h1><%= @tips.sum(:amount_cents) %> ¥</h1>
+    <h3>TIPS TODAY!</h3>
+    <%= render "tips/amount", amount: @tips.sum(:amount_cents) %>
   </div>
   <!--Messages container-->
   <div class="container message-container my-2 w-100" data-controller="display-messages">
     <h3>TIPS</h3>
-
-    <!--Tips message area-->
-    <div class="container">
-      <% @tips.last(2).each do |tip| %>
-        <div class="tip-message">
-          <%= cl_image_tag current_user.photo.key, class: "avatar-large" %>
-          <%#= image_tag "https://avatars.githubusercontent.com/u/88181896?v=4", class:"avatar-large" %>
-          <h5 class="tip-text"><%= tip.user.username %> tipped!</h5>
-          <span><%= tip.amount_cents %> ¥</span>
-        </div>
-      <% end %>
-    </div>
-
     <!--Extension messages area-->
     <h3>Messages</h3>
     <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
-    <% @messages_tips.each do |element| %>
-      <% if element.is_a?(Message) %>
-        <%= render "messages/message", message: element %>
+      <% @messages_tips.each do |element| %>
+        <% if element.is_a?(Message) %>
+          <%= render "messages/message", message: element %>
         <% else %>
-        <%= render "tips/tip", tip: element %>
+          <%= render "tips/tip", tip: element %>
+        <% end %>
       <% end %>
-    <% end %>
-
     </div>
     <p data-display-messages-target="display" data-action="click->display-messages#display">View 4 more messages</p>
     <h5>Comment here!</h5>
@@ -65,5 +52,4 @@
     <% end %>
   </div>
 </div>
-
 <!--Messages box-->

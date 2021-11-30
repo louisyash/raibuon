@@ -2,6 +2,18 @@
   /* color: $ui-color-text-lowlight; */
 }
 
+
+.searchbar-home {
+  position: relative;
+  float: left;
+  display: block;
+  margin-right: 10px;
+}
+
+.saerch_bar_heading-inset {
+    padding-left: $banner_items_indent;
+}
+
 /* by default search bar appears at top of page on all srceens */
 .searchbar-main {
   display: flex;
@@ -79,7 +91,9 @@
 
 @media(max-width: 550px) {
   .ro-search-bar-container {
-    width: 250px;
+    margin: auto;
+    width: 90%;
+    float: left;
   }
 }
 
@@ -95,6 +109,11 @@
 
 
 
+  .ro-search-bar-container {
+    margin: auto;
+    width: 90%;
+    float: none
+  }
   .ro-search-bar-container {
     margin: auto;
     width: 90%;

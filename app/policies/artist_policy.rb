@@ -6,9 +6,6 @@ class ArtistPolicy < ApplicationPolicy
   end
 
   def show?
-<<<<<<< HEAD
-    true
-=======
     return true
   end
 
@@ -18,6 +15,5 @@ class ArtistPolicy < ApplicationPolicy
 
   def new?
     @user = user
->>>>>>> 18518f1a70a28ff09fafce10dd3309684dc41190
   end
 end

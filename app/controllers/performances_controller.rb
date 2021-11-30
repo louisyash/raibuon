@@ -18,11 +18,10 @@ class PerformancesController < ApplicationController
     @performance = Performance.find(params[:id])
     @message = Message.new
     @performance.artist = @performance.artist
-
+    @tip = Tip.new
     @messages = @performance.messages.order(created_at: :desc)
-    @tips = @performance.tips.order(created_at: :desc)
+    @tips = @performance.tips.where(state: "paid").order(created_at: :desc)
     @messages_tips = (@messages + @tips).sort_by(&:created_at).reverse
-
     authorize @performance
   end
 
