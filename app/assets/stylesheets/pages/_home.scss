@@ -1,8 +1,38 @@
 // Specific CSS for your home-page
 
 
-
 .half_and_half-wrapper {
+  height: 250px;
+}
+
+.home-halfscreen-lower {
+  background-color: #fff;
+  top: 250px;
+}
+
+.overlay-wrapper {
+    position: absolute;
+  display: flex;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  outline: 1px solid blue;
+  z-index: 50;
+  background: transparent;
+
+}
+
+.big-center-card {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+
+@media(max-height: 500px) {
+  .half_and_half-wrapper {
   height: 50vh;
 }
 
@@ -12,26 +42,23 @@
 
 .home-halfscreen-lower {
   background-color: #fff;
-  top: 30vh;
+  top: 50vh;
 }
 
 .overlay-wrapper {
   position: absolute;
   display: flex;
-  top: 10vh;
   left: 0px;
+  top: 0px;
   width: 100%;
-  height: 50vh;
+  height: 100%;
+  max-height: 700px;
   outline: 1px solid blue;
   z-index: 50;
   background: transparent;
 
 }
 
-.big-center-card-container {
-  padding: 30px;
-
-}
 
 .big-center-card {
   position: relative;
@@ -39,26 +66,25 @@
   height: 100%;
   outline: 1px solid red;
   background: #ddd;
-  position: relative; border-radius: 15px; overflow: hidden;
+  border-radius: 15px;
+  overflow: hidden;
 }
-
 
 /* 320px — 480px: Mobile devices. */
 /* 481px — 768px: iPads, Tablets. */
 /* 769px — 1024px: Small screens, laptops. */
 /* 1025px — 1200px: Desktops, large screens. */
 /* 1201px and more — Extra large screens, T */
-
 @media(max-width: 1200px) {
 .half_and_half-wrapper {
-  height: 30vh;
+  height: 50vh;
 }
 
   .home-halfscreen-lower {
-    top: 30vh;
+    top: 50vh;
   }
   .overlay-wrapper {
-    height: 50vh;
+    height: 90vh;
     top: 5vh;
   }
 }
@@ -92,16 +118,33 @@
   }
 }
 
+/* targeting landscape smartphones */
 @media(max-width: 480px) {
   .half_and_half-wrapper {
-  height: 40vh;
+  height: 35vh;
 }
 
   .home-halfscreen-lower {
-    top: 40vh;
+    top: 35vh;
   }
   .overlay-wrapper {
-    height: 70vh;
+    height: 60vh;
+    top: 5vh;
+  }
+}
+
+}
+
+@media(max-height: 450px) {
+  .half_and_half-wrapper {
+  height: 50vh;
+}
+
+  .home-halfscreen-lower {
+    top: 50vh;
+  }
+  .overlay-wrapper {
+    height: 90vh;
     top: 5vh;
   }
 }
