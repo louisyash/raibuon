@@ -5,6 +5,8 @@ class PerformancesController < ApplicationController
       @performances = @performances.where("address ILIKE ?", "%#{params[:query]}%")
     end
 
+    @tips = Tip.all
+
     authorize @performances
 
     respond_to do |format|

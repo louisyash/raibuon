@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-center">
     <%= link_to "Post your performance", new_performance_path, class:"btn tip-btn w-75 btn-block" %>
   </div>
-  <%# <%= render "form" %>
+  <%= render "tip_ranking" %>
   <h3>Live now</h3>
   <% one_performance = @performances.sample%>
   <% first_performance = @performances.first %>

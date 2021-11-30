@@ -1,0 +1,15 @@
+<h2>Tip Rankings</h2>
+<% first_artist_tips = [] %>
+<% @tips.select do |tip| %>
+  <% if tip.performance.artist_id == 1 %>
+    <% first_artist_tips << tip.amount %>
+  <% end %>
+<% end %>
+<% second_artist_tips = [] %>
+<% @tips.select do |tip| %>
+  <% if tip.performance.artist_id == 2 %>
+    <% second_artist_tips << tip.amount %>
+  <% end %>
+<% end %>
+<p>1. <%= Artist.find(1).name %>  ----- Total tips: ¥<%= first_artist_tips.sum %></p>
+<p>2. <%= Artist.find(2).name %>  ----- Total tips: ¥<%= second_artist_tips.sum %></p>
