@@ -97,6 +97,11 @@
     position: relative;
     float: left;
     margin-right: 10px;
+    text-decoration: underline;
+    background-color: $ui-color-highlight-rgba-fade;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 15px;
   }
 }
 
