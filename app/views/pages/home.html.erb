@@ -13,10 +13,11 @@
         <h1 class="ro-landing-title heading-inset wireframe" style="z-index: 50;">RaibuOn</h1>
       </div>
       <div class="landing-text__item-containers wireframe">
-        <h2 class="ro-landing-sub-title heading-inset wireframe">Live music near you</h2>
+        <%= link_to performances_path  do %>
+          <h2 class="ro-landing-sub-title heading-inset wireframe">Live music near you</h2>
+        <% end %>
+        <%= render 'shared/go_button' %>
       </div>
-      <% if false %>
-      <% end %>
     </div>
   </div>
 </div>
