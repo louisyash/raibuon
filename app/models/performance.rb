@@ -2,6 +2,8 @@ class Performance < ApplicationRecord
   belongs_to :artist, dependent: :destroy
   has_many :tips, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many_attached :photos
+
 
   validates :name, presence: true
   validates :address, presence: true
