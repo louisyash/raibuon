@@ -24,10 +24,11 @@
           <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
         <% end %>
         <div class="perf-text">
-          <p><strong><%= one_performance.artist.name %></strong></p>
+          <h5><strong><%= one_performance.artist.name %></strong></h5>
           <p><strong><%= one_performance.name %></strong></p>
           <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
-          <p><em class="far fa-clock"></em> <%= one_performance.start_time %></p>
+          <p><em class="far fa-calendar-alt"></em> <%= one_performance.start_time.strftime("%Y/%m/%d") %></p>
+          <p><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %></p>
         </div>
       <% end %>
     </li>
