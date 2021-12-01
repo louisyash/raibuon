@@ -127,6 +127,10 @@ p.message-p{
   text-align: start;
 }
 
+p.message-other{
+  text-align: end;
+}
+
 @media (max-width: 750px) {
   .tip-container{
     width: 100%;
