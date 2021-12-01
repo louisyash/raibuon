@@ -28,7 +28,7 @@
 <div class="container d-flex justify-content-around flex-wrap">
   <div class="container tip-container my-2">
     <h3>TIPS TODAY!</h3>
-    <%= render "tips/amount", amount: @tips.sum(:amount_cents) %>
+    <%= render "tips/amount", amount: @performance.tips.sum(:amount_cents) %>
   </div>
   <!--Messages container-->
   <div class="container message-container my-2 w-100" data-controller="display-messages">
@@ -48,7 +48,7 @@
     <%= simple_form_for [@performance, @message], remote: true do |f| %>
       <%= f.input :content, label: false %>
       <%= f.button :submit, value: 'send!', class:'w-100' %>
-      <%= f.input :photo, as: :file, label: false %>
+      <%= f.input :photo, as: :file, label: false, input_html: { class:'d-none'} %>
     <% end %>
   </div>
 </div>
