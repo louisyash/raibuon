@@ -1,4 +1,9 @@
-<div data-controller="test" class="">
+
+
+<div data-controller="test" class="container">
+  
+
+
 
   <%# <%= render "form" %>
   <%
@@ -8,17 +13,28 @@
     <div class="ro-container wireframe" style="">
       <div class="d-flex justify-content-end">
         <%= link_to "Post your performance", new_performance_path, class:"btn tip-btn w-75 btn-block" %>
+
       </div>
     </div>
+  </div>
+        <div class="d-flex justify-content-center">
+    <%= link_to "Post your performance", new_performance_path, class:"btn tip-btn w-75 btn-block" %>
   </div>
   <%
 =end %>
 
 <div class="ro-wrapper wireframe dark_purple_background">
-  <div class="ro-container wireframe" style="justify-content: start;">
+  <div class="ro-container wireframe" style="justify-content: start;">    
+  <%= render "tip_ranking", artist_ranking: @artist_ranking, tips: @tips %>
+  </div>
+</div>
+
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="justify-content: start;"> 
     <h3 class="wireframe section-title">Live now</h3>
   </div>
 </div>
+
 <!-- The Carousel -->
 <div class="ro-wrapper wireframe dark_purple_background">
   <div class="ro-container wireframe" style="">
