@@ -82,7 +82,7 @@ $button-color: #6B192D;
   p{
     font-size: 20px;
     margin: 5px;
-    text-align: center;
+    text-align: start;
   }
 }
 
@@ -95,9 +95,7 @@ $button-color: #6B192D;
   margin-top: 15px;
   margin-bottom: 15px;
   p{
-    flex-grow: 2;
     font-size: 20px;
-    margin: auto;
   }
   span{
   color: white;
@@ -119,6 +117,20 @@ $button-color: #6B192D;
 .tip-text{
   font-size: 30px;
 }
+
+.message-img{
+  border-radius: 20px;
+  width: 90%;
+}
+
+p.message-p{
+  text-align: start;
+}
+
+p.message-other{
+  text-align: end;
+}
+
 @media (max-width: 750px) {
   .tip-container{
     width: 100%;
