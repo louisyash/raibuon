@@ -10,9 +10,6 @@
   margin-right: 10px;
 }
 
-.saerch_bar_heading-inset {
-    padding-left: $banner_items_indent;
-}
 
 /* by default search bar appears at top of page on all srceens */
 .searchbar-main {
@@ -111,12 +108,8 @@
 
   .ro-search-bar-container {
     margin: auto;
-    width: 90%;
+    width: 100%;
     float: none
   }
-  .ro-search-bar-container {
-    margin: auto;
-    width: 90%;
-    float: none
-  }
+
 }
