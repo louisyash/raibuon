@@ -1,0 +1,37 @@
+<h3>Artist Rankings</h3>
+<div class="card-trip">
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">
+            <h6><strong>#</strong></h6>
+          </th>
+          <th scope="col">
+            <h6><strong>Artist Name</strong></h6>
+          </th>
+          <th scope="col">
+            <h6><strong>Total Tips</strong></h6>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% num = 1 %>
+        <% artist_ranking.each do |artist| %>
+          <tr>
+            <th scope="row">
+              <h6><%= num %></h6>
+            </th>
+            <td>
+              <h6><%= artist.name %></h6>
+            </td>
+            <td>
+              <h6>¥<%= artist.tips_total %></h6>
+            </td>
+          </tr>
+          <% num += 1 %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

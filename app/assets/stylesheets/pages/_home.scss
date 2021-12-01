@@ -1,12 +1,5 @@
 // Specific CSS for your home-page
-h3.section-title {
-    font-size: 3rem;
-    font-weight:600;
-    position: relative;
-    float: left;
-    margin-right: 10px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,2);
-  }
+
 
 .half_and_half-wrapper {
   height: 250px;
@@ -145,7 +138,10 @@ h3.section-title {
   }
 
 
-  @media(max-width: 480px) {
+
+}
+
+@media(max-width: 480px) {
     .half_and_half-wrapper {
       height: 35vh;
     }
@@ -158,7 +154,6 @@ h3.section-title {
     }
 
   }
-}
 
 /* targeting landscape smartphones */
 @media(max-height: 450px) {
@@ -174,10 +169,4 @@ h3.section-title {
     top: 5vh;
   }
 
-}
-
-@media(max-height: 700px) and (max-width: 480px) {
-  h3.section-title {
-    font-size:8vw;
-  }
 }
