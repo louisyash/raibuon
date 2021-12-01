@@ -64,9 +64,8 @@
         <div class="upcoming">
           <h3>Upcoming Performance</h3>
           <div class="container schedules">
-            <% Performance.where(artist:@artist).select  do |performance| %>
-              <% if performance.upcoming? %>
-                <h3>Upcoming Performance</h3>
+            <% if @artist.performances.any? {|performance| performance.upcoming? }%>
+              <% Performance.where(artist:@artist).select  do |performance| %>
                 <div class="schedule profile-container pt-3 mb-3">
                   <%= link_to performance_path(performance) do %>
                     <h4><%= performance.name %></h4>
@@ -74,18 +73,18 @@
                     <p><em class="far fa-calendar-alt"></em> <%= performance.start_time.strftime("%Y/%m/%d") %></p>
                     <p><em class="far fa-clock"></em> <%= performance.start_time.strftime("%H:%M") %>- <%= performance.end_time.strftime("%H:%M") %></p>
                   <% end %>
-                <% else %>
-                  <p><%= "No upcoming performances on the way" %></p>
                 </div>
               <% end %>
+            <% else %>
+              <p><%= "No upcoming performances on the way" %></p>
             <% end %>
           </div>
         </div>
         <div class="archived">
           <h4>Archived Performances</h4>
           <div class="container schedules">
-            <% Performance.where(artist:@artist).select  do |performance| %>
-              <% if performance.archived? %>
+            <% if @artist.performances.any? {|performance| performance.archived? }%>
+              <% Performance.where(artist:@artist).select  do |performance| %>>
                 <div class="schedule profile-container pt-3 mb-3">
                   <%= link_to performance_path(performance) do %>
                     <h4><%= performance.name %></h4>
@@ -93,8 +92,10 @@
                     <p><em class="far fa-calendar-alt"></em> <%= performance.start_time.strftime("%Y/%m/%d") %></p>
                     <p><em class="far fa-clock"></em> <%= performance.start_time.strftime("%H:%M") %></p>
                   <% end %>
-                <% end %>
-              </div>
+                </div>
+              <% end %>
+            <% else %>
+              <p><%= "No upcoming performances on the way" %></p>
             <% end %>
             <% if @artist.performances.length > 3 %>
               <h6 style="text-align: end;">View more</h6>
