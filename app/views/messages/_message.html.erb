@@ -11,8 +11,13 @@
         <%= image_tag "blank-profile-picture.png", class:"avatar-large" %>
       <% end %>
       <div class="container d-flex flex-column">
-        <p class="text-warning message-other"><%= message.user.username %></p>
-        <p class="message-other"><%= message.content%></p>
+        <% if message.user != current_user %>
+          <p class="text-warning message-p"><%= message.user.username %></p>
+          <p class="message-p"><%= message.content%></p>
+        <% else %>
+          <p class="text-warning message-other"><%= message.user.username %></p>
+          <p class="message-other"><%= message.content%></p>
+        <% end %>
       </div>
     </div>
     <!--another user side -->
