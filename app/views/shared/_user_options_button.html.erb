@@ -11,8 +11,8 @@
         </div>
       <% end %>
       <div id="<%= local_assigns[:drop_menu_id] %>" class="ro-button-useroptions-cssdropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
+        <%= link_to "Make an artist page", new_artist_path, class: "dropdown-item" %>
+        <%= link_to "Post a performance", new_performance_path, class: "dropdown-item" %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       </div>
       <!-- button is z-indexed above everything else and given 0 opacity -->

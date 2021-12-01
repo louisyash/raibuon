@@ -54,6 +54,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initPerformanceCable();
   initMapbox();
+  dropMenus();
 });
 
 import "controllers"
@@ -75,6 +76,7 @@ window.addEventListener('scroll', function () {
 /* When the user clicks on the button,
 toggle between hiding and showing the drop content */
 
+function dropMenus() {
 // #useroptions-dropdown
 // #useroptions-dropdown-menu
 const dropDownBtn = document.querySelector("#useroptions-dropdown");
@@ -91,7 +93,7 @@ dropUpBtn.addEventListener("click", (event) => {
   console.log(event);
   document.getElementById("useroptions-dropup-menu").classList.toggle("show");
 });
-
+}
 
 //.ro-button-useroptions-cssdropbtn
 

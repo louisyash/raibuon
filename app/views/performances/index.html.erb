@@ -1,75 +1,117 @@
+
+
 <div data-controller="test" class="container">
-  <div class="d-flex justify-content-center">
+  
+
+
+
+  <%# <%= render "form" %>
+  <%
+=begin %>
+  <%# Posting a perforance is a user journey for artists, and also I'll make this available in the user menu, so I'm commenting this button for now. Gareth %>
+  <div class="ro-wrapper wireframe dark_purple_background">
+    <div class="ro-container wireframe" style="">
+      <div class="d-flex justify-content-end">
+        <%= link_to "Post your performance", new_performance_path, class:"btn tip-btn w-75 btn-block" %>
+
+      </div>
+    </div>
+  </div>
+        <div class="d-flex justify-content-center">
     <%= link_to "Post your performance", new_performance_path, class:"btn tip-btn w-75 btn-block" %>
   </div>
-  <%# <%= render "form" %>
-  <h3>Live now</h3>
-  <% one_performance = @performances.sample%>
-  <% first_performance = @performances.first %>
-  <% last_performance = @performances.last %>
-  <% if one_performance %>
+  <%
+=end %>
+
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="justify-content: start;">    
+  <%= render "tip_ranking", artist_ranking: @artist_ranking, tips: @tips %>
   </div>
-  <ul class="scroll_list">
-    <li class="list1">
-      <div class="upper-components">
-        <i style="color: white" class="far fa-heart"></i>
-        <div class="live-button">
-          <p>LIVE</p>
-        </div>
-      </div>
-      <%= link_to performance_path(one_performance) do %>
-        <% if one_performance.artist.photo.attached? %>
-          <%= cl_image_tag one_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
-        <% else %>
-          <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
-        <% end %>
-        <div class="perf-text">
-          <h5><strong><%= one_performance.artist.name %></strong></h5>
-          <p><strong><%= one_performance.name %></strong></p>
-          <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
-          <p><em class="far fa-calendar-alt"></em> <%= one_performance.start_time.strftime("%Y/%m/%d") %></p>
-          <p><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %>- <%= one_performance.end_time.strftime("%H:%M") %></p>
-        </div>
-      <% end %>
-    </li>
-    <li class="list2">
-      <%= link_to performance_path(first_performance) do %>
-        <% if first_performance.artist.photo.attached? %>
-          <%= cl_image_tag first_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
-        <% else %>
-          <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
-        <% end %>
-        <div class="perf-text">
-          <p><strong><%= first_performance.artist.name %></strong></p>
-          <p><strong><%= first_performance.name %></strong></p>
-          <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
-          <p><em class="far fa-clock"></em> <%= one_performance.start_time %></p>
-        </div>
-      <% end %>
-    </li>
-    <li class="list3">
-      <%= link_to performance_path(last_performance) do %>
-        <% if last_performance.artist.photo.attached? %>
-          <%= cl_image_tag last_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
-        <% else %>
-          <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
-        <% end %>
-        <div class="perf-text">
-          <p><strong><%= last_performance.artist.name %></strong></p>
-          <p><strong><%= last_performance.name %></strong></p>
-          <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
-          <p><em class="far fa-clock"></em> <%= one_performance.start_time %></p>
-        </div>
-      <% end %>
-    </li>
-  </ul>
-<% end %>
-<div class="wrapper wireframe ro-section">
-  <h3 class="ml-3">More shows</h3>
-  <%= render "list", performances: @performances %>
-  <br>
 </div>
-<div class="wrapper wireframe ro-section">
-  <h3 class="ml-3">Explore more shows</h3>
+
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="justify-content: start;"> 
+    <h3 class="wireframe section-title">Live now</h3>
+  </div>
 </div>
+
+<!-- The Carousel -->
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="">
+    <% one_performance = @performances.sample%>
+    <% first_performance = @performances.first %>
+    <% last_performance = @performances.last %>
+
+    <% if one_performance %>
+      <ul class="scroll_list">
+        <li class="list1">
+          <div class="upper-components">
+            <i style="color: white" class="far fa-heart"></i>
+            <div class="live-button">
+              <p>LIVE</p>
+            </div>
+          </div>
+          <%= link_to performance_path(one_performance) do %>
+            <% if one_performance.artist.photo.attached? %>
+              <%= cl_image_tag one_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+            <% else %>
+              <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+            <% end %>
+            <div class="perf-text">
+              <h5><strong><%= one_performance.artist.name %></strong></h5>
+              <p><strong><%= one_performance.name %></strong></p>
+              <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
+              <p><em class="far fa-calendar-alt"></em> <%= one_performance.start_time.strftime("%Y/%m/%d") %></p>
+               <p><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %>- <%= one_performance.end_time.strftime("%H:%M") %></p>
+            </div>
+          <% end %>
+        </li>
+        <li class="list2">
+          <%= link_to performance_path(first_performance) do %>
+            <% if first_performance.artist.photo.attached? %>
+              <%= cl_image_tag first_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+            <% else %>
+              <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+            <% end %>
+            <div class="perf-text">
+              <p><strong><%= first_performance.artist.name %></strong></p>
+              <p><strong><%= first_performance.name %></strong></p>
+              <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
+              <p><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %>- <%= one_performance.end_time.strftime("%H:%M") %></p>
+            </div>
+          <% end %>
+        </li>
+        <li class="list3">
+          <%= link_to performance_path(last_performance) do %>
+            <% if last_performance.artist.photo.attached? %>
+              <%= cl_image_tag last_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+            <% else %>
+              <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+            <% end %>
+            <div class="perf-text">
+              <p><strong><%= last_performance.artist.name %></strong></p>
+              <p><strong><%= last_performance.name %></strong></p>
+              <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
+              <p><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %>- <%= one_performance.end_time.strftime("%H:%M") %></p>
+            </div>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+ </div>
+</div>
+
+<!-- spacer dark purple -->
+<%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
+<!-- The Performances Index -->
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="">
+      <h3 class="wireframe section-title">More shows</h3>
+  </div>
+</div>
+
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="">
+<%= render "list", performances: @performances %>
+  </div>
 </div>

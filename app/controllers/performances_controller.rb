@@ -5,6 +5,9 @@ class PerformancesController < ApplicationController
       @performances = @performances.where("address ILIKE ?", "%#{params[:query]}%")
     end
 
+    @tips = Tip.all
+    @artist_ranking = Artist.order_by_tips
+
     authorize @performances
 
     respond_to do |format|
@@ -20,8 +23,8 @@ class PerformancesController < ApplicationController
     @tip = Tip.new
     @messages = @performance.messages.order(created_at: :desc)
     # @tips = @performance.tips.where(state: "paid").order(created_at: :desc) anju needs to check it
-    @tips = @performance.tips.order(created_at: :desc)
-    @messages_tips = (@messages + @tips).sort_by(&:created_at).reverse
+    tips = @performance.tips.order(created_at: :desc)
+    @messages_tips = (@messages + tips).sort_by(&:created_at).reverse
     authorize @performance
   end
 

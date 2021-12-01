@@ -1,11 +1,19 @@
-<div class="container">
-  <h2>Post your show!</h2>
-  <%= simple_form_for @performance do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :address %>
-    <%= f.input :start_time, html5: true %>
-    <%= f.input :end_time, html5: true %>
-    <%= f.submit :Post, class:"btn btn-dark" %>
-  <% end %>
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="">
+    <h1>Post your show!</h1>
+  </div>
+</div>
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="">
+  <div class="container">
+    <%= simple_form_for @performance do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :address %>
+      <%= f.input :start_time, as: :time, html5: true %>
+      <%= f.input :end_time, html5: true %>
+      <%= f.submit :Post, class:"btn btn-dark" %>
+    <% end %>
+  </div>
+  </div>
 </div>
