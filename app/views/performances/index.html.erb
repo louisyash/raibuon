@@ -1,4 +1,9 @@
-<div data-controller="test" class="container">
+
+<div data-controller="test" class="">
+
+<!-- spacer dark purple -->
+<%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
+
   <%# <%= render "form" %>
   <%
 =begin %>
@@ -13,32 +18,32 @@
   <div class="d-flex justify-content-center">
     <%= link_to "Post your performance", new_performance_path, class:"btn tip-btn w-75 btn-block" %>
   </div>
-  <%
-=end %>
-  <div class="ro-wrapper wireframe dark_purple_background">
-    <div class="ro-container wireframe" style="justify-content: start;">
-      <%= render "tip_ranking", artist_ranking: @artist_ranking, tips: @tips, performances: @performances %>
-    </div>
+  <% end %>
+
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="justify-content: start;">
+    <h3 class="wireframe section-title">Live today</h3>
   </div>
-  <div class="ro-wrapper wireframe dark_purple_background">
-    <div class="ro-container wireframe" style="justify-content: start;">
-      <h3 class="wireframe section-title">Live now</h3>
-    </div>
-  </div>
-  <!-- The Carousel -->
-  <div class="ro-wrapper wireframe dark_purple_background">
-    <div class="ro-container wireframe" style="">
-      <% one_performance = @performances.sample%>
-      <% first_performance = @performances.first %>
-      <% last_performance = @performances.last %>
-      <% if one_performance %>
-        <ul class="scroll_list">
-          <li class="list1">
-            <div class="upper-components">
-              <i style="color: white" class="far fa-heart"></i>
-              <div class="live-button">
-                <p>LIVE</p>
-              </div>
+</div>
+
+<!-- The New Owl Carousel-->
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="justify-content: start;">
+    <div id="owl-performances-index" class="photo-container my-3 owl-carousel owl-theme">
+
+        <% one_performance = @performances.sample%>
+    <% first_performance = @performances.first %>
+    <% last_performance = @performances.last %>
+    <% while [first_performance, last_performance].include?(one_performance) do %>
+      <% one_performance = @performances.sample %>
+    <% end %>
+
+        <div class="list1">
+          <div class="upper-components">
+            <i style="color: white" class="far fa-heart"></i>
+            <div class="live-button">
+              <p>LIVE</p>
+
             </div>
             <%= link_to performance_path(one_performance) do %>
               <% if one_performance.artist.photo.attached? %>
@@ -54,51 +59,77 @@
                 <p><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %>- <%= one_performance.end_time.strftime("%H:%M") %></p>
               </div>
             <% end %>
-          </li>
-          <li class="list2">
-            <%= link_to performance_path(first_performance) do %>
-              <% if first_performance.artist.photo.attached? %>
-                <%= cl_image_tag first_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
-              <% else %>
-                <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
-              <% end %>
-              <div class="perf-text">
-                <p><strong><%= first_performance.artist.name %></strong></p>
-                <p><strong><%= first_performance.name %></strong></p>
-                <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
-                <p><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %>- <%= one_performance.end_time.strftime("%H:%M") %></p>
+            <div class="perf-text mauve_background">
+              <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                <h5 class="live-now-card-text"><strong><%= one_performance.artist.name %></strong></h5>
+                <p class="live-now-card-text"><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
               </div>
-            <% end %>
-          </li>
-          <li class="list3">
-            <%= link_to performance_path(last_performance) do %>
-              <% if last_performance.artist.photo.attached? %>
-                <%= cl_image_tag last_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
-              <% else %>
-                <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
-              <% end %>
-              <div class="perf-text">
-                <p><strong><%= last_performance.artist.name %></strong></p>
-                <p><strong><%= last_performance.name %></strong></p>
-                <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
-                <p><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %>- <%= one_performance.end_time.strftime("%H:%M") %></p>
+              <p class="live-now-card-text"><strong><%= one_performance.name %></strong></p>
+              <div style="display: flex; flex-direction: row; justify-content: space-between;">
+              <p class="live-now-card-text"><em class="far fa-calendar-alt"></em> <%= one_performance.start_time.strftime("%Y/%m/%d") %></p>
+              <p class="live-now-card-text"><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %></p>
               </div>
+            </div>
+          <% end %>
+        </div>
+
+         <div class="list2">
+          <%= link_to performance_path(first_performance) do %>
+            <% if first_performance.artist.photo.attached? %>
+              <%= cl_image_tag first_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+            <% else %>
+              <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
             <% end %>
-          </li>
-        </ul>
-      <% end %>
+            <div class="perf-text mauve_background">
+              <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                <h5 class="live-now-card-text"><strong><%= first_performance.artist.name %></strong></h5>
+                <p class="live-now-card-text"><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
+              </div>
+              <p class="live-now-card-text"><strong><%= first_performance.name %></strong></p>
+              <div style="display: flex; flex-direction: row; justify-content: space-between;">
+              <p class="live-now-card-text"><em class="far fa-calendar-alt"></em> <%= one_performance.start_time.strftime("%Y/%m/%d") %></p>
+              <p class="live-now-card-text"><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+
+         <div class="list3">
+          <%= link_to performance_path(last_performance) do %>
+            <% if last_performance.artist.photo.attached? %>
+              <%= cl_image_tag last_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+            <% else %>
+              <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+            <% end %>
+           <div class="perf-text mauve_background">
+              <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                <h5 class="live-now-card-text"><strong><%= last_performance.artist.name %></strong></h5>
+                <p class="live-now-card-text"><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
+              </div>
+              <p class="live-now-card-text"><strong><%= last_performance.name %></strong></p>
+              <div style="display: flex; flex-direction: row; justify-content: space-between;">
+              <p class="live-now-card-text"><em class="far fa-calendar-alt"></em> <%= one_performance.start_time.strftime("%Y/%m/%d") %></p>
+              <p class="live-now-card-text"><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
     </div>
   </div>
-  <!-- spacer dark purple -->
-  <%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
-  <!-- The Performances Index -->
-  <div class="ro-wrapper wireframe dark_purple_background">
-    <div class="ro-container wireframe" style="">
-      <h3 class="wireframe section-title">More shows</h3>
-    </div>
+</div>
+
+<!-- spacer dark purple -->
+<%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
+<!-- The Performances Index -->
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="">
+      <h3 class="wireframe section-title">More shows coming up</h3>
   </div>
-  <div class="ro-wrapper wireframe dark_purple_background">
-    <div class="ro-container wireframe" style="">
-      <%= render "list", performances: @performances %>
-    </div>
+</div>
+
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="">
+    <%#= render "list", performances: @performances %>
+    <%= render "new_list", performances: @performances  %>
   </div>

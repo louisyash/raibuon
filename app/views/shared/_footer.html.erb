@@ -1,11 +1,15 @@
-
+<%
+=begin %>
 <% if current_page?('/')%>
   <% display_style = "flex"; %>
 <% else %>
   <% display_style = "none"; %>
 <% end %>
+<%
+=end %>
+<% display_style = "flex"; %>
 
-<div class="wrapper ro-wrapper ro-footer" style="display: <%= display_style %>">
+<div class="wrapper ro-wrapper black_background" style="display: <%= display_style %>">
   <div class="ro-container wireframe">
     <div class="footer-links">
       <a href="#"><i class="fab fa-github"></i></a>
@@ -16,7 +20,7 @@
   </div>
 </div>
 
-<div class="wrapper ro-wrapper ro-footer" style="display: <%= display_style %>">
+<div class="wrapper ro-wrapper black_background ro-footer-bottom-space" style="display: <%= display_style %>">
  <div class="ro-container wireframe">
     <div class="footer-copyright">
       <span style="color: #fff; float: right;">Made with <i class="fas fa-heart"></i> by LiveHere</span>

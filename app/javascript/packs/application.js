@@ -34,27 +34,51 @@ import 'owl.carousel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  $('.owl-carousel').owlCarousel({
+
+  // initSelect2();
+     $('#owl-one').owlCarousel({
   loop: true,
   margin: 10,
+
   responsive:{
     0:{
-      items:1
+      items:1,
      },
     600:{
-      items:2
+      items:2,
      },
-    1000: {
-      items: 3
+    800: {
+      items: 3,
     }
    },
    nav: true,
    navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"]
  });
-  // initSelect2();
+
+
+ $('#owl-performances-index').owlCarousel({
+  loop: true,
+  margin: 10,
+  // 320px — 480px: Mobile devices. //
+  // 481px — 768px: iPads, Tablets. //
+  // 769px — 1024px: Small screens, laptops. //
+  // 1025px — 1200px: Desktops, large screens. //
+  // 1201px and more — Extra large screens, T //
+  responsive:{
+    0:{ items:1.5,},
+    600:{ items:2.5,},
+    800: { items: 3,
+    }
+   },
+   nav: false,
+   navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"]
+ });
+
+
   initPerformanceCable();
   initMapbox();
   dropMenus();
+
 });
 
 import "controllers"
@@ -110,3 +134,10 @@ window.onclick = function (event) {
     }
   }
 }
+
+
+function owls() {
+
+
+
+ };
