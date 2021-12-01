@@ -28,6 +28,13 @@
             <td>
               <h6>¥<%= artist.tips_total %></h6>
             </td>
+            <td>
+              <% if Performance.find_by(artist: artist).live?   %>
+                <h6><%= link_to "Live today!", performance_path(@performances.first) %></h6>
+              <% else %>
+                <h6> </h6>
+              <% end %>
+            </td>
           </tr>
           <% num += 1 %>
         <% end %>
