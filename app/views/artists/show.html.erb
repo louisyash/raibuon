@@ -9,7 +9,9 @@
   <div class="center pt-3">
     <h3 class="display-name"><%= @artist.name %></h3>
   </div>
-  <p class="center"><%= @artist.description %></p>
+  <div class="description">
+    <p class="center"><%= @artist.description %></p>
+  </div>
   <div class="user-buttons">
     <% if @artist.user == current_user %>
       <%= link_to 'Edit', "/", class:'btn profile-btn' %>
@@ -63,7 +65,7 @@
           <h3>Upcoming Performance</h3>
           <div class="container schedules">
             <% @artist.performances.each do |performance| %>
-              <div class="schedule profile-container pt-3">
+              <div class="schedule profile-container pt-3 mb-3">
                 <%= link_to performance_path(performance) do %>
                   <h4><%= performance.name %></h4>
                   <p><em class="fas fa-map-marker-alt text-light"></em> <%= performance.address %></p>
@@ -78,7 +80,7 @@
           <h4>Archived Performances</h4>
           <div class="container schedules">
             <% @artist.performances.first(3).each do |performance| %>
-              <div class="schedule profile-container pt-3">
+              <div class="schedule profile-container pt-3 mb-3">
                 <%= link_to performance_path(performance) do %>
                   <h4><%= performance.name %></h4>
                   <p><em class="fas fa-map-marker-alt text-light"></em> <%= performance.address %></p>
