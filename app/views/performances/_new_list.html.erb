@@ -1,0 +1,19 @@
+<div data-test-target="list" class="performance-grid">
+  <% @performances.each do |performance| %>
+    <div class="performance-grid__item">
+      <%= link_to performance_path(performance) do %>
+        <div class="performance-grid__item-photo-container">
+          <% if performance.artist.photo.attached? %>
+            <%= cl_image_tag performance.artist.photo.key, crop: :fill, class: "photo-class" %>
+          <% else %>
+            <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", crop: :fill, class: "photo-class" %>
+          <% end %>
+        </div>
+        <div class="performance-grid__item-text-container">
+          <%= link_to performance.artist.name, artist_path(performance.artist.id), class: "performance-text--name" %>
+          <p><em class="fas fa-map-marker-alt text-light"></em><%= performance.address %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
