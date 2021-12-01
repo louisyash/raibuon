@@ -8,6 +8,11 @@ $card-color: #34344E;
   display: flex;
   justify-content: space-around;
   overflow: hidden;
+  img{
+    margin: auto;
+    width: 80px;
+    height: 80px;
+  }
   h3{
     font-family: 'Post No Bills Colombo', sans-serif;
     font-size: 40px;
@@ -27,7 +32,7 @@ $card-color: #34344E;
   justify-content: space-around;
   overflow: hidden;
   h3{
-    font-family: 'Post No Bills Colombo', sans-serif;
+    font-family: 'Rock Salt', sans-serif;
     margin: auto;
   }
   h1{

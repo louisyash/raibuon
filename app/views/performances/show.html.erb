@@ -9,7 +9,7 @@
           <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
         <% end %>
         <div class="container d-flex align-content-center justify-content-around flex-column">
-          <h3 class="m-0"><%= @performance.artist.name %></h3>
+          <h3 class="m-0 text-center"><%= @performance.artist.name %></h3>
         </div>
       <% end %>
       <% if @performance.artist.user.username == @current_user.username %>
