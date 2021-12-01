@@ -145,7 +145,10 @@ h3.section-title {
   }
 
 
-  @media(max-width: 480px) {
+
+}
+
+@media(max-width: 480px) {
     .half_and_half-wrapper {
       height: 35vh;
     }
@@ -158,7 +161,6 @@ h3.section-title {
     }
 
   }
-}
 
 /* targeting landscape smartphones */
 @media(max-height: 450px) {
