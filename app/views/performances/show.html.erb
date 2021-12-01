@@ -43,7 +43,7 @@
         <% end %>
       <% end %>
     </div>
-    <p data-display-messages-target="display" data-action="click->display-messages#display">View 4 more messages</p>
+    <p data-display-messages-target="display" data-action="click->display-messages#display">View <%= @performance.messages.count + @performance.tips.count%> more messages</p>
     <h5>Comment here!</h5>
     <%= simple_form_for [@performance, @message], remote: true do |f| %>
       <%= f.input :content, label: false %>
