@@ -67,8 +67,8 @@
                 <%= link_to performance_path(performance) do %>
                   <h4><%= performance.name %></h4>
                   <p><em class="fas fa-map-marker-alt text-light"></em> <%= performance.address %></p>
-                  <p><em class="far fa-calendar-alt"></em> <%= performance.performance_starts_at.strftime("%Y/%m/%d") %></p>
-                  <p><em class="far fa-clock"></em> <%= performance.performance_starts_at.strftime("%H:%M") %>- <%= performance.performance_starts_at.strftime("%H:%M") %></p>
+                  <p><em class="far fa-calendar-alt"></em> <%= performance.start_time.strftime("%Y/%m/%d") %></p>
+                  <p><em class="far fa-clock"></em> <%= performance.start_time.strftime("%H:%M") %>- <%= performance.end_time.strftime("%H:%M") %></p>
                 <% end %>
               </div>
             <% end %>
@@ -79,7 +79,7 @@
           <div class="container schedules">
             <% @artist.performances.first(3).each do |performance| %>
               <div class="schedule profile-container pt-3">
-                <%= link_to performance_path(@performance) do %>
+                <%= link_to performance_path(performance) do %>
                   <h4><%= performance.name %></h4>
                   <p><em class="fas fa-map-marker-alt text-light"></em> <%= performance.address %></p>
                   <p><em class="far fa-calendar-alt"></em> <%= performance.start_time.strftime("%Y/%m/%d") %></p>
