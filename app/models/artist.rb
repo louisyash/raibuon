@@ -7,4 +7,8 @@ class Artist < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
+  def tips_total
+    tips.sum(:amount_cents)
+  end
+
 end

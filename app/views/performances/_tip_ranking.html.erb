@@ -1,19 +1,33 @@
 <h3>Tip Rankings</h3>
-<% all_tips = [nil] %>
-<% artist_tips = [] %>
-<% num = 1 %>
-<% while num <= Artist.count do %>
-  <% @tips.select do |tip| %>
-    <% if tip.performance.artist_id == num %>
-      <% artist_tips << tip %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">
+        <p>#</p>
+      </th>
+      <th scope="col">
+        <p>Artist Name</p>
+      </th>
+      <th scope="col">
+        <p>Total Tips</p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% num = 1 %>
+    <% artist_ranking.first(10).each do |artist| %>
+      <tr>
+        <th scope="row">
+          <p><%= num %></p>
+        </th>
+        <td>
+          <p><%= artist.name %></p>
+        </td>
+        <td>
+          <p><%= artist.tips_total %></p>
+        </td>
+      </tr>
+      <% num += 1 %>
     <% end %>
-  <% end %>
-  <% all_tips << artist_tips %>
-  <% num += 1 %>
-  <% artist_tips = [] %>
-<% end %>
-<%= all_tips %>
-<p>1. <%= all_tips[1].first.performance.artist.name %>  ----- Total tips: ¥<%= all_tips[1].amount %></p>
-<p>2. <%= Artist.find(2).name %>  ----- Total tips: ¥<%= all_tips[2].amount %></p>
-<p>3. <%= Artist.find(3).name %>  ----- Total tips: ¥<%= all_tips[3].amount %></p>
-<p>4. <%= Artist.find(4).name %>  ----- Total tips: ¥<%= all_tips[4].amount %></p>
+  </tbody>
+</table>
