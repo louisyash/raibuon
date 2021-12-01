@@ -1,31 +1,22 @@
-<div class="content-message d-flex flex-column" id="message-<%= message.id %>">
+<div class="content-message d-flex flex-column <%= "mine" if message.user == current_user %>" id="message-<%= message.id %>" data-author-id="<%= message.user.id %>">
   <!--check if is current user -->
-  <% if message.user == current_user %>
-    <div id="" class="container d-flex flex-row-reverse ">
+  <div id="" class="container d-flex content">
+    <% if message.user.photo.attached? %>
+      <%= cl_image_tag message.user.photo.key, class:"avatar-large m-auto" %>
     <% else %>
-      <div id="" class="container d-flex flex-row">
-      <% end %>
-      <% if message.user.photo.attached? %>
-        <%= cl_image_tag message.user.photo.key, class:"avatar-large m-auto" %>
-      <% else %>
-        <%= image_tag "blank-profile-picture.png", class:"avatar-large" %>
-      <% end %>
-      <div class="container d-flex flex-column">
-        <% if message.user != current_user %>
-          <p class="text-warning message-p"><%= message.user.username %></p>
-          <p class="message-p"><%= message.content%></p>
-        <% else %>
-          <p class="text-warning message-other"><%= message.user.username %></p>
-          <p class="message-other"><%= message.content%></p>
-        <% end %>
-      </div>
-    </div>
-    <!--another user side -->
-    <% if message.photo.attached? %>
-      <div class="container d-flex justify-content-center my-2">
-        <%= cl_image_tag message.photo.key, :width => 200, class:"m-auto message-img"%>
-      </div>
-    <% else %>
-      <div class="d-none"></div>
+      <%= image_tag "blank-profile-picture.png", class:"avatar-large" %>
     <% end %>
+    <div class="container d-flex flex-column">
+      <p class="text-warning"><%= message.user.username %></p>
+      <p class=""><%= message.content%></p>
+    </div>
   </div>
+  <!--another user side -->
+  <% if message.photo.attached? %>
+    <div class="container d-flex justify-content-center my-2">
+      <%= cl_image_tag message.photo.key, :width => 200, class:"m-auto message-img"%>
+    </div>
+  <% else %>
+    <div class="d-none"></div>
+  <% end %>
+</div>
