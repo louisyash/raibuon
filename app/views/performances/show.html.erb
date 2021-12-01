@@ -49,6 +49,7 @@
     <%= simple_form_for [@performance, @message], remote: true do |f| %>
       <%= f.input :content, label: false %>
       <%= f.button :submit, value: 'send!', class:'w-100' %>
+      <%= f.input :photo, as: :file, label: false %>
     <% end %>
   </div>
 </div>
