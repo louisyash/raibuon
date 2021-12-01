@@ -19,9 +19,9 @@ class MessagesController < ApplicationController
         format.js
       end
     else
-        respond_to do |format|
+      respond_to do |format|
         format.html { render 'performances/show' }
-        format.js{ head :ok }
+        format.js
       end
     end
   end
