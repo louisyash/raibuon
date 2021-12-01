@@ -2,7 +2,6 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
-    @performance = @artist.performances.find(params[:id])
     authorize @artist
   end
 

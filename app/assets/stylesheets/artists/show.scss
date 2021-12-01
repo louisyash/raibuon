@@ -3,7 +3,7 @@
 }
 
 .sns-container{
-  justify-content: space-between;
+  justify-content: space-around;
   height: 50px;
   margin: 0 90px 0 90px;
 }
@@ -40,4 +40,15 @@
 
 .archived{
   padding-top: 20px;
+}
+
+.description {
+  height:60px;
+  display:table;
+  text-align:center;
+
+  p {
+  display:table-cell;
+  vertical-align:middle;
+  }
 }
