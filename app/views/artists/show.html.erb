@@ -22,22 +22,22 @@
     <% if @artist.facebook.present? %>
       <a href="https://<%= @artist.facebook %>"><i class="fab fa-facebook-square social-media"></i></a>
     <% else %>
-      <div style="color: gray;"><%= @artist.facebook %><i class="fab fa-facebook-square social-media"></i></div>
+      <div style="display: none;"><%= @artist.facebook %><i class="fab fa-facebook-square social-media"></i></div>
     <% end %>
     <% if @artist.instagram.present? %>
       <a href="https://<%= @artist.facebook %>"><i class="fab fa-instagram social-media"></i></a>
     <% else %>
-      <div style="color: gray;"><%= @artist.instagram %><i class="fab fa-instagram social-media"></i></div>
+      <div style="display: none;"><%= @artist.instagram %><i class="fab fa-instagram social-media"></i></div>
     <% end %>
     <% if @artist.soundcloud.present? %>
       <a href="https://<%= @artist.soundcloud %>"><i class="fab fa-soundcloud social-media"></i></a>
     <% else %>
-      <div style="color: gray;"><%= @artist.soundcloud %><i class="fab fa-soundcloud social-media"></i></div>
+      <div style="display: none;"><%= @artist.soundcloud %><i class="fab fa-soundcloud social-media"></i></div>
     <% end %>
     <% if @artist.spotify.present? %>
       <a href="https://<%= @artist.spotify %>"><i class="fab fa-spotify social-media"></i></a>
     <% else %>
-      <div style="color: gray;"><%= @artist.spotify %>><i class="fab fa-spotify social-media"></i></div>
+      <div style="display: none;"><%= @artist.spotify %>><i class="fab fa-spotify social-media"></i></div>
     <% end %>
   </div>
   <div class="container d-flex justify-content-around flex-wrap">
