@@ -18,9 +18,11 @@ class MessagesController < ApplicationController
         format.html { redirect_to performance_path(@performance)}
         format.js
       end
-      # redirect_to performance_path(@performance, anchor: "message-#{@message.id}")
     else
-      render 'performances/show'
+        respond_to do |format|
+        format.html { render 'performances/show' }
+        format.js{ head :ok }
+      end
     end
   end
 
