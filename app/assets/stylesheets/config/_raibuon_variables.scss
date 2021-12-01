@@ -6,16 +6,25 @@ $ui-nav-bigger-icon-size: $ui-nav-icons-size * 1.5;
 $ui-nav-bigger-icon-radius: $ui-nav-bigger-icon-size / 2;
 $ui-nav-double-icon-size: $ui-nav-icons-size * 2;
 
-/* x pos indent on home page banner */
-$banner_items_indent: 20%;
+
+
 
 .wireframe {
-  outline: 0px solid #fff;
+  outline: 1px solid #808080;
 }
 
 .ro-section {
   margin-top: 20px;
 }
+
+h3.section-title {
+    font-size: 2.5rem;
+    font-weight:600;
+    position: relative;
+    float: left;
+    margin-right: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,2);
+  }
 
 .ro-container {
   position: relative;
@@ -32,6 +41,16 @@ $banner_items_indent: 20%;
   display: flex;
 }
 
+.ro-button-link {
+  background-color: $ui-color-highlight;
+  color: #fff;
+  float: right;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
 /* 320px — 480px: Mobile devices. */
 /* 481px — 768px: iPads, Tablets. */
 /* 769px — 1024px: Small screens, laptops. */
@@ -40,12 +59,27 @@ $banner_items_indent: 20%;
 
 @media(max-width: 1200px) {
   .ro-container {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+
+@media(max-width: 1024px) {
+  .ro-container {
     margin-left: 30px;
     margin-right: 30px;
   }
 }
 
-@media(max-width: 1024px) {
+
+@media(max-width: 768px) {
+  .ro-container {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+@media(max-width: 480px) {
   .ro-container {
     margin-left: 20px;
     margin-right: 20px;
@@ -53,16 +87,8 @@ $banner_items_indent: 20%;
 }
 
 
-@media(max-width: 768px) {
-  .ro-container {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-}
-
-@media(max-width: 480px) {
-  .ro-container {
-    margin-left: 5px;
-    margin-right: 5px;
+@media(max-height: 700px) and (max-width: 480px) {
+  h3.section-title {
+    font-size:8vw;
   }
 }

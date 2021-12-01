@@ -10,39 +10,52 @@
   <div class="ro-container wireframe">
     <div class="vertical-offcenter landing-text wireframe">
       <div class="landing-text__item-containers wireframe">
-        <h1 class="ro-landing-title heading-inset wireframe" style="z-index: 50;">RaibuOn</h1>
+        <h1 class="ro-landing-title wireframe" style="z-index: 50;">RaibuOn</h1>
       </div>
       <div class="landing-text__item-containers wireframe">
-        <%= link_to performances_path  do %>
-          <h2 class="ro-landing-sub-title heading-inset wireframe">Live music near you</h2>
+        <%= link_to performances_path, class: ""  do %>
+          <h2 class="ro-landing-sub-title wireframe">Live music near you</h2>
         <% end %>
-        <%= render 'shared/go_button' %>
+        <%= render 'shared/gotoindex_button' %>
       </div>
     </div>
+  </div>
+</div>
+<!-- spacer dark purple -->
+<%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
+<!-- map title section -->
+<div class="ro-wrapper wireframe">
+  <div class="ro-container wireframe" style="outline: 1px solid red;">
+    <h3 class="wireframe section-title white-text" style=""><%= @performances.all.count %> upcoming shows and performances across Japan</h3>
   </div>
 </div>
 <!-- map section -->
-<div class="wrapper ro-wrapper wireframe"  style="flex-direction: column; position: relative;">
+<div class="ro-wrapper wireframe"  style="flex-direction: column; position: relative;">
   <div class="overlay-wrapper">
-    <div class="ro-container big-center-card-container wireframe" style="outline: 0px solid red;">
+    <div class="ro-container wireframe" style="">
       <div class="big-center-card" style="">
         <div id="map"
-     style="width: 100%; height: 100%;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-        
-      <!-- Raibuon search bar -->
-      <div class="landing-text__item-containers wireframe searchbar-inset" style="">
-        <%= render 'shared/searchbar', display_class: "searchbar-home" %>
-        <%= render 'shared/qr_button', display_class: "wide-screen-buttons" %>
+          style="width: 100%; height: 100%;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
   </div>
+  <!-- background colors -->
   <div class="wrapper ro-wrapper home-halfscreen-upper half_and_half-wrapper"  style=""></div>
   <div class="wrapper ro-wrapper home-halfscreen-lower half_and_half-wrapper"  style=""></div>
 </div>
+<!-- spacer white -->
+<%= render "shared/section_spacer", background_color: "white_background"  %>
 <!-- secondary banner -->
-<div class="wrapper" style="height: 50vh; background: #fff; position: relative; display: flex;">
-  <div class="ro-container wireframe">
+<div class="ro-wrapper wireframe secondary-landing-banner-wrapper white_background" >
+  <div class="ro-container wireframe secondary-landing-banner-content" style="flex-direction: column;">
+    <h3 class="wireframe section-title white-text secondary-cta-question" style="padding-top: 30px;">Want to publicize your next performance?</h3>
+    <div class="wireframe" style="width: 100%; display: flex; justify-content: center; padding-bottom: 30px;">
+      <%= link_to "Raibuon Artists", new_artist_path, class: "ro-button-link", style: "" %>
+    </div>
   </div>
 </div>
+<!-- spacer white -->
+<%= render "shared/section_spacer", background_color: "white_background"  %>

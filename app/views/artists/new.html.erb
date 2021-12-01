@@ -1,18 +1,23 @@
-<div class="container">
-  <h1>Make your artist page</h1>
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="">
+    <h1>Make your artist page</h1>
+  </div>
+</div>
+<div class="ro-wrapper wireframe dark_purple_background">
+  <div class="ro-container wireframe" style="">
+    <div class="container">
 
-  <div class="container">
-    <h2>Make an artist page!</h2>
-    <%= simple_form_for @artist do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <p>Enter social media urls.</p>
-      <%= f.input :facebook %>
-      <%= f.input :instagram %>
-      <%= f.input :soundcloud %>
-      <%= f.input :spotify %>
-      <%= f.input :photo, as: :file, label: "Image" %>
-      <%= f.submit :Submit, class:"btn btn-dark" %>
-    <% end %>
+      <%= simple_form_for @artist do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <p>Enter social media urls.</p>
+        <%= f.input :facebook %>
+        <%= f.input :instagram %>
+        <%= f.input :soundcloud %>
+        <%= f.input :spotify %>
+        <%= f.input :photo, as: :file, label: "Image" %>
+        <%= f.submit :Submit, class:"btn btn-dark" %>
+      <% end %>
+    </div>
   </div>
 </div>
