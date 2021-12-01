@@ -1,6 +1,5 @@
 <div class="container">
   <h1>Make your artist page</h1>
-
   <div class="container">
     <h2>Make an artist page!</h2>
     <%= simple_form_for @artist do |f| %>
@@ -8,6 +7,7 @@
       <%= f.input :description %>
       <p>Enter social media urls.</p>
       <%= f.input :facebook %>
+      <%= f.input :twitter %>
       <%= f.input :instagram %>
       <%= f.input :soundcloud %>
       <%= f.input :spotify %>
