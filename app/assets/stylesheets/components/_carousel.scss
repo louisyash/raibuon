@@ -2,7 +2,7 @@
 .scroll_list{
   margin: 0 auto;
   padding: 0;
-  width: 90%;
+  width: 100%;
   overflow-x: auto;
   white-space: nowrap;
   overflow-scrolling: touch;
@@ -14,7 +14,7 @@
 .scroll_list li{
   display: inline-block;
   list-style: none;
-  height: 450px;
+  height: 250px;
 }
 
 .list1{
