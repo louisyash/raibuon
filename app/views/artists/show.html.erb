@@ -9,7 +9,7 @@
   <div class="center pt-3">
     <h3 class="display-name"><%= @artist.name %></h3>
   </div>
-  <p class="center"><%= @artist.description %>Hi this is hard-coded artist description!</p>
+  <p class="center"><%= @artist.description %></p>
   <div class="user-buttons">
     <% if @artist.user == current_user %>
       <%= link_to 'Edit', "/", class:'btn profile-btn' %>
