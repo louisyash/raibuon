@@ -1,12 +1,12 @@
 <div class="content-message d-flex flex-column" id="message-<%= message.id %>">
   <div class="container d-flex flex-inline">
     <% if message.user.photo.attached? %>
-      <%= cl_image_tag message.user.photo.key, class:"avatar-large" %>
+      <%= cl_image_tag message.user.photo.key, class:"avatar-large m-auto" %>
     <% else %>
       <%= image_tag "blank-profile-picture.png", class:"avatar-large" %>
     <% end %>
-    <div class="container">
-      <p><%= message.user.username %></p>
+    <div class="container d-flex flex-column">
+      <p class="text-warning message-p"><%= message.user.username %> :</p>
       <p><%= message.content%></p>
     </div>
   </div>
