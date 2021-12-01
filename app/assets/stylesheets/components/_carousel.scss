@@ -4,17 +4,21 @@
   padding: 0;
   width: 100%;
   overflow-x: auto;
+  cursor: grab;
+    overflow: auto;
   white-space: nowrap;
   overflow-scrolling: touch;
   -webkit-overflow-scrolling: touch;
   position: relative;
-  border-radius: 16px;
+
 }
 
 .scroll_list li{
   display: inline-block;
   list-style: none;
   height: 250px;
+  cursor: grab;
+    overflow: auto;
 }
 
 .list1{
@@ -46,11 +50,12 @@
   display: inline-block;  /* 横並びにする指定 */
   list-style: none;
   height: 450px;  /* 横スクロールする範囲の高さを指定 */
+  border-radius: 16px;
 }
 .list1{
   margin-left: 0;
 }
 .list2, .list3{
-  margin-left: 30px;
+  margin-left: 10px;
 }
 }

@@ -30,9 +30,17 @@
 
 .perf-text {
   position:absolute;
-    bottom: 0px;
-    left: 1em;
-    text-shadow: 0 1px black
+  bottom: 0px;
+  left: 0px;
+  text-shadow: 0 1px black;
+  width: 100%;
+  padding: 5px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.live-now-card-text {
+  margin-bottom: 2px;
 }
 
 .perf-text-sm {
