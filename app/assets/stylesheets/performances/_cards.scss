@@ -1,5 +1,30 @@
 $background-color:#201F30;
 $card-color: #34344E;
+$button-color: #6B192D;
+
+.title-container{
+  height: 100px;
+  border-radius: 20px;
+  background-color: $button-color;
+  display: flex;
+  border: solid 2px white;
+  justify-content: space-around;
+  overflow: hidden;
+  img{
+    margin: auto;
+    width: 80px;
+    height: 80px;
+  }
+  h3{
+    font-family: 'Post No Bills Colombo', sans-serif;
+    font-size: 30px;
+    margin: auto;
+  }
+  h1{
+    margin: auto;
+    font-family: 'Post No Bills Colombo', sans-serif;
+  }
+}
 
 .tip-container{
   height: 100px;
@@ -14,6 +39,7 @@ $card-color: #34344E;
   }
   h1{
     margin: auto;
+    font-family: 'Post No Bills Colombo', sans-serif;
   }
 }
 
