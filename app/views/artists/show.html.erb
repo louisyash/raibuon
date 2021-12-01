@@ -46,8 +46,45 @@
       <%= render "tips/amount", amount: @artist.tips.sum(:amount_cents) %>
     </div>
   </div>
-  <div id="schedule" class="container profile-container">
-    <% @artist.performances.each do |performance| %>
-      <%= performance.name %>
-    <% end %>
-  </div>
+  <div class="container">
+    <div class="container my-2">
+      <h5>Photos from live</h5>
+    </div>
+    <div class="uploaded-photos ">
+      <%# @artist.photos do |photo| %>
+        <%# image_tag photo.first(9) %>
+        <%# end %>
+        <%= image_tag "yoyogi2.jpg", class:"uploaded-photo" %>
+        <%= image_tag "yoyogi3.jpg", class:"uploaded-photo" %>
+        <%= image_tag "yoyogi-park-tokyo.jpg", class:"uploaded-photo" %>
+      </div>
+      <div id="schedule" style="padding-top: 100px;">
+        <div class="upcoming">
+          <h2>Upcoming Performance</h2>
+          <div class="container schedules">
+            <% @artist.performances.each do |performance| %>
+              <div class="schedule">
+                <h5><%= performance.name %></h5>
+                <h5><%= performance.address %></h5>
+                <h5><%= performance.performance_date %>
+                  <h5><%= performance.start_time %>- <%= performance.end_time %></h5>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="archived">
+            <h2>Archived Performances</h2>
+            <div class="container schedules">
+              <% @artist.performances.first(3).each do |performance| %>
+                <div class="schedule">
+                  <h5><%= performance.name %></h5>
+                  <h5><%= performance.address %></h5>
+                  <h5><%= performance.performance_date %>
+                    <h5><%= performance.start_time %>- <%= performance.end_time %></h5>
+                  </div>
+                <% end %>
+                <h6 style="text-align: end;">View more</h6>
+              </div>
+            </div>
+          </div>
+        </div>

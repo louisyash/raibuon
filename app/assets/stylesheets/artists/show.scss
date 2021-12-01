@@ -25,3 +25,15 @@
     margin: auto;
   }
 }
+
+.uploaded-photos{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .uploaded-photo{
+    width: 32%;
+    height: 100px;
+    object-fit: cover;
+  }
+}
