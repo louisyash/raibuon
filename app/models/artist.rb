@@ -11,4 +11,8 @@ class Artist < ApplicationRecord
     tips.sum(:amount_cents)
   end
 
+  def self.order_by_tips
+    joins(:tips).group("performances.artist_id", "artists.id").order("sum(tips.amount_cents) DESC")
+  end
+
 end

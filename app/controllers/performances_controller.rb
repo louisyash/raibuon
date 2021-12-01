@@ -6,7 +6,7 @@ class PerformancesController < ApplicationController
     end
 
     @tips = Tip.all
-    @artist_ranking = Artist.joins(:performances, :tips).group("artists.id").order("sum(tips.amount_cents) DESC")
+    @artist_ranking = Artist.order_by_tips
 
     authorize @performances
 
