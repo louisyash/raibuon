@@ -64,7 +64,7 @@
           <div class="container schedules">
             <% @artist.performances.each do |performance| %>
               <div class="schedule profile-container pt-3">
-                <%= link_to performance_path(@performance) do %>
+                <%= link_to performance_path(performance) do %>
                   <h4><%= performance.name %></h4>
                   <p><em class="fas fa-map-marker-alt text-light"></em> <%= performance.address %></p>
                   <p><em class="far fa-calendar-alt"></em> <%= performance.performance_starts_at.strftime("%Y/%m/%d") %></p>
