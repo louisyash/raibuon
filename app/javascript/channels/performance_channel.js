@@ -18,8 +18,18 @@ const initPerformanceCable = () => {
 }
 //targets: `#message-${data.id}`,
 const addMessages = (message, messagesContainer) => {
-  messagesContainer.insertAdjacentHTML('afterbegin', message);
+  const messageDiv = document.createElement('div');
+  messageDiv.innerHTML = message;
+  const authorId = parseInt(messageDiv.querySelector('.content-message').dataset.authorId)
+  console.log(authorId, messageDiv.querySelector('.content-message'))
+  const currentUserId = parseInt(document.querySelector('.message-container').dataset.userId)
+  console.log(currentUserId, authorId)
+  if(currentUserId !== authorId ){
+    messageDiv.querySelector('.content-message').classList.remove('mine')
+  }
+  messagesContainer.insertAdjacentElement('afterbegin', messageDiv);
   messagesContainer.scrollTop = 0;
+  document.getElementById("message_content").value = null;
 }
 
 const addTips = (tips) => {

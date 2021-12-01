@@ -1,7 +1,9 @@
+
 <div data-controller="test" class="">
 
 <!-- spacer dark purple -->
 <%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
+
   <%# <%= render "form" %>
   <%
 =begin %>
@@ -13,8 +15,10 @@
       </div>
     </div>
   </div>
-  <%
-=end %>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Post your performance", new_performance_path, class:"btn tip-btn w-75 btn-block" %>
+  </div>
+  <% end %>
 
 <div class="ro-wrapper wireframe dark_purple_background">
   <div class="ro-container wireframe" style="justify-content: start;">
@@ -39,13 +43,21 @@
             <i style="color: white" class="far fa-heart"></i>
             <div class="live-button">
               <p>LIVE</p>
+
             </div>
-          </div>
-          <%= link_to performance_path(one_performance) do %>
-            <% if one_performance.artist.photo.attached? %>
-              <%= cl_image_tag one_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
-            <% else %>
-              <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+            <%= link_to performance_path(one_performance) do %>
+              <% if one_performance.artist.photo.attached? %>
+                <%= cl_image_tag one_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+              <% else %>
+                <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
+              <% end %>
+              <div class="perf-text">
+                <h5><strong><%= one_performance.artist.name %></strong></h5>
+                <p><strong><%= one_performance.name %></strong></p>
+                <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
+                <p><em class="far fa-calendar-alt"></em> <%= one_performance.start_time.strftime("%Y/%m/%d") %></p>
+                <p><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %>- <%= one_performance.end_time.strftime("%H:%M") %></p>
+              </div>
             <% end %>
             <div class="perf-text mauve_background">
               <div style="display: flex; flex-direction: row; justify-content: space-between;">
@@ -121,4 +133,3 @@
     <%#= render "list", performances: @performances %>
     <%= render "new_list", performances: @performances  %>
   </div>
-</div>

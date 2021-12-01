@@ -1,11 +1,22 @@
-<div class="content-message" id="message-<%= message.id %>">
-  <% if message.user.photo.attached? %>
-    <%= cl_image_tag message.user.photo.key, class:"avatar-large" %>
-  <% else %>
-    <%= image_tag "blank-profile-picture.png", class:"avatar-large" %>
-  <% end %>
-  <div class="container">
-    <p><%= message.user.username %></p>
-    <p><%= message.content%></p>
+<div class="content-message d-flex flex-column <%= "mine" if message.user == current_user %>" id="message-<%= message.id %>" data-author-id="<%= message.user.id %>">
+  <!--check if is current user -->
+  <div id="" class="container d-flex content">
+    <% if message.user.photo.attached? %>
+      <%= cl_image_tag message.user.photo.key, class:"avatar-large m-auto" %>
+    <% else %>
+      <%= image_tag "blank-profile-picture.png", class:"avatar-large" %>
+    <% end %>
+    <div class="container d-flex flex-column">
+      <p class="text-warning"><%= message.user.username %></p>
+      <p class=""><%= message.content%></p>
+    </div>
   </div>
+  <!--another user side -->
+  <% if message.photo.attached? %>
+    <div class="container d-flex justify-content-center my-2">
+      <%= cl_image_tag message.photo.key, :width => 200, class:"m-auto message-img"%>
+    </div>
+  <% else %>
+    <div class="d-none"></div>
+  <% end %>
 </div>

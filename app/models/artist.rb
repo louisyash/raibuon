@@ -7,4 +7,12 @@ class Artist < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
+  def tips_total
+    tips.sum(:amount_cents)
+  end
+
+  def self.order_by_tips
+    joins(:tips).group("performances.artist_id", "artists.id").order("sum(tips.amount_cents) DESC")
+  end
+
 end

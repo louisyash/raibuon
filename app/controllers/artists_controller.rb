@@ -2,7 +2,7 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
-    @messages = @artist.messages.order(created_at: :desc)
+    @performance = @artist.performances.find(params[:id])
     authorize @artist
   end
 

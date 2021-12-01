@@ -11,7 +11,7 @@
   </div>
   <p class="center"><%= @artist.description %>Hi this is hard-coded artist description!</p>
   <div class="user-buttons">
-    <% if @artist.user_id == current_user %>
+    <% if @artist.user == current_user %>
       <%= link_to 'Edit', "/", class:'btn profile-btn' %>
     <% else %>
       <%= link_to 'Follow', "/", class:'btn profile-btn' %>
@@ -46,8 +46,51 @@
       <%= render "tips/amount", amount: @artist.tips.sum(:amount_cents) %>
     </div>
   </div>
-  <div id="schedule" class="container profile-container">
-    <% @artist.performances.each do |performance| %>
-      <%= performance.name %>
-    <% end %>
-  </div>
+  <div class="container">
+    <div class="container my-2">
+      <h5>Photos from live</h5>
+    </div>
+    <div class="uploaded-photos ">
+      <%# @artist.photos do |photo| %>
+        <%# image_tag photo.first(9) %>
+        <%# end %>
+        <%= image_tag "yoyogi2.jpg", class:"uploaded-photo" %>
+        <%= image_tag "yoyogi3.jpg", class:"uploaded-photo" %>
+        <%= image_tag "yoyogi-park-tokyo.jpg", class:"uploaded-photo" %>
+      </div>
+      <div id="schedule" style="padding-top: 100px;">
+        <div class="upcoming">
+          <h3>Upcoming Performance</h3>
+          <div class="container schedules">
+            <% @artist.performances.each do |performance| %>
+              <div class="schedule profile-container pt-3">
+                <%= link_to performance_path(@performance) do %>
+                  <h4><%= performance.name %></h4>
+                  <p><em class="fas fa-map-marker-alt text-light"></em> <%= performance.address %></p>
+                  <p><em class="far fa-calendar-alt"></em> <%= performance.performance_starts_at.strftime("%Y/%m/%d") %></p>
+                  <p><em class="far fa-clock"></em> <%= performance.performance_starts_at.strftime("%H:%M") %>- <%= performance.performance_starts_at.strftime("%H:%M") %></p>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="archived">
+          <h4>Archived Performances</h4>
+          <div class="container schedules">
+            <% @artist.performances.first(3).each do |performance| %>
+              <div class="schedule profile-container pt-3">
+                <%= link_to performance_path(@performance) do %>
+                  <h4><%= performance.name %></h4>
+                  <p><em class="fas fa-map-marker-alt text-light"></em> <%= performance.address %></p>
+                  <p><em class="far fa-calendar-alt"></em> <%= performance.start_time.strftime("%Y/%m/%d") %></p>
+                  <p><em class="far fa-clock"></em> <%= performance.start_time.strftime("%H:%M") %></p>
+                <% end %>
+              </div>
+            <% end %>
+            <% if @artist.performances.length > 3 %>
+              <h6 style="text-align: end;">View more</h6>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
