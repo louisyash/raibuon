@@ -20,6 +20,7 @@ const initPerformanceCable = () => {
 const addMessages = (message, messagesContainer) => {
   messagesContainer.insertAdjacentHTML('afterbegin', message);
   messagesContainer.scrollTop = 0;
+  document.getElementById("message_content").value = null;
 }
 
 const addTips = (tips) => {
