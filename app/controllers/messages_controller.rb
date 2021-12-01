@@ -5,6 +5,9 @@ class MessagesController < ApplicationController
     @message.user = current_user
     @performance =  Performance.find(params[:performance_id])
     @message.performance = @performance
+    @messages = @performance.messages.order(created_at: :desc)
+    tips = @performance.tips
+    @messages_tips = (@messages + tips).sort_by(&:created_at).reverse
     authorize @message
     if @message.save
       PerformanceChannel.broadcast_to(
