@@ -1,12 +1,14 @@
 .ro-button-bigbutton-icon-container {
   width: $ui-nav-bigger-icon-size;
   height: $ui-nav-bigger-icon-size;
-  padding: 0px;
   border-radius: 50%;
+  margin-left: calc(#{$ui-nav-bigger-icon-radius} * -1);
   z-index: 50;
-  // position: absolute;
-  // top: calc(#{$ui-nav-icon-radius} * -1);
+  position: absolute;
+  /* If someone prefers the tip button fully contained within the bottom nav bar, change this css */
+  top: calc(#{$ui-nav-icon-radius} * -1);
   background: $ui-color-highlight;
+  cursor: pointer;
 
   .ro-button-bigbutton-qrscan-icon {
     width: $ui-nav-bigger-icon-size;
@@ -33,6 +35,9 @@
     margin-left: calc(#{$ui-nav-bigger-icon-radius} - 22px);
     position: relative;
     top: 3px;
+    /* If someone prefers black text for the tip button change the css */
+    color: #fff;
+    cursor: pointer;
   }
 }
 .heyyou {
