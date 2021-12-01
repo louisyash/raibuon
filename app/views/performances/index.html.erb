@@ -28,7 +28,7 @@
           <p><strong><%= one_performance.name %></strong></p>
           <p><em class="fas fa-map-marker-alt text-light"></em>  <%= one_performance.address %></p>
           <p><em class="far fa-calendar-alt"></em> <%= one_performance.start_time.strftime("%Y/%m/%d") %></p>
-          <p><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %></p>
+          <p><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %>- <%= one_performance.end_time.strftime("%H:%M") %></p>
         </div>
       <% end %>
     </li>

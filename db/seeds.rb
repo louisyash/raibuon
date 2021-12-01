@@ -45,17 +45,16 @@ wagons.photo.attach(io: wagons_image_file, filename: "wagons_image_file", conten
 
 puts "Creating performances..."
 
-trash_perf = Performance.create!(name:"Trashcans live on the streets", artist: trashcan, address: "Yoyogi Park", performance_date: Date.new ,start_time: Time.now)
-mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mighty, address: "Yoyogi Park", performance_date: Date.new, start_time: 137.minutes.ago)
-cups_perf = Performance.create!(name:"Cups live on the streets", artist: cup_monsters, address: "Tokyo Tower", performance_date: Date.new, start_time: 57.minutes.ago)
-mighty_perf_two = Performance.create!(name:"Blast at the park", artist: mighty, address: "Nishi-Shinjuku", performance_date: Date.new, start_time: 250.minutes.ago)
-cups_perf_two = Performance.create!(name:"Sonic blast", artist: cup_monsters, address: "Yoyogi Park", performance_date: Date.new, start_time: 30.minutes.ago)
-cups_perf_three = Performance.create!(name:"Yoyogi park sonic", artist: cup_monsters, address: "Yoyogi Park", performance_date: Date.new, start_time: 30.minutes.ago)
-wagons_perf = Performance.create!(name:"Wagons smackdown live", artist: wagons, address: "Inokashira Park", performance_date: Date.new, start_time: 130.minutes.ago)
+trash_perf = Performance.create!(name:"Trashcans live on the streets", artist: trashcan, address: "Yoyogi Park", start_time: DateTime.now, end_time: DateTime.now + 5.minutes)
+mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mighty, address: "Yoyogi Park", start_time: 137.minutes.ago, end_time: DateTime.now + 5.minutes)
+mighty_perf_two = Performance.create!(name:"Blast at the park", artist: mighty, address: "Nishi-Shinjuku", start_time: 250.minutes.ago, end_time: DateTime.now + 5.minutes)
+cups_perf_two = Performance.create!(name:"Sonic blast", artist: cup_monsters, address: "Yoyogi Park", start_time: 30.minutes.ago, end_time: DateTime.now + 5.minutes)
+cups_perf_three = Performance.create!(name:"Yoyogi park sonic", artist: cup_monsters, address: "Yoyogi Park", start_time: 30.minutes.ago, end_time: DateTime.now + 5.minutes)
+wagons_perf = Performance.create!(name:"Wagons smackdown live", artist: wagons, address: "Inokashira Park", start_time: 130.minutes.ago, end_time: DateTime.now + 5.minutes)
 
 puts "Creating tips..."
 
-Tip.create!(amount: 300, user: louis, performance: cups_perf)
+Tip.create!(amount: 300, user: louis, performance: cups_perf_two)
 Tip.create!(amount: 1000, user: gareth, performance: mighty_perf)
 Tip.create!(amount: 100, user: anju, performance: trash_perf)
 Tip.create!(amount: 200, user: louis, performance: trash_perf)
@@ -66,7 +65,7 @@ puts "created #{User.count} users, #{Artist.count} artists, #{Performance.count}
 puts "creating messages"
 
 users = [emanuel, gareth, anju, louis]
-performances = [trash_perf, mighty_perf, cups_perf]
+performances = [trash_perf, mighty_perf, cups_perf_two]
 messages = ["nice concert", "the best artist!", "More sessions please!", "i'm gonna tip right now!", "please more lives!"]
 
 15.times do
