@@ -123,13 +123,19 @@ $button-color: #6B192D;
   width: 90%;
 }
 
-p.message-p{
+p{
   text-align: start;
 }
 
-p.message-other{
-  text-align: end;
+.mine {
+  p{
+    text-align: end;
+  }
+  .content {
+    flex-direction: row-reverse;
+  }
 }
+
 
 @media (max-width: 750px) {
   .tip-container{

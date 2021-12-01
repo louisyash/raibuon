@@ -31,7 +31,7 @@
     <%= render "tips/amount", amount: @performance.tips.sum(:amount_cents) %>
   </div>
   <!--Messages container-->
-  <div class="container message-container my-2 w-100" data-controller="display-messages">
+  <div class="container message-container my-2 w-100" data-controller="display-messages" data-user-id="<%= current_user.id %>">
     <!--Extension messages area-->
     <h3 class="my-3">Messages and Tips!</h3>
     <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
@@ -43,7 +43,7 @@
         <% end %>
       <% end %>
     </div>
-    <p data-display-messages-target="display" data-action="click->display-messages#display">View <%= @performance.messages.count + @performance.tips.count%> more messages</p>
+    <p data-display-messages-target="display"  data-action="click->display-messages#display">View <%= @performance.messages.count + @performance.tips.count%> more messages</p>
     <h5>Comment here!</h5>
     <%= simple_form_for [@performance, @message], remote: true do |f| %>
       <%= f.input :content, label: false %>
