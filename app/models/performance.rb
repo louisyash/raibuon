@@ -18,6 +18,10 @@ class Performance < ApplicationRecord
     time.positive? && time <= duration
   end
 
+    def live_today?
+    start_time.day == Date.today.day && start_time.month == Date.today.month && start_time.year == Date.today.year
+  end
+
   def upcoming?
     start_time > Time.now
   end
