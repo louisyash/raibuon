@@ -2,10 +2,20 @@
   justify-content: center;
 }
 
+.profile-photo {
+    width: auto;
+    margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  }
+
 .sns-container{
+  display: flex;
   justify-content: space-around;
+  position: relative;
+  width: 100%;
   height: 50px;
-  margin: 0 90px 0 90px;
+  float: left;
 }
 
 .social-media {
@@ -14,19 +24,45 @@
 }
 
 .profile-container{
-  height: 100px;
+  width: 100%;
   border-radius: 20px;
   background-color: $card-color;
   display: flex;
   justify-content: space-around;
-  overflow: hidden;
+
 
   h3, h1 {
     margin: auto;
   }
 }
 
+.archive-performances-container {
+  width: 100%;
+  border-radius: 20px;
+  background-color: $card-color;
+  display: flex;
+  justify-content: start;
+  padding-left: 10px;
+}
+.tip-info-outer-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.tip-info-container {
+  width: 50%;
+  border-radius: 20px;
+  background-color: $card-color;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-self: center;
+  padding: 10px;
+}
+
 .uploaded-photos{
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -38,17 +74,54 @@
   }
 }
 
-.archived{
-  padding-top: 20px;
-}
+
 
 .description {
   height:60px;
-  display:table;
-  text-align:center;
+  display: block;
+  position: relative;
+  float: left;
+  clear:both;
+}
 
-  p {
-  display:table-cell;
-  vertical-align:middle;
+
+h3.artist-description {
+  text-align: center;
+  width: 100%;
+}
+
+.artist-content-left {
+  width: 50%;
+  flex-direction: column;
+}
+
+.artist-content-right {
+  width: 50%;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.artist-content {
+    flex-direction: row;
+    width: 100%;
+  }
+
+@media(max-width: 768px ) {
+  .artist-content {
+    flex-direction: column;
+  }
+  .artist-content-right {
+  width: 100%;
+  }
+  .artist-content-left {
+  width: 100%;
+  }
+  .profile-photo {
+    width: 100%;
+  }
+  .tip-info-container {
+  width: 80%;
   }
 }

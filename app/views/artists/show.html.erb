@@ -1,106 +1,134 @@
-<div class="container">
-  <div class="center mt-3">
-    <% if @artist.photo.attached?  %>
-      <%= cl_image_tag @artist.photo.key, class: "profile-photo" %>
-    <% else %>
-      <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"profile-photo" %>
-    <% end %>
-  </div>
-  <div class="center pt-3">
-    <h3 class="display-name"><%= @artist.name %></h3>
-  </div>
-  <div class="description">
-    <p class="center"><%= @artist.description %></p>
-  </div>
-  <div class="user-buttons">
-    <% if @artist.user == current_user %>
-      <%= link_to 'Edit', "/", class:'btn profile-btn' %>
-    <% else %>
-      <%= link_to 'Follow', "/", class:'btn profile-btn' %>
-    <% end %>
-    <a href="#schedule" class="btn profile-btn">Live Schedule</a>
-  </div>
-  <div class="sns-container center mb-3">
-    <% if @artist.facebook.present? %>
-      <a href="https://<%= @artist.facebook %>"><i class="fab fa-facebook-square social-media"></i></a>
-    <% else %>
-      <div style="display: none;"><%= @artist.facebook %><i class="fab fa-facebook-square social-media"></i></div>
-    <% end %>
-    <% if @artist.instagram.present? %>
-      <a href="https://<%= @artist.facebook %>"><i class="fab fa-instagram social-media"></i></a>
-    <% else %>
-      <div style="display: none;"><%= @artist.instagram %><i class="fab fa-instagram social-media"></i></div>
-    <% end %>
-    <% if @artist.soundcloud.present? %>
-      <a href="https://<%= @artist.soundcloud %>"><i class="fab fa-soundcloud social-media"></i></a>
-    <% else %>
-      <div style="display: none;"><%= @artist.soundcloud %><i class="fab fa-soundcloud social-media"></i></div>
-    <% end %>
-    <% if @artist.spotify.present? %>
-      <a href="https://<%= @artist.spotify %>"><i class="fab fa-spotify social-media"></i></a>
-    <% else %>
-      <div style="display: none;"><%= @artist.spotify %>><i class="fab fa-spotify social-media"></i></div>
-    <% end %>
-  </div>
-  <div class="container d-flex justify-content-around flex-wrap">
-    <div class="container profile-container my-2">
-      <h3>Total Tips</h3>
-      <%= render "tips/amount", amount: @artist.tips.sum(:amount_cents) %>
-    </div>
-  </div>
-  <div class="container">
-    <div class="container my-2">
-      <h5>Photos from live</h5>
-    </div>
-    <div class="uploaded-photos ">
-      <%# @artist.photos do |photo| %>
-        <%# image_tag photo.first(9) %>
-        <%# end %>
-        <%= image_tag "yoyogi2.jpg", class:"uploaded-photo" %>
-        <%= image_tag "yoyogi3.jpg", class:"uploaded-photo" %>
-        <%= image_tag "yoyogi-park-tokyo.jpg", class:"uploaded-photo" %>
+<div class="ro-wrapper wireframe" style="width: 100%;">
+  <div class="ro-container wireframe mt-3 artist-content">
+    <!-- artist profile image - left -->
+    <div class="center wireframe artist-content-left" style="">
+      <% if @artist.photo.attached?  %>
+        <%= cl_image_tag @artist.photo.key, class: "profile-photo" %>
+      <% else %>
+        <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"profile-photo" %>
+      <% end %>
+      <div class="center pt-3">
+        <h3 class="section-title white-text"><%= @artist.name %></h3>
       </div>
-      <div id="schedule" style="padding-top: 100px;">
-        <div class="upcoming">
-          <h3>Upcoming Performance</h3>
-          <div class="container schedules">
-            <% if @artist.performances.any? {|performance| performance.upcoming? }%>
-              <% Performance.where(artist:@artist).select  do |performance| %>
-                <div class="schedule profile-container pt-3 mb-3">
-                  <%= link_to performance_path(performance) do %>
-                    <h4><%= performance.name %></h4>
-                    <p><em class="fas fa-map-marker-alt text-light"></em> <%= performance.address %></p>
-                    <p><em class="far fa-calendar-alt"></em> <%= performance.start_time.strftime("%Y/%m/%d") %></p>
-                    <p><em class="far fa-clock"></em> <%= performance.start_time.strftime("%H:%M") %>- <%= performance.end_time.strftime("%H:%M") %></p>
-                  <% end %>
-                </div>
-              <% end %>
-            <% else %>
-              <p><%= "No upcoming performances on the way" %></p>
-            <% end %>
-          </div>
-        </div>
-        <div class="archived">
-          <h4>Archived Performances</h4>
-          <div class="container schedules">
-            <% if @artist.performances.any? {|performance| performance.archived? }%>
-              <% Performance.where(artist:@artist).select  do |performance| %>>
-                <div class="schedule profile-container pt-3 mb-3">
-                  <%= link_to performance_path(performance) do %>
-                    <h4><%= performance.name %></h4>
-                    <p><em class="fas fa-map-marker-alt text-light"></em> <%= performance.address %></p>
-                    <p><em class="far fa-calendar-alt"></em> <%= performance.start_time.strftime("%Y/%m/%d") %></p>
-                    <p><em class="far fa-clock"></em> <%= performance.start_time.strftime("%H:%M") %></p>
-                  <% end %>
-                </div>
-              <% end %>
-            <% else %>
-              <p><%= "No upcoming performances on the way" %></p>
-            <% end %>
-            <% if @artist.performances.length > 3 %>
-              <h6 style="text-align: end;">View more</h6>
-            <% end %>
-          </div>
+    </div>
+    <!-- information about artist - right -->
+    <div style="" class="wireframe artist-content-right">
+      <h3 class="section-title-smaller artist-description" style=""><%= @artist.description %></p>
+      <div class="user-buttons wireframe">
+        <% if @artist.user == current_user %>
+          <%= link_to 'Edit', "/", class:'btn profile-btn' %>
+        <% else %>
+          <%= link_to 'Follow', "/", class:'btn profile-btn' %>
+        <% end %>
+        <a href="#schedule" class="btn profile-btn">Live Schedule</a>
+      </div>
+      <div class="sns-container mb-3" style="">
+        <% if @artist.facebook.present? %>
+          <a href="https://<%= @artist.facebook %>"><i class="fab fa-facebook-square social-media"></i></a>
+        <% else %>
+          <div style="display: none;"><%= @artist.facebook %><i class="fab fa-facebook-square social-media"></i></div>
+        <% end %>
+        <% if @artist.instagram.present? %>
+          <a href="https://<%= @artist.facebook %>"><i class="fab fa-instagram social-media"></i></a>
+        <% else %>
+          <div style="display: none;"><%= @artist.instagram %><i class="fab fa-instagram social-media"></i></div>
+        <% end %>
+        <% if @artist.soundcloud.present? %>
+          <a href="https://<%= @artist.soundcloud %>"><i class="fab fa-soundcloud social-media"></i></a>
+        <% else %>
+          <div style="display: none;"><%= @artist.soundcloud %><i class="fab fa-soundcloud social-media"></i></div>
+        <% end %>
+        <% if @artist.spotify.present? %>
+          <a href="https://<%= @artist.spotify %>"><i class="fab fa-spotify social-media"></i></a>
+        <% else %>
+          <div style="display: none;"><%= @artist.spotify %>><i class="fab fa-spotify social-media"></i></div>
+        <% end %>
+      </div>
+      <div class="tip-info-outer-container">
+        <div class="tip-info-container">
+          <h3 style="display: flex; align-items: center; justify-content: center; margin-bottom: 0px;">Total Tips</h3>
+          <%= render "tips/amount", amount: @artist.tips.sum(:amount_cents) %>
         </div>
       </div>
     </div>
+    <!-- end of flex container -->
+  </div>
+</div>
+<!-- spacer dark purple -->
+<%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
+<!-- photo section -->
+<div class="ro-wrapper wireframe" style="width: 100%;">
+  <div class="ro-container wireframe" style="flex-direction: column;">
+    <h3 class="section-title white-text">Performance Photos</h3>
+    <div class="performance-grid">
+      <div class="performance-grid__item-photo-container">
+        <%= image_tag "yoyogi2.jpg", class:"", height: 300, width: 400 %>
+      </div>
+      <div class="performance-grid__item-photo-container">
+        <%= image_tag "yoyogi3.jpg", class:"", height: 300, width: 400 %>
+      </div>
+      <div class="performance-grid__item-photo-container">
+        <%= image_tag "yoyogi-park-tokyo.jpg", class:"", height: 300, width: 400 %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- spacer dark purple -->
+<%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
+<!-- shedule section -->
+<div class="ro-wrapper wireframe" style="width: 100%;">
+  <div class="ro-container wireframe" >
+    <div id="schedule" style="">
+      <div class="upcoming">
+        <h3 class="section-title white-text">Upcoming Performances</h3>
+        <div class="container schedules">
+          <% if @artist.performances.any? {|performance| performance.upcoming? }%>
+            <% Performance.where(artist:@artist).select  do |performance| %>
+              <div class="schedule profile-container pt-3 mb-3">
+                <%= link_to performance_path(performance) do %>
+                  <h4><%= performance.name %></h4>
+                  <p><em class="fas fa-map-marker-alt text-light"></em> <%= performance.address %></p>
+                  <p><em class="far fa-calendar-alt"></em> <%= performance.start_time.strftime("%Y/%m/%d") %></p>
+                  <p><em class="far fa-clock"></em> <%= performance.start_time.strftime("%H:%M") %>- <%= performance.end_time.strftime("%H:%M") %></p>
+                <% end %>
+              </div>
+            <% end %>
+          <% else %>
+            <p><%= "No upcoming performances on the way" %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- spacer dark purple -->
+<%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
+<!-- archived performances section -->
+<div class="ro-wrapper wireframe" style="width: 100%;">
+  <div class="ro-container wireframe" style="flex-direction: column;">
+    <h3 class="section-title white-text">Archived Performances</h3>
+    <div class="" style="width: 100%;">
+      <% if @artist.performances.any? {|performance| performance.archived? }%>
+        <% Performance.where(artist:@artist).select  do |performance| %>>
+          <div class="archive-performances-container pt-3 mb-3">
+            <%= link_to performance_path(performance) do %>
+              <h4><%= performance.name %></h4>
+              <p><em class="fas fa-map-marker-alt text-light"></em> <%= performance.address %></p>
+              <p><em class="far fa-calendar-alt"></em> <%= performance.start_time.strftime("%Y/%m/%d") %></p>
+              <p><em class="far fa-clock"></em> <%= performance.start_time.strftime("%H:%M") %></p>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <p><%= "No upcoming performances on the way" %></p>
+      <% end %>
+      <% if @artist.performances.length > 3 %>
+        <h6 style="text-align: end;">View more</h6>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- spacer dark purple -->
+<%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
+</div>
+</div>

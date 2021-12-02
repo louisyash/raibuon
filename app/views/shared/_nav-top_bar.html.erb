@@ -1,12 +1,27 @@
-<div class="fixed-top top-bar wireframe" style="">
-  <!-- background opacity shifting rectangle -->
-  <div id="test" class="navbar-background" style=""></div>
-  <div class="ro-container wireframe" style="">
-    <!-- brand home - hidden from top nav on small screens -->
-    <%= render 'shared/brand_logo_button', display_class: "wide-screen-buttons", style: "z-index: 200;"%>
-    <!-- Raibuon search bar -->
-    <%= render 'shared/searchbar', display_class: "" %>
-    <!-- user options - hidden from top nav on small screens -->
-    <%= render partial: 'shared/user_options_button', locals: {:display_class => "wide-screen-buttons", :drop_button_id => "useroptions-dropdown", :drop_menu_id => "useroptions-dropdown-menu"} %>
+<% if params[:controller] == "performances" && params[:action] == "show" %>
+  <div class="fixed-top top-bar wireframe" style="">
+    <!-- background opacity shifting rectangle -->
+    <div id="test" class="navbar-background" style=""></div>
+    <div class="ro-container wireframe" style="">
+      <!-- artist avatar - hidden from top nav on small screens -->
+      <%= render partial: 'shared/artist_performance_avatar' %>
+      <!-- Currently playing text-->
+      <%= render partial: 'shared/currently_playing_display' %>
+      <!-- user options  - hidden from top nav on small screens -->
+      <%= render partial: 'shared/user_options_button', locals: {:display_class => "wide-screen-buttons", :drop_button_id => "useroptions-dropdown", :drop_menu_id => "useroptions-dropdown-menu"} %>
+    </div>
   </div>
-</div>
+<% else %>
+  <div class="fixed-top top-bar wireframe" style="">
+    <!-- background opacity shifting rectangle -->
+    <div id="test" class="navbar-background" style=""></div>
+    <div class="ro-container wireframe" style="">
+      <!-- brand home - hidden from top nav on small screens -->
+      <%= render 'shared/brand_logo_button', display_class: "wide-screen-buttons", style: "z-index: 200;"%>
+      <!-- Raibuon search bar -->
+      <%= render 'shared/searchbar', display_class: "" %>
+      <!-- user options - hidden from top nav on small screens -->
+      <%= render partial: 'shared/user_options_button', locals: {:display_class => "wide-screen-buttons", :drop_button_id => "useroptions-dropdown", :drop_menu_id => "useroptions-dropdown-menu"} %>
+    </div>
+  </div>
+<% end %>
