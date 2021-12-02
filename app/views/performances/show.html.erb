@@ -38,31 +38,41 @@
     </div>
   </div>
 </div>
-<div id="owl-one" class="photo-container mb-3 owl-carousel owl-theme ">
-  <!--Carousel-->
-  <%= image_tag "yoyogi2.jpg" %>
-  <%= image_tag "yoyogi3.jpg" %>
-  <%= image_tag "yoyogi-park-tokyo.jpg" %>
+<div style="background: linear-gradient(blue, pink);">
+  <div class="performance-photos">
+    <div class="tips-today">
+      <p class="m-0">Tips</p>
+      <%= render "tips/amount", amount: @performance.tips.where(state: "paid").sum(:amount_cents) %>
+    </div>
+    <div id="owl-one" class="photo-container mb-3 owl-carousel owl-theme ">
+      <!--Carousel-->
+      <%= image_tag "yoyogi2.jpg", class:"performance-photo" %>
+      <%= image_tag "yoyogi3.jpg", class:"performance-photo" %>
+      <%= image_tag "yoyogi-park-tokyo.jpg", class:"performance-photo" %>
+    </div>
+  </div>
 </div>
-<div class="container d-flex align-content-center justify-content-around flex-column">
-  <%= render "tips/amount", amount: @performance.tips.where(state: "paid").sum(:amount_cents) %>
-  <!-- Cards space-->
-</div>
+<!-- Cards space-->
 <!--Messages container-->
 <div class="container">
   <div class="container message-container my-2 w-100" data-controller="display-messages" data-user-id="<%= current_user.id %>">
     <!--Extension messages area-->
-    <h3 class="my-3">Messages and Tips!</h3>
-    <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
-      <% @messages_tips.each do |element| %>
-        <% if element.is_a?(Message) %>
-          <%= render "messages/message", message: element %>
-        <% else %>
-          <%= render "tips/tip", tip: element %>
+    <% if @messages_tips.length == 0 %>
+      <p><%= "Nothing to show yet" %></p>
+    <% else %>
+      <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
+        <% @messages_tips.each do |element| %>
+          <% if element.is_a?(Message) %>
+            <%= render "messages/message", message: element %>
+          <% else %>
+            <%= render "tips/tip", tip: element %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-    <p data-display-messages-target="display"  data-action="click->display-messages#display">View <%= @performance.messages.count + @performance.tips.count%> more messages</p>
+      </div>
+    <% end %>
+    <% if @messages_tips.length > 1 %>
+      <p data-display-messages-target="display"  data-action="click->display-messages#display">View <%= @performance.messages.count + @performance.tips.count%> more messages</p>
+    <% end %>
     <h5>Comment here!</h5>
     <%= simple_form_for [@performance, @message], remote: true do |f| %>
       <%= f.input :content, label: false %>
