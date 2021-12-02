@@ -29,7 +29,12 @@
   </div>
   <!-- spacer dark purple -->
   <%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
-  <%= render "tip_ranking", artist_ranking: @artist_ranking %>
+  <!-- tip ranking -->
+  <div class="ro-wrapper wireframe dark_purple_background">
+    <div class="ro-container wireframe" style="justify-content: start;">
+      <%= render "tip_ranking", artist_ranking: @artist_ranking %>
+    </div>
+  </div>
   <div class="ro-wrapper wireframe dark_purple_background">
     <div class="ro-container wireframe" style="justify-content: start;">
       <h3 class="wireframe section-title">Live today</h3>
