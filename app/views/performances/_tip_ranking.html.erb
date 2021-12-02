@@ -1,5 +1,8 @@
 <h3>Artist Rankings</h3>
 <div data-controller="rankings" class="card-trip">
+  <div data-action="click->rankings#reveal">
+    <p>Show all</p>
+  </div>
   <div>
     <table class="table">
       <thead>
@@ -20,7 +23,7 @@
       </thead>
       <tbody>
         <% num = 1 %>
-        <% artist_ranking.each_with_index do |artist, index| %>
+        <% artist_ranking.first(3).each_with_index do |artist, index| %>
           <tr data-index=<%= index %> data-rankings-target="artist" data-action="click->rankings#showRankings">
             <th scope="row">
               <h6><%= num %></h6>
