@@ -21,12 +21,6 @@ class TipsController < ApplicationController
     authorize @tip
 
     if @tip.save
-      PerformanceChannel.broadcast_to(
-        @performance,
-        message: render_to_string(partial: "tips/tip", locals: { tip: @tip })
-      )
-
-
 
       flash[:notice] = "Thank you for tipping #{@performance.artist.name}!"
 
@@ -41,8 +35,16 @@ class TipsController < ApplicationController
         success_url: performance_url(@performance),
         cancel_url: performance_url(@performance)
       )
-      @tip.update(checkout_session_id: session.id)
+      @tip.update(checkout_session_id: session.id, state: 'paid')
       # redirect_to new_tip_payment_path(@tip)
+      PerformanceChannel.broadcast_to(
+        @performance,
+        message: render_to_string(partial: "tips/tip", locals: { tip: @tip })
+    )
+      PerformanceChannel.broadcast_to(
+        @performance,
+        tip: render_to_string(partial: "tips/amount", locals: { amount: @performance.tips.where(state: "paid").sum(:amount_cents) })
+    )
 
     else
       render :new

@@ -4,6 +4,7 @@ import anime from "animejs/lib/anime.es";
 const initPerformanceCable = () => {
   const messagesContainer = document.getElementById('messages');
   if (messagesContainer) {
+    console.log(messagesContainer)
     const id = messagesContainer.dataset.performanceId;
     consumer.subscriptions.create({ channel: "PerformanceChannel", id: id }, {
       received(data) {
