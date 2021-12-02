@@ -8,9 +8,12 @@ const initPerformanceCable = () => {
     const id = messagesContainer.dataset.performanceId;
     consumer.subscriptions.create({ channel: "PerformanceChannel", id: id }, {
       received(data) {
+        console.log('EN EL INIT');
         if(data.message) {
+        console.log('EN EL INIT IF');
           addMessages(data.message, messagesContainer)
         }else if(data.tip){
+        console.log('EN EL INIT ELSE');
           addTips(data.tip);
         }
       },
@@ -19,6 +22,7 @@ const initPerformanceCable = () => {
 }
 //targets: `#message-${data.id}`,
 const addMessages = (message, messagesContainer) => {
+  console.log('ME EJECUTO DESPUES');
   const messageDiv = document.createElement('div');
   messageDiv.innerHTML = message;
   if(messageDiv.querySelector('.content-message')){
@@ -34,6 +38,7 @@ const addMessages = (message, messagesContainer) => {
 }
 
 const addTips = (tips) => {
+  console.log('VIDA HPTA');
   const tipsContainer = document.querySelector('#tip-amount')
   tipsContainer.outerHTML = tips
 }

@@ -26,6 +26,11 @@ class PerformancesController < ApplicationController
 
   def show
     @performance = Performance.find(params[:id])
+    @performance.tips.find(params['tip_id']).update(state: 'paid') if params['result'] == 'success'
+    PerformanceChannel.broadcast_to(
+        @performance,
+        tip: render_to_string(partial: "tips/amount", locals: { amount: @performance.tips.where(state: "paid").sum(:amount_cents) })
+    )
     @message = Message.new
     @performance.artist = @performance.artist
     @tip = Tip.new
