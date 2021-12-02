@@ -13,10 +13,8 @@
     </div>
     <!-- information about artist - right -->
     <div style="" class="wireframe artist-content-right">
-      <div class="description wireframe" style="">
-        <h3 class="section-title-smaller"><%= @artist.description %></p>
-      </div>
-      <div class="user-buttons">
+      <h3 class="section-title-smaller artist-description" style=""><%= @artist.description %></p>
+      <div class="user-buttons wireframe">
         <% if @artist.user == current_user %>
           <%= link_to 'Edit', "/", class:'btn profile-btn' %>
         <% else %>
@@ -24,7 +22,7 @@
         <% end %>
         <a href="#schedule" class="btn profile-btn">Live Schedule</a>
       </div>
-      <div class="sns-container center mb-3">
+      <div class="sns-container mb-3" style="">
         <% if @artist.facebook.present? %>
           <a href="https://<%= @artist.facebook %>"><i class="fab fa-facebook-square social-media"></i></a>
         <% else %>
@@ -46,9 +44,11 @@
           <div style="display: none;"><%= @artist.spotify %>><i class="fab fa-spotify social-media"></i></div>
         <% end %>
       </div>
-      <div class="tip-info-container">
-        <h3 style="display: flex; align-items: center; justify-content: center; margin-bottom: 0px;">Total Tips</h3>
-        <%= render "tips/amount", amount: @artist.tips.sum(:amount_cents) %>
+      <div class="tip-info-outer-container">
+        <div class="tip-info-container">
+          <h3 style="display: flex; align-items: center; justify-content: center; margin-bottom: 0px;">Total Tips</h3>
+          <%= render "tips/amount", amount: @artist.tips.sum(:amount_cents) %>
+        </div>
       </div>
     </div>
     <!-- end of flex container -->
