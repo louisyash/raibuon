@@ -29,6 +29,7 @@
   </div>
   <!-- spacer dark purple -->
   <%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
+  <%= render "tip_ranking", artist_ranking: @artist_ranking %>
   <div class="ro-wrapper wireframe dark_purple_background">
     <div class="ro-container wireframe" style="justify-content: start;">
       <h3 class="wireframe section-title">Live today</h3>
@@ -52,7 +53,7 @@
               <p>LIVE</p>
             </div>
           </div>
-          <%= link_to performance_path(first_performance) do %>
+          <%= link_to performance_path(one_performance) do %>
             <% if one_performance.artist.photo.attached? %>
               <%= cl_image_tag one_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
             <% else %>
