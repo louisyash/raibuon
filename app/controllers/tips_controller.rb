@@ -32,19 +32,16 @@ class TipsController < ApplicationController
           currency: 'jpy',
           quantity: 1,
         }],
-        success_url: performance_url(@performance),
+        success_url: performance_url(@performance, { result: 'success', tip_id: @tip.id} ),
         cancel_url: performance_url(@performance)
       )
-      @tip.update(checkout_session_id: session.id, state: 'paid')
+      @tip.update(checkout_session_id: session.id, state: 'pending')
       # redirect_to new_tip_payment_path(@tip)
       PerformanceChannel.broadcast_to(
         @performance,
         message: render_to_string(partial: "tips/tip", locals: { tip: @tip })
     )
-      PerformanceChannel.broadcast_to(
-        @performance,
-        tip: render_to_string(partial: "tips/amount", locals: { amount: @performance.tips.where(state: "paid").sum(:amount_cents) })
-    )
+
 
     else
       render :new
