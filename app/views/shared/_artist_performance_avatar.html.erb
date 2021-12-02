@@ -1,0 +1,13 @@
+<!-- position relative square -->
+<div class="wireframe ro-button-useroptions-outer-container" style="display: block;">
+  <!-- position fixed square -->
+  <div class="wireframe ro-button-useroptions-inner-container">
+    <% if @performance.artist.photo.attached? %>
+      <%= cl_image_tag @performance.artist.photo.key, class: "ro-button-useroptions-avatar" %>
+    <% else %>
+      <div class="ro-navbar__user-login-icon-container">
+        <i class="fas fa-user ro-navbar__user-login-icon" style=""></i>
+      </div>
+    <% end %>
+  </div>
+</div>

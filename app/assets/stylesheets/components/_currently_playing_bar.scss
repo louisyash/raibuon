@@ -1,0 +1,16 @@
+.currently_playing_inner_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  border: 1px solid red;
+  float: left;
+  position: relative;
+}
+p.currently_playing_text {
+  margin-bottom: 0px;
+  align-self: center;
+  font-size: 16px;
+  float: left;
+  }
