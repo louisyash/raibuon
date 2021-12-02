@@ -20,11 +20,11 @@
           </td>
           <td>
             <% performances = Performance.where(artist: artist) %>
-            <% if performances.first.live? %>
+            <% if performances.last.live? %>
               <%= link_to performance_path(performances.first) do %>
                 <h6 class="live-button-red">LIVE</h6>
               <% end %>
-            <% elsif performances.first.live_today? %>
+            <% elsif performances.last.live_today? %>
               <%= link_to performance_path(performances.first) do %>
                 <h6 class="live-button-blue">LIVE Today!</h6>
               <% end %>
