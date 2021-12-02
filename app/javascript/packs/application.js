@@ -36,6 +36,17 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
 
   // initSelect2();
+// Opacity fade for top nav search bar background
+window.addEventListener('scroll', function () {
+  var currScrollPos2 = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  if (currScrollPos2 > 10) {
+    document.getElementById('test').classList.add('navbar-fadein');
+  } else {
+    document.getElementById('test').classList.remove("navbar-fadein");
+  }
+}
+);
+
      $('#owl-one').owlCarousel({
   loop: true,
   margin: 10,
@@ -84,17 +95,7 @@ document.addEventListener('turbolinks:load', () => {
 import "controllers"
 import { MapMouseEvent } from "mapbox-gl";
 
-// Opacity fade for top nav search bar
-document.getElementById('test').style.opacity = 0;
-window.addEventListener('scroll', function () {
-  var currScrollPos2 = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-  if (currScrollPos2 < 200) {
-    document.getElementById('test').style.opacity = currScrollPos2 / 200;
-  } else {
-    document.getElementById('test').style.opacity = 1;
-  }
-}
-);
+
 
 
 /* When the user clicks on the button,
@@ -108,7 +109,6 @@ dropDownBtn.addEventListener("click", (event) => {
   console.log(event);
   document.getElementById("useroptions-dropdown-menu").classList.toggle("show");
 });
-
 
 // #useroptions-dropup
 // #useroptions-dropup-menu
