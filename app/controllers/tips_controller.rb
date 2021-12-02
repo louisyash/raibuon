@@ -32,7 +32,7 @@ class TipsController < ApplicationController
           currency: 'jpy',
           quantity: 1,
         }],
-        success_url: performance_url(@performance, { result: 'success', tip_id: @tip.id} ),
+        success_url: performance_url(@performance, { performance: { result: 'success', tip_id: @tip.id } }),
         cancel_url: performance_url(@performance)
       )
       @tip.update(checkout_session_id: session.id, state: 'pending')
