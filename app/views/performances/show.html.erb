@@ -74,7 +74,7 @@
     <%= simple_form_for [@performance, @message], remote: true do |f| %>
       <div class="d-flex bd-highlight">
         <div class="w-100 bd-highlight">
-          <%= f.input :content, as: :string, placeholder: "Send message", label: false, input_html: { class:"input-color"} %>
+          <%= f.input :content, placeholder: "Send message", label: false, input_html: { class:"input-color"} %>
         </div>
         <div class="pl-3 flex-shrink-1 bd-highlight">
           <%= f.button :button, input_html: { class:"input-color"} do %>
