@@ -22,7 +22,14 @@ h3.section-title {
     font-weight:600;
     position: relative;
     float: left;
+    text-shadow: 1px 1px 3px rgba(0,0,0,2);
+  }
 
+h3.section-title-smaller {
+    font-size: 2rem;
+    font-weight:600;
+    position: relative;
+    float: left;
     text-shadow: 1px 1px 3px rgba(0,0,0,2);
   }
 
@@ -92,5 +99,8 @@ h3.section-title {
 @media(max-height: 700px) and (max-width: 480px) {
   h3.section-title {
     font-size:8vw;
+  }
+  h3.section-title-smaller {
+    font-size: 7vw;
   }
 }
