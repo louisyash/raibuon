@@ -17,18 +17,21 @@
       <% end %>
     </div>
   </div>
-  <div id="owl-one" class="photo-container my-3 owl-carousel owl-theme ">
-    <!--Carousel-->
-    <%= image_tag "yoyogi2.jpg" %>
-    <%= image_tag "yoyogi3.jpg" %>
-    <%= image_tag "yoyogi-park-tokyo.jpg" %>
-  </div>
-</div>
-<!-- Cards space-->
-<div class="container d-flex justify-content-around flex-wrap">
-  <div class="container tip-container my-2">
-    <h3>Tips</h3>
-    <%= render "tips/amount", amount: @performance.tips.where(state: "paid").sum(:amount_cents) %>
+  <!-- Cards space-->
+  <div class="container d-flex justify-content-around flex-wrap">
+      <h4><%= @performance.name %></h4>
+    <div class="container tip-container my-2">
+      <p><em class="fas fa-map-marker-alt text-light"></em> <%= @performance.address %></p>
+      <p><em class="far fa-calendar-alt"></em> <%= @performance.start_time.strftime("%Y/%m/%d") %></p>
+      <p><em class="far fa-clock"></em> <%= @performance.start_time.strftime("%H:%M") %>- <%= @performance.end_time.strftime("%H:%M") %></p>
+      <%= render "tips/amount", amount: @performance.tips.where(state: "paid").sum(:amount_cents) %>
+    </div>
+    <div id="owl-one" class="photo-container my-3 owl-carousel owl-theme ">
+      <!--Carousel-->
+      <%= image_tag "yoyogi2.jpg" %>
+      <%= image_tag "yoyogi3.jpg" %>
+      <%= image_tag "yoyogi-park-tokyo.jpg" %>
+    </div>
   </div>
   <!--Messages container-->
   <div class="container message-container my-2 w-100" data-controller="display-messages" data-user-id="<%= current_user.id %>">
