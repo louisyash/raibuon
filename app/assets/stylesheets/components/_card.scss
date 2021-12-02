@@ -61,9 +61,18 @@
   margin-bottom:24px;
 }
 
-.live-button {
+.live-button-red {
   border: solid #C85C5C;
   background-color: #C85C5C;
+  justify-content: space-between;
+  border-radius: 6px;
+  opacity: 80%;
+  z-index: 5;
+}
+
+.live-button-blue {
+  border: solid skyblue;
+  background-color: skyblue;
   justify-content: space-between;
   border-radius: 6px;
   opacity: 80%;
