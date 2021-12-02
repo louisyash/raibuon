@@ -29,10 +29,17 @@
               <h6>¥<%= artist.tips_total %></h6>
             </td>
             <td>
-              <% if Performance.find_by(artist: artist).live?   %>
-                <h6><%= link_to "Live today!", performance_path(@performances.first) %></h6>
+              <% performances = Performance.where(artist: artist) %>
+              <% if performances.first.live? %>
+                <%= link_to performance_path(performances.first) do %>
+                  <h6 class="live-button-red">LIVE</h6>
+                <% end %>
+              <% elsif performances.first.live_today? %>
+                <%= link_to performance_path(performances.first) do %>
+                  <h6 class="live-button-blue">LIVE Today!</h6>
+                <% end %>
               <% else %>
-                <h6> </h6>
+                <h6> <%= "    " %></h6>
               <% end %>
             </td>
           </tr>
