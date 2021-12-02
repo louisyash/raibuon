@@ -1,54 +1,66 @@
-<h3>Artist Rankings</h3>
 <div data-controller="rankings" class="card-trip">
-  <div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">
-            <h6><strong>#</strong></h6>
-          </th>
-          <th scope="col">
-            <h6><strong>Artist Name</strong></h6>
-          </th>
-          <th scope="col">
-            <h6><strong>Total Tips</strong></h6>
-          </th>
-          <th scope="col">
-            <h6><strong>Shows</strong></h6>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <% num = 1 %>
-        <% artist_ranking.each_with_index do |artist, index| %>
-          <tr data-index=<%= index %> data-rankings-target="artist" data-action="click->rankings#showRankings">
-            <th scope="row">
-              <h6><%= num %></h6>
-            </th>
-            <td>
-              <h6><%= artist.name %></h6>
-            </td>
-            <td>
-              <h6>¥<%= artist.tips_total %></h6>
-            </td>
-            <td>
-              <% performances = Performance.where(artist: artist) %>
-              <% if performances.first.live? %>
-                <%= link_to performance_path(performances.first) do %>
-                  <h6 class="live-button-red">LIVE</h6>
-                <% end %>
-              <% elsif performances.first.live_today? %>
-                <%= link_to performance_path(performances.first) do %>
-                  <h6 class="live-button-blue">LIVE Today!</h6>
-                <% end %>
-              <% else %>
-                <h6> <%= "    " %></h6>
-              <% end %>
-            </td>
-          </tr>
-          <% num += 1 %>
-        <% end %>
-      </tbody>
-    </table>
+  <h3 class="wireframe section-title">Artist Rankings</h3>
+  <div class="show-button" data-action="click->rankings#reveal">
+    <h6>Show all</h6>
   </div>
+  <table class="table">
+    <thead>
+    </thead>
+    <tbody>
+      <% artist_ranking.first(3).each_with_index do |artist, index| %>
+        <tr>
+          <th scope="row">
+            <h6><%= index + 1 %></h6>
+          </th>
+          <td>
+            <h6><%= artist.name %></h6>
+          </td>
+          <td>
+            <h6>¥<%= artist.tips_total %></h6>
+          </td>
+          <td>
+            <% performances = Performance.where(artist: artist) %>
+            <% if performances.first.live? %>
+              <%= link_to performance_path(performances.first) do %>
+                <h6 class="live-button-red">LIVE</h6>
+              <% end %>
+            <% elsif performances.first.live_today? %>
+              <%= link_to performance_path(performances.first) do %>
+                <h6 class="live-button-blue">LIVE Today!</h6>
+              <% end %>
+            <% else %>
+              <h6> <%= "    " %></h6>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      <% artist_ranking[3..-1].each_with_index do |artist, index| %>
+        <tr class="d-none" data-rankings-target="artist" data-action="click->rankings#showRankings">
+          <th scope="row">
+            <h6><%= index + 4 %></h6>
+          </th>
+          <td>
+            <h6><%= artist.name %></h6>
+          </td>
+          <td>
+            <h6>¥<%= artist.tips_total %></h6>
+          </td>
+          <td>
+            <% performances = Performance.where(artist: artist) %>
+            <% if performances.first.live? %>
+              <%= link_to performance_path(performances.first) do %>
+                <h6 class="live-button-red">LIVE</h6>
+              <% end %>
+            <% elsif performances.first.live_today? %>
+              <%= link_to performance_path(performances.first) do %>
+                <h6 class="live-button-blue">LIVE Today!</h6>
+              <% end %>
+            <% else %>
+              <h6> <%= "    " %></h6>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
