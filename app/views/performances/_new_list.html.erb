@@ -4,7 +4,7 @@
       <%= link_to performance_path(performance) do %>
         <div class="performance-grid__item-photo-container">
           <% if performance.artist.photo.attached? %>
-            <%= cl_image_tag performance.artist.photo.key, crop: :fill, class: "photo-class" %>
+            <%= cl_image_tag performance.artist.photo.key, height: 300, width: 400, crop: :fill, class: "photo-class" %>
           <% else %>
             <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", crop: :fill, class: "photo-class" %>
           <% end %>
