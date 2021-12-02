@@ -97,10 +97,13 @@
 </div>
 <!--Messages box-->
 <!-- songname displayer -->
+<!-- views/performances/show.html.erb -->
+<%= content_tag :div, class: "song_titles", id: "song_titles_array", data: {songs: @performance.songs, n: 0} do %>
+<% end %>
 <div class="ro-wrapper wireframe">
   <div class="ro-container wireframe">
     <% if @performance.artist.user == current_user %>
-      <p class="btn profile-btn" onclick="changeTheSong()">song nav</p>
+      <p id="change-the-song-buttton" class="btn profile-btn">song nav</p>
     <% else %>
     <% end %>
   </div>
