@@ -134,10 +134,3 @@ window.onclick = function (event) {
     }
   }
 }
-
-
-function owls() {
-
-
-
- };

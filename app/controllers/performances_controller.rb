@@ -5,6 +5,14 @@ class PerformancesController < ApplicationController
       @performances = @performances.where("address ILIKE ?", "%#{params[:query]}%")
     end
 
+    @markers = @performances.geocoded.map do |performance|
+      {
+        lat: performance.latitude,
+        lng: performance.longitude,
+        info_window: render_to_string(partial: "shared/info_window", locals: { performance: performance })
+      }
+    end
+
     @tips = Tip.all
     @artist_ranking = Artist.order_by_tips
 

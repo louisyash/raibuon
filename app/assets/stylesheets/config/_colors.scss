@@ -28,6 +28,10 @@ $card-color: #34344E;
   background: #000;
 }
 
+.main-color_background {
+  background: $background-color;
+}
+
 .mauve_background {
   background: $ui-color-highlight;
 }
@@ -38,4 +42,8 @@ $card-color: #34344E;
 
 .dark-mauve-text {
   color: $ui-color-highlight;
+}
+
+.background-color_text {
+  color: $background-color;
 }
