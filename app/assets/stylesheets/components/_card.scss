@@ -68,6 +68,7 @@
   border-radius: 6px;
   opacity: 80%;
   z-index: 5;
+  text-align:center;
 }
 
 .live-button-blue {
@@ -77,6 +78,7 @@
   border-radius: 6px;
   opacity: 80%;
   z-index: 5;
+  text-align:center;
 }
 
 .upper-components {
@@ -141,6 +143,6 @@
   width: 40px;
 }
 
-.expand {
-  display: hide;
+.show-button {
+  justify-content: end;
 }
