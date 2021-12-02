@@ -51,9 +51,21 @@
       </div>
       <div id="owl-one" class="photo-container mb-3 owl-carousel owl-theme ">
         <!--Carousel-->
-        <%= image_tag "yoyogi2.jpg", class:"performance-photo" %>
-        <%= image_tag "yoyogi3.jpg", class:"performance-photo" %>
-        <%= image_tag "yoyogi-park-tokyo.jpg", class:"performance-photo" %>
+        <% if @performance.photos.length > 0  %>
+          <%= cl_image_tag @performance.photos[0].key, class: "performance-photo" %>
+        <% else %>
+          <%= image_tag "yoyogi2.jpg", class:"performance-photo" %>
+        <% end %>
+        <% if @performance.photos.length > 1  %>
+          <%= cl_image_tag @performance.photos[1].key, class: "performance-photo" %>
+        <% else %>
+          <%= image_tag "yoyogi3.jpg", class:"performance-photo" %>
+        <% end %>
+        <% if @performance.photos.length > 2  %>
+          <%= cl_image_tag @performance.photos[2].key, class: "performance-photo" %>
+        <% else %>
+          <%= image_tag "yoyogi-park-tokyo.jpg", class:"performance-photo" %>
+        <% end %>
       </div>
     </div>
   </div>

@@ -33,9 +33,6 @@ puts "Creating artists..."
 cup_monsters = Artist.new(name: "Cup Monsters", user: emanuel, description: "We live to live! Usually play in Yoyogi park on Tuesdays. Check our facebook for more info!", facebook: 'www.facebook.com', instagram: 'www.instagram.com', spotify:'www.spotify.com', twitter:'www.twitter.com')
 cups_image_file = URI.open("https://bandmaid.tokyo/s3/skiyaki/uploads/link/image/14580/top22.jpg")
 cup_monsters.photo.attach(io: cups_image_file, filename: "cups_image_file", content_type: 'image/jpg')
-mighty = Artist.new(name: "Mighty Dumplings", user: gareth, description: "British band meets Tokyo", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
-mighty_image_file = URI.open("https://gp1.wac.edgecastcdn.net/802892/http_public_production/artists/images/1583855/original/crop:x0y0w762h1125/hash:1467178977/1358173104_F_G_Band_feat._Sandra_Taylor_FINAL.jpg?1467178977")
-mighty.photo.attach(io: mighty_image_file, filename: "mighty_image_file", content_type: 'image/jpg')
 trashcan = Artist.new(name: "Trashcan Paradise", user: anju, description: "Thank you for your support everyone! New album is out on December!!! Visit spotify for new songs!!!", facebook: 'www.facebook.com', spotify:'www.spotify.com', twitter:'www.twitter.com')
 trashcan_image_file = URI.open("https://www.irishtimes.com/polopoly_fs/1.4644581.1628679581!/image/image.jpg")
 trashcan.photo.attach(io: trashcan_image_file, filename: "trashcan_image_file", content_type: 'image/jpg')
@@ -51,10 +48,7 @@ puts "Creating performances..."
 
 #This one is Currently live (Trashcan paradise for 90 minutes after seeding)
 trash_perf = Performance.create!(name:"Trashcans live on the streets", artist: trashcan, address: "Yoyogi Park", start_time: DateTime.now, end_time: DateTime.now + 90.minutes, songs:["Don't leave me here", "Eternal Bomb", "遅くなりました", "初めまして", "結構やばいです。", "明日から要りません"])
-#This one will be live in a day (Mighty Dumplings for 90 minutes after a day.)
-mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mighty, address: "Yoyogi Park", start_time: DateTime.now + 1, end_time: DateTime.now + 1 + 90.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
-#This one will be in the past
-mighty_perf_two = Performance.create!(name:"Blast at the park", artist: mighty, address: "Nishi-Shinjuku", start_time: 250.minutes.ago, end_time: 130.minutes.ago , songs:["The Mash Up", "Fa La La", "聖なるペンギン", "暗闇のチョコ", "塩", "胡椒とラー油", "Hat Trick"])
+
 #This one will be live today. (Cup Monsters live in 2 hours)
 cups_perf_two = Performance.create!(name:"Sonic blast", artist: cup_monsters, address: "Yoyogi Park", start_time: DateTime.now + 2.hours, end_time: DateTime.now + 3.hours, songs:["The Machi", "Sad sad Donkey", "ゴキブリの一生", "ペットボトル", "キャンペーン実施中", "明日と君の犬", "Fat Trick"])
 #This one will be in the past
@@ -62,6 +56,31 @@ cups_perf_three = Performance.create!(name:"Yoyogi park sonic", artist: cup_mons
 #This one will be in the past
 wagons_perf = Performance.create!(name:"Wagons smackdown live", artist: wagons, address: "Inokashira Park", start_time: 130.minutes.ago, end_time: DateTime.now)
 asahi_perf = Performance.create!(name:"Asahi live", artist: asahi, address: "Inokashira Park", start_time: 130.minutes.ago, end_time: DateTime.now)
+
+puts "Creating Gareth's artists and performances..."
+
+# Gareth artists
+mighty = Artist.new(name: "Mighty Dumplings", user: gareth, description: "British band meets Tokyo", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
+mighty_image_file = URI.open("https://gp1.wac.edgecastcdn.net/802892/http_public_production/artists/images/1583855/original/crop:x0y0w762h1125/hash:1467178977/1358173104_F_G_Band_feat._Sandra_Taylor_FINAL.jpg?1467178977")
+mighty.photo.attach(io: mighty_image_file, filename: "mighty_image_file", content_type: 'image/jpg')
+
+#This one will be live in a day (Mighty Dumplings for 90 minutes after a day.)
+mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mighty, address: "Yoyogi Park", start_time: DateTime.now + 1, end_time: DateTime.now + 1 + 90.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
+#This one will be in the past
+mighty_perf_two = Performance.create!(name:"Blast at the park", artist: mighty, address: "Nishi-Shinjuku", start_time: 250.minutes.ago, end_time: 130.minutes.ago , songs:["The Mash Up", "Fa La La", "聖なるペンギン", "暗闇のチョコ", "塩", "胡椒とラー油", "Hat Trick"])
+
+puts "Creating Hiroyuki artist"
+
+hiroyuki = Artist.new(name: "Hiroyuki", user: gareth, description: "Japanese singer songwriter", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
+hiroyuki_profile_image = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638484855/raibuon/Hiroyuki-profile_kfujdq.jpg")
+hiroyuki.photo.attach(io: hiroyuki_profile_image, filename: "hiroyuki_profile_image", content_type: 'image/jpg')
+hiroyuki_perf = Performance.create!(name:"Hiroyuki: live and from the heart", artist: hiroyuki, address: "Sapporo", start_time: DateTime.now + 5, end_time: DateTime.now + 5 + 90.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
+hiroyuki_promo_image_one = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638484856/raibuon/Hiroyuki-promo3_jekkpt.jpg")
+hiroyuki_perf.photos.attach(io: hiroyuki_promo_image_one, filename: "hiroyuki_promo_image_one", content_type: 'image/jpg')
+hiroyuki_promo_image_two = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638484855/raibuon/Hiroyuki-promo2_eqxzss.jpg")
+hiroyuki_perf.photos.attach(io: hiroyuki_promo_image_two, filename: "hiroyuki_promo_image_two", content_type: 'image/jpg')
+hiroyuki_promo_image_three = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638484855/raibuon/Hiroyuki-promo1_d0sitd.jpg")
+hiroyuki_perf.photos.attach(io: hiroyuki_promo_image_three, filename: "hiroyuki_promo_image_three", content_type: 'image/jpg')
 
 puts "Creating tips..."
 

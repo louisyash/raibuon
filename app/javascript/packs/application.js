@@ -88,14 +88,9 @@ window.addEventListener('scroll', function () {
 import "controllers"
 import { MapMouseEvent } from "mapbox-gl";
 
-//const songs = document.querySelector("#song_titles_array").dataset.songs;
 const songs = JSON.parse(document.querySelector("#song_titles_array").dataset.songs);
-//const n = document.querySelector("#song_titles_array").dataset.n;
-//console.log(jstest);
 const changeSongButton = document.querySelector("#change-the-song-buttton");
-//document.querySelector("#song_titles_array").dataset.n
 changeSongButton.addEventListener("click", (event) => {
-
   let n = document.querySelector("#song_titles_array").dataset.n;
   let songNo = parseInt(n, 10)
   console.log(songNo);
@@ -110,18 +105,8 @@ changeSongButton.addEventListener("click", (event) => {
 
   (songNo >= (songs.length - 1)) ? songNo = 0 : songNo += 1;
   document.querySelector("#song_titles_array").dataset.n = songNo
-  //(n >= songs.length) ? n = 0;
-  //console.log(n);
 }); {
 
-}
-
-function wait(ms){
-   var start = new Date().getTime();
-   var end = start;
-   while(end < start + ms) {
-     end = new Date().getTime();
-  }
 }
 
 /* When the user clicks on the button,
