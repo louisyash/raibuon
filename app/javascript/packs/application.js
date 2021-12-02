@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
 // Opacity fade for top nav search bar background
 window.addEventListener('scroll', function () {
   var currScrollPos2 = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-  if (currScrollPos2 > 10) {
+  if (currScrollPos2 > 25) {
     document.getElementById('test').classList.add('navbar-fadein');
   } else {
     document.getElementById('test').classList.remove("navbar-fadein");
@@ -101,15 +101,28 @@ changeSongButton.addEventListener("click", (event) => {
   console.log(songNo);
   console.log(songs[songNo]);
   //console.log(songs[n]);
-  document.getElementById("song_title_live_display").innerHTML = songs[songNo];
+  document.getElementById('song_title_live_display').classList.toggle('song-title-fade-in');
+  setTimeout(function(){
+    document.getElementById("song_title_live_display").innerHTML = songs[songNo];
+    document.getElementById('song_title_live_display').classList.toggle('song-title-fade-in');
+  },
+    300);
+
   (songNo >= (songs.length - 1)) ? songNo = 0 : songNo += 1;
-  document.querySelector("#song_titles_array").dataset.n =  songNo
+  document.querySelector("#song_titles_array").dataset.n = songNo
   //(n >= songs.length) ? n = 0;
   //console.log(n);
 }); {
 
 }
 
+function wait(ms){
+   var start = new Date().getTime();
+   var end = start;
+   while(end < start + ms) {
+     end = new Date().getTime();
+  }
+}
 
 /* When the user clicks on the button,
 toggle between hiding and showing the drop content */
