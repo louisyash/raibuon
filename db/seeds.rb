@@ -42,15 +42,26 @@ trashcan.photo.attach(io: trashcan_image_file, filename: "trashcan_image_file", 
 wagons = Artist.new(name: "The Wagons", user: louis, description: "The Wagons live coming soon!", facebook: 'www.facebook.com', instagram: 'www.instagram.com', soundcloud:'www.soundcloud.com', spotify:'www.spotify.com', twitter:'www.twitter.com')
 wagons_image_file = URI.open("https://images.vice.com/vice/images/articles/meta/2015/10/05/japans-biggest-metal-band-features-two-underaged-girls-and-a-bearded-cross-dressing-singer-111-1444063035.jpg")
 wagons.photo.attach(io: wagons_image_file, filename: "wagons_image_file", content_type: 'image/jpg')
+asahi = Artist.new(name: "Asahi", user: anju, description: "The Asahi live!", facebook: 'www.facebook.com', instagram: 'www.instagram.com', soundcloud:'www.soundcloud.com', spotify:'www.spotify.com', twitter:'www.twitter.com')
+asahi_image_file = URI.open("https://i.ytimg.com/vi/lb0GTvxOlL8/maxresdefault.jpg")
+asahi.photo.attach(io: asahi_image_file, filename: "asahi_image_file", content_type: 'image/jpg')
+
 
 puts "Creating performances..."
 
-trash_perf = Performance.create!(name:"Trashcans live on the streets", artist: trashcan, address: "Yoyogi Park", start_time: DateTime.now, end_time: DateTime.now + 5.minutes,songs:["Don't leave me here", "Eternal Bomb", "遅くなりました", "初めまして", "結構やばいです。", "明日から要りません"])
-mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mighty, address: "Yoyogi Park", start_time: 137.minutes.ago, end_time: DateTime.now + 5.minutes,songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
-mighty_perf_two = Performance.create!(name:"Blast at the park", artist: mighty, address: "Nishi-Shinjuku", start_time: 250.minutes.ago, end_time: DateTime.now + 5.minutes,songs:["The Mash Up", "Fa La La", "聖なるペンギン", "暗闇のチョコ", "塩", "胡椒とラー油", "Hat Trick"])
-cups_perf_two = Performance.create!(name:"Sonic blast", artist: cup_monsters, address: "Yoyogi Park", start_time: 30.minutes.ago, end_time: DateTime.now + 5.minutes,songs:["The Machi", "Sad sad Donkey", "ゴキブリの一生", "ペットボトル", "キャンペーン実施中", "明日と君の犬", "Fat Trick"])
-cups_perf_three = Performance.create!(name:"Yoyogi park sonic", artist: cup_monsters, address: "Yoyogi Park", start_time: 30.minutes.ago, end_time: DateTime.now + 5.minutes)
-wagons_perf = Performance.create!(name:"Wagons smackdown live", artist: wagons, address: "Inokashira Park", start_time: 130.minutes.ago, end_time: DateTime.now + 5.minutes)
+#This one is Currently live (Trashcan paradise for 90 minutes after seeding)
+trash_perf = Performance.create!(name:"Trashcans live on the streets", artist: trashcan, address: "Yoyogi Park", start_time: DateTime.now, end_time: DateTime.now + 90.minutes, songs:["Don't leave me here", "Eternal Bomb", "遅くなりました", "初めまして", "結構やばいです。", "明日から要りません"])
+#This one will be live in a day (Mighty Dumplings for 90 minutes after a day.)
+mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mighty, address: "Yoyogi Park", start_time: DateTime.now + 1, end_time: DateTime.now + 1 + 90.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
+#This one will be in the past
+mighty_perf_two = Performance.create!(name:"Blast at the park", artist: mighty, address: "Nishi-Shinjuku", start_time: 250.minutes.ago, end_time: 130.minutes.ago , songs:["The Mash Up", "Fa La La", "聖なるペンギン", "暗闇のチョコ", "塩", "胡椒とラー油", "Hat Trick"])
+#This one will be live today. (Cup Monsters live in 2 hours)
+cups_perf_two = Performance.create!(name:"Sonic blast", artist: cup_monsters, address: "Yoyogi Park", start_time: DateTime.now + 2.hours, end_time: DateTime.now + 3.hours, songs:["The Machi", "Sad sad Donkey", "ゴキブリの一生", "ペットボトル", "キャンペーン実施中", "明日と君の犬", "Fat Trick"])
+#This one will be in the past
+cups_perf_three = Performance.create!(name:"Yoyogi park sonic", artist: cup_monsters, address: "Yoyogi Park", start_time: 30.minutes.ago, end_time: DateTime.now)
+#This one will be in the past
+wagons_perf = Performance.create!(name:"Wagons smackdown live", artist: wagons, address: "Inokashira Park", start_time: 130.minutes.ago, end_time: DateTime.now)
+asahi_perf = Performance.create!(name:"Asahi live", artist: asahi, address: "Inokashira Park", start_time: 130.minutes.ago, end_time: DateTime.now)
 
 puts "Creating tips..."
 
@@ -59,6 +70,8 @@ Tip.create!(amount: 1000, user: gareth, performance: mighty_perf)
 Tip.create!(amount: 100, user: anju, performance: trash_perf)
 Tip.create!(amount: 200, user: louis, performance: trash_perf)
 Tip.create!(amount: 1200, user: emanuel, performance: trash_perf)
+Tip.create!(amount: 1000, user: emanuel, performance: wagons_perf)
+Tip.create!(amount: 1000, user: emanuel, performance: asahi_perf)
 
 puts "created #{User.count} users, #{Artist.count} artists, #{Performance.count} performances, and #{Tip.count} tips!"
 
