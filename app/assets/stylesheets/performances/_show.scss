@@ -8,10 +8,11 @@
 
 .performance-photos {
   position: relative;
-
-
   .tips-today {
     position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     color: white;
     text-shadow: 1px 2px 3px #808080;
     bottom: 0px;

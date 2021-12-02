@@ -50,17 +50,10 @@ window.addEventListener('scroll', function () {
      $('#owl-one').owlCarousel({
   loop: true,
   margin: 10,
-
   responsive:{
-    0:{
-      items:1,
-     },
-    600:{
-      items:2,
-     },
-    800: {
-      items: 3,
-    }
+    0:{ items:1,},
+    600:{ items:2,},
+    800: { items: 3,}
    },
    nav: true,
    navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"]
