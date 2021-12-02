@@ -23,3 +23,11 @@
     width: 100%;
   }
 }
+.input-color {
+  background-color: #5c5c84;
+  color: white;
+  &:focus {
+    background-color: #5c5c84;
+    color: white;
+  }
+}
