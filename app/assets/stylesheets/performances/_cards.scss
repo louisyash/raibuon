@@ -4,16 +4,13 @@ $button-color: #6B192D;
 
 .title-container{
   height: 100px;
-  border-radius: 20px;
-  background-color: $button-color;
   display: flex;
-  border: solid 2px white;
-  justify-content: space-around;
+  justify-content: start;
   overflow: hidden;
   img{
-    margin: auto;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
   }
   h3{
     font-family: 'Post No Bills Colombo', sans-serif;

@@ -1,39 +1,55 @@
 <!--Streaming part / photo part -->
-<div class="container">
-  <div class="container title-container my-2">
-    <div class="container d-flex justify-content-between">
-      <%= link_to artist_path(@performance.artist), class: "d-flex m-auto" do %>
-        <% if @performance.artist.photo.attached?  %>
-          <%= cl_image_tag @performance.artist.photo.key, class: "avatar-large" %>
-        <% else %>
-          <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
-        <% end %>
-        <div class="container d-flex align-content-center justify-content-around flex-column">
-          <h3 class="m-0 text-center"><%= @performance.artist.name %></h3>
+<div class="title-container">
+  <div class="d-flex justify-content-between p-2 ml-3">
+    <%= link_to artist_path(@performance.artist), class: "d-flex m-auto" do %>
+      <% if @performance.artist.photo.attached?  %>
+        <%= cl_image_tag @performance.artist.photo.key, class: "avatar-large" %>
+      <% else %>
+        <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
+      <% end %>
+    <% end %>
+    <div style="display: flex flex-direction: column;">
+      <div class="container d-flex align-content-center justify-content-around flex-column">
+        <div class="d-flex bd-highlight">
+          <h3 class="m-0 w-100 bd-highlight"><%= @performance.artist.name %></h3>
+          <% if @performance.artist.user == current_user %>
+            <%= link_to 'Edit', "/", class:'btn-performance flex-shrink-1 bd-highlight', style:'width: 110px; height:30px;' %>
+          <% else %>
+            <%= link_to 'Follow', "/", class:'btn-performance flex-shrink-1 bd-highlight', style:'width: 110px; height:30px;' %>
+          <% end %>
         </div>
-      <% end %>
-      <% if @performance.artist.user.username == @current_user.username %>
-        <%= link_to 'Edit', "/", class:'btn-performance' %>
-      <% end %>
+        <!-- stuff above -->
+        <p class="m-0"><%= @performance.name %></p>
+      </div>
+      <!-- stuff below -->
+      <div class="details pl-2" style="width: 260px;">
+        <div class="mb-0 d-flex bd-highlight">
+          <div class="pl-2 flex-grow-1 bd-highlight">
+            <p><em class="fas fa-map-marker-alt text-light"></em> <%= @performance.address %></p>
+          </div>
+          <div class="pr-2 bd-highlight">
+            <p><em class="mb-0 far fa-calendar-alt"></em> <%= @performance.start_time.strftime("%Y/%m/%d") %></p>
+          </div>
+          <div class="mb-0 bd-highlight">
+            <p><em class="far fa-clock"></em> <%= @performance.start_time.strftime("%H:%M") %>- <%= @performance.end_time.strftime("%H:%M") %></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+<div id="owl-one" class="photo-container mb-3 owl-carousel owl-theme ">
+  <!--Carousel-->
+  <%= image_tag "yoyogi2.jpg" %>
+  <%= image_tag "yoyogi3.jpg" %>
+  <%= image_tag "yoyogi-park-tokyo.jpg" %>
+</div>
+<div class="container d-flex align-content-center justify-content-around flex-column">
+  <%= render "tips/amount", amount: @performance.tips.where(state: "paid").sum(:amount_cents) %>
   <!-- Cards space-->
-  <div class="container d-flex justify-content-around flex-wrap">
-      <h4><%= @performance.name %></h4>
-    <div class="container tip-container my-2">
-      <p><em class="fas fa-map-marker-alt text-light"></em> <%= @performance.address %></p>
-      <p><em class="far fa-calendar-alt"></em> <%= @performance.start_time.strftime("%Y/%m/%d") %></p>
-      <p><em class="far fa-clock"></em> <%= @performance.start_time.strftime("%H:%M") %>- <%= @performance.end_time.strftime("%H:%M") %></p>
-      <%= render "tips/amount", amount: @performance.tips.where(state: "paid").sum(:amount_cents) %>
-    </div>
-    <div id="owl-one" class="photo-container my-3 owl-carousel owl-theme ">
-      <!--Carousel-->
-      <%= image_tag "yoyogi2.jpg" %>
-      <%= image_tag "yoyogi3.jpg" %>
-      <%= image_tag "yoyogi-park-tokyo.jpg" %>
-    </div>
-  </div>
-  <!--Messages container-->
+</div>
+<!--Messages container-->
+<div class="container">
   <div class="container message-container my-2 w-100" data-controller="display-messages" data-user-id="<%= current_user.id %>">
     <!--Extension messages area-->
     <h3 class="my-3">Messages and Tips!</h3>
