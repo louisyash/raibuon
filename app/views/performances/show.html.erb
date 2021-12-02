@@ -70,7 +70,7 @@
         <% end %>
       </div>
     <% end %>
-    <% if @messages_tips.length > 1 %>
+    <% if @messages_tips.length < 1 %>
       <p data-display-messages-target="display"  data-action="click->display-messages#display">View <%= @performance.messages.count + @performance.tips.count%> more messages</p>
     <% end %>
     <h5>Comment here!</h5>
