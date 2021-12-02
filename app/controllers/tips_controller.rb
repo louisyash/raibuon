@@ -26,10 +26,7 @@ class TipsController < ApplicationController
         message: render_to_string(partial: "tips/tip", locals: { tip: @tip })
       )
 
-      PerformanceChannel.broadcast_to(
-        @performance,
-        tip: render_to_string(partial: "tips/amount", locals: { amount: @performance.tips.where(state: "paid").sum(:amount_cents) })
-      )
+
 
       flash[:notice] = "Thank you for tipping #{@performance.artist.name}!"
 
@@ -44,8 +41,9 @@ class TipsController < ApplicationController
         success_url: performance_url(@performance),
         cancel_url: performance_url(@performance)
       )
-      @tip.update(checkout_session_id: session.id, state: "paid")
+      @tip.update(checkout_session_id: session.id)
       # redirect_to new_tip_payment_path(@tip)
+
     else
       render :new
     end
