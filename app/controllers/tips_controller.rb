@@ -17,7 +17,6 @@ class TipsController < ApplicationController
     @tip = Tip.new(tip_params)
     @performance = Performance.find(params[:performance_id])
     @tip.performance = @performance
-
     @tip.user = current_user
     authorize @tip
 
@@ -29,8 +28,9 @@ class TipsController < ApplicationController
 
       PerformanceChannel.broadcast_to(
         @performance,
-        tip: render_to_string(partial: "tips/amount", locals: { amount: @performance.tips.sum(:amount_cents) })
-      )
+        tip: render_to_string(partial: "tips/amount", locals: { amount: @performance.tips.where(state: "paid").sum(:amount_cents) })
+    )
+
       flash[:notice] = "Thank you for tipping #{@performance.artist.name}!"
 
       session = Stripe::Checkout::Session.create(
@@ -44,7 +44,7 @@ class TipsController < ApplicationController
         success_url: performance_url(@performance),
         cancel_url: performance_url(@performance)
       )
-      @tip.update(checkout_session_id: session.id, state: "pending")
+      @tip.update(checkout_session_id: session.id, state: "paid")
       # redirect_to new_tip_payment_path(@tip)
     else
       render :new

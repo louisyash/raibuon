@@ -1,6 +1,7 @@
 <div data-controller="test" class="">
   <!-- spacer dark purple -->
   <%= render "shared/section_spacer", background_color: "dark_purple_background"  %>
+  <%= render "tip_ranking", artist_ranking: @artist_ranking %>
   <div class="ro-wrapper wireframe dark_purple_background">
     <div class="ro-container wireframe" style="justify-content: start;">
       <h3 class="wireframe section-title">Live today</h3>
@@ -17,6 +18,7 @@
           <% one_performance = @performances.sample %>
         <% end %>
         <!-- item 1 -->
+
         <div class="list1">
           <div class="upper-components">
             <i style="color: white" class="far fa-heart"></i>
@@ -24,12 +26,14 @@
               <p>LIVE</p>
             </div>
           </div>
-          <%= link_to performance_path(first_performance) do %>
+
+          <%= link_to performance_path(one_performance) do %>
             <% if one_performance.artist.photo.attached? %>
               <%= cl_image_tag one_performance.artist.photo.key, height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
             <% else %>
               <%= image_tag "https://miro.medium.com/max/1400/0*D2xr7G_v2nbI9eiB", height: 600, width: 800, crop: :fill, class:"perf-card-lg" %>
             <% end %>
+
             <div class="perf-text mauve_background">
               <div style="display: flex; flex-direction: row; justify-content: space-between;">
                 <h5 class="live-now-card-text"><strong><%= one_performance.artist.name %></strong></h5>
@@ -41,9 +45,12 @@
                 <p class="live-now-card-text"><em class="far fa-clock"></em> <%= one_performance.start_time.strftime("%H:%M") %></p>
               </div>
             </div>
-          <% end %>
+          </div>
+        <% end %>
         </div>
+
         <!-- item 2 -->
+
         <div class="list2">
           <%= link_to performance_path(first_performance) do %>
             <% if first_performance.artist.photo.attached? %>
@@ -64,7 +71,9 @@
             </div>
           <% end %>
         </div>
+
         <!-- item 3 -->
+
         <div class="list3">
           <%= link_to performance_path(last_performance) do %>
             <% if last_performance.artist.photo.attached? %>

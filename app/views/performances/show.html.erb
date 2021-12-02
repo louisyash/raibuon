@@ -18,8 +18,7 @@
     </div>
   </div>
   <div id="owl-one" class="photo-container my-3 owl-carousel owl-theme ">
-  <!--Carousel-->
-
+    <!--Carousel-->
     <%= image_tag "yoyogi2.jpg" %>
     <%= image_tag "yoyogi3.jpg" %>
     <%= image_tag "yoyogi-park-tokyo.jpg" %>
@@ -29,7 +28,7 @@
 <div class="container d-flex justify-content-around flex-wrap">
   <div class="container tip-container my-2">
     <h3>TIPS TODAY!</h3>
-    <%= render "tips/amount", amount: @performance.tips.sum(:amount_cents) %>
+    <%= render "tips/amount", amount: @performance.tips.where(state: "paid").sum(:amount_cents) %>
   </div>
   <!--Messages container-->
   <div class="container message-container my-2 w-100" data-controller="display-messages" data-user-id="<%= current_user.id %>">
