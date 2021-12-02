@@ -20,12 +20,15 @@ const initPerformanceCable = () => {
 const addMessages = (message, messagesContainer) => {
   const messageDiv = document.createElement('div');
   messageDiv.innerHTML = message;
-  const authorId = parseInt(messageDiv.querySelector('.content-message').dataset.authorId)
-  console.log(authorId, messageDiv.querySelector('.content-message'))
-  const currentUserId = parseInt(document.querySelector('.message-container').dataset.userId)
-  console.log(currentUserId, authorId)
-  if(currentUserId !== authorId ){
-    messageDiv.querySelector('.content-message').classList.remove('mine')
+  if(messageDiv.querySelector('.content-message')){
+
+    const authorId = parseInt(messageDiv.querySelector('.content-message').dataset.authorId)
+    console.log(authorId, messageDiv.querySelector('.content-message'))
+    const currentUserId = parseInt(document.querySelector('.message-container').dataset.userId)
+    console.log(currentUserId, authorId)
+    if(currentUserId !== authorId ){
+      messageDiv.querySelector('.content-message').classList.remove('mine')
+    }
   }
   messagesContainer.insertAdjacentElement('afterbegin', messageDiv);
   messagesContainer.scrollTop = 0;
