@@ -1,0 +1,5 @@
+meta_product_name: "RaibuOn"
+meta_title: "RaibuOn - Discover your next favorite music"
+meta_description: "Raibu helps users discover local music and support musicians"
+meta_image: "raibuon.png" # should exist in `app/assets/images/`
+twitter_account: "@raibuon"   # required for Twitter Cards

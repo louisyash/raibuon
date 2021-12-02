@@ -38,18 +38,16 @@
     </div>
   </div>
 </div>
-<div style="background: linear-gradient(blue, pink);">
-  <div class="performance-photos">
-    <div class="tips-today">
-      <p class="m-0">Tips</p>
-      <%= render "tips/amount", amount: @performance.tips.where(state: "paid").sum(:amount_cents) %>
-    </div>
-    <div id="owl-one" class="photo-container mb-3 owl-carousel owl-theme ">
-      <!--Carousel-->
-      <%= image_tag "yoyogi2.jpg", class:"performance-photo" %>
-      <%= image_tag "yoyogi3.jpg", class:"performance-photo" %>
-      <%= image_tag "yoyogi-park-tokyo.jpg", class:"performance-photo" %>
-    </div>
+<div class="performance-photos">
+  <div class="tips-today">
+    <p class="m-0">Tips</p>
+    <%= render "tips/amount", amount: @performance.tips.where(state: "paid").sum(:amount_cents) %>
+  </div>
+  <div id="owl-one" class="photo-container mb-3 owl-carousel owl-theme ">
+    <!--Carousel-->
+    <%= image_tag "yoyogi2.jpg", class:"performance-photo" %>
+    <%= image_tag "yoyogi3.jpg", class:"performance-photo" %>
+    <%= image_tag "yoyogi-park-tokyo.jpg", class:"performance-photo" %>
   </div>
 </div>
 <!-- Cards space-->
