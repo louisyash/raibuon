@@ -28,8 +28,9 @@ class TipsController < ApplicationController
 
       PerformanceChannel.broadcast_to(
         @performance,
-        tip: render_to_string(partial: "tips/amount", locals: { amount: @performance.tips.sum(:amount_cents) })
-      )
+        tip: render_to_string(partial: "tips/amount", locals: { amount: @performance.tips.where(state: "paid").sum(:amount_cents) })
+    )
+
       flash[:notice] = "Thank you for tipping #{@performance.artist.name}!"
 
       session = Stripe::Checkout::Session.create(
