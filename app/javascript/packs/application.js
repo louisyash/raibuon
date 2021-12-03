@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
 // Opacity fade for top nav search bar background
 window.addEventListener('scroll', function () {
   var currScrollPos2 = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-  if (currScrollPos2 > 10) {
+  if (currScrollPos2 > 25) {
     document.getElementById('test').classList.add('navbar-fadein');
   } else {
     document.getElementById('test').classList.remove("navbar-fadein");
@@ -50,17 +50,10 @@ window.addEventListener('scroll', function () {
      $('#owl-one').owlCarousel({
   loop: true,
   margin: 10,
-
   responsive:{
-    0:{
-      items:1,
-     },
-    600:{
-      items:2,
-     },
-    800: {
-      items: 3,
-    }
+    0:{ items:1,},
+    600:{ items:2,},
+    800: { items: 3,}
    },
    nav: true,
    navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"]
@@ -95,8 +88,26 @@ window.addEventListener('scroll', function () {
 import "controllers"
 import { MapMouseEvent } from "mapbox-gl";
 
+const songs = JSON.parse(document.querySelector("#song_titles_array").dataset.songs);
+const changeSongButton = document.querySelector("#change-the-song-buttton");
+changeSongButton.addEventListener("click", (event) => {
+  let n = document.querySelector("#song_titles_array").dataset.n;
+  let songNo = parseInt(n, 10)
+  console.log(songNo);
+  console.log(songs[songNo]);
+  //console.log(songs[n]);
+  document.getElementById('song_title_live_display').classList.toggle('song-title-fade-in');
+  setTimeout(function(){
+    document.getElementById("song_title_live_display").innerHTML = songs[songNo];
+    document.getElementById('song_title_live_display').classList.toggle('song-title-fade-in');
+  },
+    300);
 
+  (songNo >= (songs.length - 1)) ? songNo = 0 : songNo += 1;
+  document.querySelector("#song_titles_array").dataset.n = songNo
+}); {
 
+}
 
 /* When the user clicks on the button,
 toggle between hiding and showing the drop content */
