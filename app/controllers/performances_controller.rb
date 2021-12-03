@@ -31,7 +31,6 @@ class PerformancesController < ApplicationController
       @performance,
       tip: render_to_string(partial: "tips/amount", locals: { amount: @performance.tips.where(state: "paid").sum(:amount_cents) })
     )
-
     @message = Message.new
     @performance.artist = @performance.artist
     @tip = Tip.new
@@ -66,6 +65,6 @@ class PerformancesController < ApplicationController
   private
 
   def performance_params
-    params.require(:performance).permit(:name, :description, :address, :start_time, :end_time, :result, :tip_id)
+    params.require(:performance).permit(:name, :description, :address, :start_time, :end_time)
   end
 end
