@@ -25,11 +25,19 @@
 .input-color {
   background-color: #5c5c84;
   color: white;
+  height:9px;
   &:focus {
     background-color: #5c5c84;
     color: white;
   }
 }
+
+.msg-form {
+ .btn{
+   float: right;
+ }
+}
+
 
 .performance-show-navbar__outer_container {
   flex-grow: 1;
@@ -88,3 +96,4 @@ opacity: 1;
 	background-color: red;
   }
 }
+
