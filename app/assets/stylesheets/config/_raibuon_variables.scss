@@ -44,6 +44,9 @@ h3.section-title-smaller {
   height: 100%;
   margin: auto;
 }
+.carousel-screenwidth-container {
+    display: block;
+  }
 
 .ro-wrapper {
   display: flex;
@@ -72,12 +75,16 @@ h3.section-title-smaller {
     margin-left: 40px;
     margin-right: 40px;
   }
+  .carousel-screenwidth-container {
+  }
 }
 
 @media(max-width: 1024px) {
   .ro-container {
     margin-left: 30px;
     margin-right: 30px;
+  }
+  .carousel-screenwidth-container {
   }
 }
 
@@ -87,12 +94,18 @@ h3.section-title-smaller {
     margin-left: 30px;
     margin-right: 30px;
   }
+  .carousel-screenwidth-container {
+  }
 }
 
 @media(max-width: 480px) {
   .ro-container {
     margin-left: 20px;
     margin-right: 20px;
+  }
+  .carousel-screenwidth-container {
+    margin-right: 0px;
+    margin-left: 0px;
   }
 }
 
@@ -103,5 +116,9 @@ h3.section-title-smaller {
   }
   h3.section-title-smaller {
     font-size: 7vw;
+  }
+  .carousel-screenwidth-container {
+    margin-right: 0px;
+    margin-left: 0px;
   }
 }

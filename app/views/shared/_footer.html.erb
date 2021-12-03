@@ -1,29 +1,22 @@
-<%
-=begin %>
-<% if current_page?('/')%>
-  <% display_style = "flex"; %>
+<% if params[:controller] == "performances" && params[:action] == "show" %>
+  <div class="blank-footer ro-footer-bottom-space"></div>
 <% else %>
-  <% display_style = "none"; %>
+  <% display_style = "flex"; %>
+  <div class="wrapper ro-wrapper black_background" style="display: <%= display_style %>">
+    <div class="ro-container wireframe">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper ro-wrapper black_background ro-footer-bottom-space" style="display: <%= display_style %>">
+    <div class="ro-container wireframe">
+      <div class="footer-copyright">
+        <span style="color: #fff; float: right;">Made with <i class="fas fa-heart"></i> by LiveHere</span>
+      </div>
+    </div>
+  </div>
 <% end %>
-<%
-=end %>
-<% display_style = "flex"; %>
-
-<div class="wrapper ro-wrapper black_background" style="display: <%= display_style %>">
-  <div class="ro-container wireframe">
-    <div class="footer-links">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </div>
-</div>
-
-<div class="wrapper ro-wrapper black_background ro-footer-bottom-space" style="display: <%= display_style %>">
- <div class="ro-container wireframe">
-    <div class="footer-copyright">
-      <span style="color: #fff; float: right;">Made with <i class="fas fa-heart"></i> by LiveHere</span>
-    </div>
-  </div>
-</div>
