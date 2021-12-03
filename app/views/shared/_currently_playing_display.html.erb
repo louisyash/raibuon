@@ -3,10 +3,11 @@
 <% else %>
   <% live_indicator_display = "none" %>
 <% end %>
+<% songs = ["チョコレートインパクト", "Majestic Paradise", "最高のペンギン"] %>
 <div class="performance-show-navbar__outer_container wireframe" style="">
   <div class="performance-show_navbar__inner_container" style="">
     <p class="performance-show_navbar__text wireframe" style="margin-bottom: 0px; margin-left: 10px; width: 100%; display; inline-block;"><%= @performance.artist.name %> </p>
-    <p class="performance-show_navbar__text wireframe" style="margin-bottom: 0px; margin-left: 10px; width: 100%;">Currently playing: <span class="performance-nav__song-title song-title-fade-in" id="song_title_live_display">---</span></p>
+    <p class="performance-show_navbar__text wireframe" style="margin-bottom: 0px; margin-left: 10px; width: 100%;">Currently playing: <span class="performance-nav__song-title song-title-fade-in" id="song_title_live_display"><%= songs.sample %></span></p>
   </div>
   <div>
     <span class="live-container" style="display: <%= live_indicator_display %>; align-self: end;">live </span>
