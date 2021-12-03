@@ -55,10 +55,10 @@
 <div class="container">
   <div class="container message-container my-2 w-100" data-controller="display-messages" data-user-id="<%= current_user.id %>">
     <!--Extension messages area-->
-    <% if @messages_tips.length == 0 %>
-      <p><%= "Nothing to show yet" %></p>
-    <% else %>
-      <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
+    <div id="messages" class="container messages-content messages-content-large" data-display-messages-target="box" data-performance-id="<%= @performance.id %>">
+      <% if @messages_tips.length == 0 %>
+        <p data-display-messages-target="placeholder" id="message-placeholder"><%= "Nothing to show yet" %></p>
+      <% else %>
         <% @messages_tips.each do |element| %>
           <% if element.is_a?(Message) %>
             <%= render "messages/message", message: element %>
@@ -66,25 +66,23 @@
             <%= render "tips/tip", tip: element %>
           <% end %>
         <% end %>
-      </div>
-    <% end %>
-    <% if @messages_tips.length > 2 %>
-      <p data-display-messages-target="display"  data-action="click->display-messages#display">View <%= @performance.messages.count + @performance.tips.count%> more messages</p>
-    <% end %>
-    <%= simple_form_for [@performance, @message], remote: true do |f| %>
-      <div class="d-flex bd-highlight">
-        <div class="w-100 bd-highlight">
-          <%= f.input :content, placeholder: "Send message", label: false, input_html: { class:"input-color"} %>
-        </div>
-        <div class="pl-3 flex-shrink-1 bd-highlight">
-          <%= f.button :button, input_html: { class:"input-color"} do %>
-            <i class="far fa-paper-plane"></i>
+      <% end %>
+    </div>
+    <p data-display-messages-target="display" data-action="click->display-messages#display"> <%= "View #{@performance.messages.count + @performance.tips.count} more messages" unless @performance.messages.length < 2 %></p>
+    <div class="msg-form">
+      <%= simple_form_for [@performance, @message], remote: true do |f| %>
+        <%= f.input :content, placeholder: "Send message", label: false, input_html: { class:"input-color msg-box"} %>
+        <div class="d-flex justify-content-end">
+          <%= f.input :photo, as: :file, label: false, input_html: { class:"d-none"} do %>
+            <i class="fas fa-camera btn input-color-btn"></i>
           <% end %>
+          <%= f.button :button, input_html: { class:"btn-height"} do %>
+            <i class="far fa-paper-plane input-color"></i>
+          <% end %>
+          <%# f.input :photo, as: :file, input_html: { class:'d-none'}, label_html: { class: 'btn ml-2', } %>
         </div>
-      </div>
-      <%# f.input :photo, as: :file, input_html: { class:'d-none'}, label_html: { class: 'btn ml-2', } %>
-      <%= f.input :photo, as: :file, input_html: { class:'d-none'}, label_html: { class: 'btn w-100 ml-2', label: 'Upload a photo'}%>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 <!--Messages box-->

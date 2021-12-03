@@ -8,6 +8,10 @@ const initPerformanceCable = () => {
     const id = messagesContainer.dataset.performanceId;
     consumer.subscriptions.create({ channel: "PerformanceChannel", id: id }, {
       received(data) {
+        const placeholder = document.getElementById('message-placeholder');
+        if(placeholder) {
+          placeholder.remove();
+        }
         console.log('EN EL INIT');
         if(data.message) {
         console.log('EN EL INIT IF');

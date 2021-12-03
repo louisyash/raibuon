@@ -13,7 +13,7 @@
     </div>
     <!-- information about artist - right -->
     <div style="" class="wireframe artist-content-right">
-      <h3 class="section-title-smaller artist-description" style=""><%= @artist.description %></p>
+      <h3 class="section-title-smaller artist-description" style="font-size: 1px;"><%= @artist.description %></p>
       <div class="user-buttons wireframe">
         <% if @artist.user == current_user %>
           <%= link_to 'Edit', "/", class:'btn profile-btn' %>
@@ -47,7 +47,7 @@
       <div class="tip-info-outer-container">
         <div class="tip-info-container">
           <h3 style="display: flex; align-items: center; justify-content: center; margin-bottom: 0px;">Total Tips</h3>
-          <%= render "tips/amount", amount: @artist.tips.sum(:amount_cents) %>
+          <%= render "tips/amount", amount: @artist.tips.sum(:amount_cents), class:"mn-0" %>
         </div>
       </div>
     </div>

@@ -26,8 +26,16 @@
 .input-color {
   background-color: #5c5c84;
   color: white;
+  height:9px;
   &:focus {
     background-color: #5c5c84;
     color: white;
   }
+}
+.msg-form {
+ .btn{
+   float: right;
+ }
+
+
 }
