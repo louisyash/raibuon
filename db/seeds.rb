@@ -109,7 +109,7 @@ perf_two.latitude = 35.672059
 perf_two.longitude = 139.693110
 
 #This one is Currently live (badboys paradise for 90 minutes after seeding)
-badboys_perf = Performance.create!(name:"Badboys live on the streets", artist: badboys, address: "Yoyogi Park", start_time: DateTime.now, end_time: DateTime.now + 90.minutes, songs:["Don't leave me here", "Eternal Bomb", "遅くなりました", "初めまして", "結構やばいです。", "明日から要りません"])
+badboys_perf_two = Performance.create!(name:"Badboys live on the streets", artist: badboys, address: "Yoyogi Park", start_time: DateTime.now, end_time: DateTime.now + 90.minutes, songs:["Don't leave me here", "Eternal Bomb", "遅くなりました", "初めまして", "結構やばいです。", "明日から要りません"])
 badboys_perf_two.latitude = 35.669765
 badboys_perf_two.longitude = 139.697671
 
@@ -169,9 +169,9 @@ puts "Creating tips..."
 
 Tip.create!(amount: 300, user: louis, performance: undead_perf_two)
 Tip.create!(amount: 1000, user: gareth, performance: mighty_perf)
-Tip.create!(amount: 100, user: anju, performance: badboys_perf)
-Tip.create!(amount: 200, user: louis, performance: badboys_perf)
-Tip.create!(amount: 1200, user: emanuel, performance: badboys_perf)
+Tip.create!(amount: 100, user: anju, performance: badboys_perf_two)
+Tip.create!(amount: 200, user: louis, performance: badboys_perf_two)
+Tip.create!(amount: 1200, user: emanuel, performance: badboys_perf_two)
 Tip.create!(amount: 1000, user: emanuel, performance: wagons_perf)
 Tip.create!(amount: 1000, user: emanuel, performance: asahi_perf)
 Tip.create!(amount: 2000, user: emanuel, performance: perf_one)
@@ -183,7 +183,7 @@ puts "created #{User.count} users, #{Artist.count} artists, #{Performance.count}
 puts "creating messages"
 
 users = [emanuel, gareth, anju, louis]
-performances = [badboys_perf, mighty_perf, undead_perf_two]
+performances = [badboys_perf_two, mighty_perf, undead_perf_two]
 messages = ["HOTNESS", "the best artist!", "イイね", "i'm gonna tip right now!", "please more lives!", "ヤバいっす。", "惚れました", "結婚してください。"]
 
 15.times do
