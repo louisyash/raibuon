@@ -79,16 +79,7 @@ window.addEventListener('scroll', function () {
  });
 
 
-  initPerformanceCable();
-  initMapbox();
-  dropMenus();
-
-});
-
-import "controllers"
-import { MapMouseEvent } from "mapbox-gl";
-
-const songs = JSON.parse(document.querySelector("#song_titles_array").dataset.songs);
+  const songs = JSON.parse(document.querySelector("#song_titles_array").dataset.songs);
 const changeSongButton = document.querySelector("#change-the-song-buttton");
 changeSongButton.addEventListener("click", (event) => {
   let n = document.querySelector("#song_titles_array").dataset.n;
@@ -105,9 +96,18 @@ changeSongButton.addEventListener("click", (event) => {
 
   (songNo >= (songs.length - 1)) ? songNo = 0 : songNo += 1;
   document.querySelector("#song_titles_array").dataset.n = songNo
-}); {
+});
 
-}
+  initPerformanceCable();
+  initMapbox();
+  dropMenus();
+
+});
+
+import "controllers"
+import { MapMouseEvent } from "mapbox-gl";
+
+
 
 /* When the user clicks on the button,
 toggle between hiding and showing the drop content */

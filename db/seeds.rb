@@ -138,7 +138,48 @@ mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mi
 #This one will be in the past
 mighty_perf_two = Performance.create!(name:"Blast at the park", artist: mighty, address: "Nishi-Shinjuku", start_time: 250.minutes.ago, end_time: 130.minutes.ago , songs:["The Mash Up", "Fa La La", "聖なるペンギン", "暗闇のチョコ", "塩", "胡椒とラー油", "Hat Trick"])
 
-puts "Creating Hiroyuki artist"
+puts "3: Creating The New Orleans Club - Kochi harimaya"
+
+new_orleans_club = Artist.new(name: "New Orleans Club", user: gareth, description: "Jazz for the streets", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
+new_orleans_club_profile_image = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499292/raibuon/NewOrleansClub-profile_wstnwn.jpg")
+new_orleans_club.photo.attach(io: new_orleans_club_profile_image, filename: "new_orleans_club_profile_image", content_type: 'image/jpg')
+new_orleans_club_perf = Performance.create!(name:"Bringing the swing", artist: new_orleans_club, address: "Kochi Harimaya", start_time: DateTime.now + 5, end_time: DateTime.now + 5 + 60.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
+new_orleans_club_promo_image_one = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499297/raibuon/NewOrleansClub-promo1_wz7gah.jpg")
+new_orleans_club_perf.photos.attach(io: new_orleans_club_promo_image_one, filename: "new_orleans_club_promo_image_one", content_type: 'image/jpg')
+new_orleans_club_promo_image_two = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499289/raibuon/NewOrleansClub-promo2_katupk.jpg")
+new_orleans_club_perf.photos.attach(io: new_orleans_club_promo_image_two, filename: "new_orleans_club_promo_image_two", content_type: 'image/jpg')
+new_orleans_club_promo_image_three = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499288/raibuon/NewOrleansClub-promo3_dkinux.jpg")
+new_orleans_club_perf.photos.attach(io: new_orleans_club_promo_image_three, filename: "new_orleans_club_promo_image_three", content_type: 'image/jpg')
+
+puts "4: Creating The Smoky Pianist - kagoshima station"
+
+smoky_pianist = Artist.new(name: "The Smoky Pianist", user: gareth, description: "Ragtime with a smell of tobacco", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
+smoky_pianist_profile_image = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499692/raibuon/SmokyPianist-profile_o6bl2x.jpg")
+smoky_pianist.photo.attach(io: smoky_pianist_profile_image, filename: "smoky_pianist_profile_image", content_type: 'image/jpg')
+smoky_pianist_perf = Performance.create!(name:"Only ragtime", artist: smoky_pianist, address: "kagoshima station", start_time: DateTime.now + 7, end_time: DateTime.now + 7 + 60.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
+smoky_pianist_promo_image_one = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499691/raibuon/SmokyPianist-promo1_aj28oz.jpg")
+smoky_pianist_perf.photos.attach(io: smoky_pianist_promo_image_one, filename: "smoky_pianist_promo_image_one", content_type: 'image/jpg')
+smoky_pianist_promo_image_two = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499689/raibuon/SmokyPianist-promo2_s3s7tk.jpg")
+smoky_pianist_perf.photos.attach(io: smoky_pianist_promo_image_two, filename: "smoky_pianist_promo_image_two", content_type: 'image/jpg')
+smoky_pianist_promo_image_three = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499688/raibuon/SmokyPianist-promo3_eyitfl.jpg")
+smoky_pianist_perf.photos.attach(io: smoky_pianist_promo_image_three, filename: "smoky_pianist_promo_image_three", content_type: 'image/jpg')
+
+puts "5: Creating Shirley Shamisen Goddess - Kamakura Yuigahama Beach"
+
+shirley_shamisenist = Artist.new(name: "Shirley Shamisen", user: gareth, description: "Shirley Shamisen Goddess", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
+shirley_shamisenist_profile_image = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638502157/raibuon/Shirley-profile_c2c44w.jpg")
+shirley_shamisenist.photo.attach(io: shirley_shamisenist_profile_image, filename: "shirley_shamisenist_profile_image", content_type: 'image/jpg')
+shirley_shamisenist_perf = Performance.create!(name:"Shamisen on the beach", artist: shirley_shamisenist, address: "Kamakura Yuigahama Beach", start_time: DateTime.now + 3, end_time: DateTime.now + 3 + 60.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
+shirley_shamisenist_promo_image_one = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638502158/raibuon/Shirley-promo1_nswstk.jpg")
+shirley_shamisenist_perf.photos.attach(io: shirley_shamisenist_promo_image_one, filename: "shirley_shamisenist_promo_image_one", content_type: 'image/jpg')
+shirley_shamisenist_promo_image_two = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638502156/raibuon/Shirley-promo2_df5zgs.jpg")
+shirley_shamisenist_perf.photos.attach(io: shirley_shamisenist_promo_image_two, filename: "shirley_shamisenist_promo_image_two", content_type: 'image/jpg')
+shirley_shamisenist_promo_image_three = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638502155/raibuon/Shirley-promo3_hkuwhp.jpg")
+shirley_shamisenist_perf.photos.attach(io: shirley_shamisenist_promo_image_three, filename: "shirley_shamisenist_promo_image_three", content_type: 'image/jpg')
+
+
+
+puts "1: Creating Hiroyuki artist - Sapporo"
 
 hiroyuki = Artist.new(name: "Hiroyuki", user: gareth, description: "Japanese singer songwriter", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
 hiroyuki_profile_image = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638484855/raibuon/Hiroyuki-profile_kfujdq.jpg")
@@ -151,7 +192,7 @@ hiroyuki_perf.photos.attach(io: hiroyuki_promo_image_two, filename: "hiroyuki_pr
 hiroyuki_promo_image_three = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638484855/raibuon/Hiroyuki-promo1_d0sitd.jpg")
 hiroyuki_perf.photos.attach(io: hiroyuki_promo_image_three, filename: "hiroyuki_promo_image_three", content_type: 'image/jpg')
 
-puts "Creating Noriko artist"
+puts "2: Creating Noriko artist - Kyoto station"
 
 noriko = Artist.new(name: "Noriko", user: gareth, description: "Harp solist", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
 noriko_profile_image = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638489487/raibuon/Noriko-profile_tqtw3w.jpg")
