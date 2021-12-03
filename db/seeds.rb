@@ -82,6 +82,20 @@ hiroyuki_perf.photos.attach(io: hiroyuki_promo_image_two, filename: "hiroyuki_pr
 hiroyuki_promo_image_three = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638484855/raibuon/Hiroyuki-promo1_d0sitd.jpg")
 hiroyuki_perf.photos.attach(io: hiroyuki_promo_image_three, filename: "hiroyuki_promo_image_three", content_type: 'image/jpg')
 
+puts "Creating Noriko artist"
+
+noriko = Artist.new(name: "Noriko", user: gareth, description: "Harp solist", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
+noriko_profile_image = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638489487/raibuon/Noriko-profile_tqtw3w.jpg")
+noriko.photo.attach(io: noriko_profile_image, filename: "noriko_profile_image", content_type: 'image/jpg')
+noriko_perf = Performance.create!(name:"1 hour of classical harp", artist: noriko, address: "Kyoto station", start_time: DateTime.now + 7, end_time: DateTime.now + 7 + 60.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
+noriko_promo_image_one = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638489489/raibuon/Noriko-promo1_mod1yg.jpg")
+noriko_perf.photos.attach(io: noriko_promo_image_one, filename: "noriko_promo_image_one", content_type: 'image/jpg')
+noriko_promo_image_two = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638489487/raibuon/Noriko-promo2_a5mflu.jpg")
+noriko_perf.photos.attach(io: noriko_promo_image_two, filename: "noriko_promo_image_two", content_type: 'image/jpg')
+noriko_promo_image_three = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638489487/raibuon/Noriko-promo3_xtglnm.jpg")
+noriko_perf.photos.attach(io: noriko_promo_image_three, filename: "noriko_promo_image_three", content_type: 'image/jpg')
+
+
 puts "Creating tips..."
 
 Tip.create!(amount: 300, user: louis, performance: cups_perf_two)
