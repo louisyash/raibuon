@@ -8,10 +8,11 @@
 
 .performance-photos {
   position: relative;
-
-
   .tips-today {
     position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     color: white;
     text-shadow: 1px 2px 3px #808080;
     bottom: 0px;
@@ -32,10 +33,45 @@
     color: white;
   }
 }
+
 .msg-form {
  .btn{
    float: right;
  }
-
-
 }
+
+
+.performance-show-navbar__outer_container {
+  flex-grow: 1;
+  display: flex;
+  z-index: 97;
+}
+
+.performance-show-navbar__inner_container {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  z-index: 98;
+}
+
+p.performance-show-navbar__text {
+  width: 100%;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  z-index: 99;
+  }
+
+.performance-nav__song-title {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.performance-nav__song-title.song-title-fade-in {
+opacity: 1;
+  }
+
+.performance-nav__song-title.song-title-fade-out {
+opacity: 1;
+  }
+

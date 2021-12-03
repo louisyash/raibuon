@@ -1,53 +1,73 @@
 <!--Streaming part / photo part -->
-<div class="title-container">
-  <div class="d-flex justify-content-between p-2 ml-3">
-    <%= link_to artist_path(@performance.artist), class: "d-flex m-auto" do %>
-      <% if @performance.artist.photo.attached?  %>
-        <%= cl_image_tag @performance.artist.photo.key, class: "avatar-large" %>
-      <% else %>
-        <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
-      <% end %>
-    <% end %>
-    <div style="display: flex flex-direction: column;">
-      <div class="container d-flex align-content-center justify-content-around flex-column">
-        <div class="d-flex bd-highlight">
-          <h3 class="m-0 w-100 bd-highlight"><%= @performance.artist.name %></h3>
-          <% if @performance.artist.user == current_user %>
-            <%= link_to 'Edit', "/", class:'btn-performance flex-shrink-1 bd-highlight', style:'width: 110px; height:30px;' %>
+<div class="ro-wrapper wireframe">
+  <div class="ro-container wireframe">
+    <div class="title-container">
+      <div class="d-flex justify-content-between">
+        <%= link_to artist_path(@performance.artist), class: "d-flex m-auto" do %>
+          <% if @performance.artist.photo.attached?  %>
+            <%= cl_image_tag @performance.artist.photo.key, class: "avatar-large" %>
           <% else %>
-            <%= link_to 'Follow', "/", class:'btn-performance flex-shrink-1 bd-highlight', style:'width: 110px; height:30px;' %>
+            <%= image_tag "https://www.aceshowbiz.com/images/photo/shakira.jpg", class:"avatar-large" %>
           <% end %>
-        </div>
-        <!-- stuff above -->
-        <p class="m-0"><%= @performance.name %></p>
-      </div>
-      <!-- stuff below -->
-      <div class="details pl-2" style="width: 260px;">
-        <div class="mb-0 d-flex bd-highlight">
-          <div class="pl-2 flex-grow-1 bd-highlight">
-            <p><em class="fas fa-map-marker-alt text-light"></em> <%= @performance.address %></p>
+        <% end %>
+        <div style="display: flex flex-direction: column;">
+          <div class="container d-flex align-content-center justify-content-around flex-column">
+            <div class="d-flex bd-highlight">
+              <h3 class="m-0 w-100 bd-highlight"><%= @performance.artist.name %></h3>
+              <% if @performance.artist.user == current_user %>
+                <%= link_to 'Edit', "/", class:'btn-performance flex-shrink-1 bd-highlight', style:'width: 110px; height:30px;' %>
+              <% else %>
+                <%= link_to 'Follow', "/", class:'btn-performance flex-shrink-1 bd-highlight', style:'width: 110px; height:30px;' %>
+              <% end %>
+            </div>
+            <!-- stuff above -->
+            <p class="m-0"><%= @performance.name %></p>
           </div>
-          <div class="pr-2 bd-highlight">
-            <p><em class="mb-0 far fa-calendar-alt"></em> <%= @performance.start_time.strftime("%Y/%m/%d") %></p>
-          </div>
-          <div class="mb-0 bd-highlight">
-            <p><em class="far fa-clock"></em> <%= @performance.start_time.strftime("%H:%M") %>- <%= @performance.end_time.strftime("%H:%M") %></p>
+          <!-- stuff below -->
+          <div class="details pl-2" style="width: 260px;">
+            <div class="mb-0 d-flex bd-highlight">
+              <div class="pl-2 flex-grow-1 bd-highlight">
+                <p><em class="fas fa-map-marker-alt text-light"></em> <%= @performance.address %></p>
+              </div>
+              <div class="pr-2 bd-highlight">
+                <p><em class="mb-0 far fa-calendar-alt"></em> <%= @performance.start_time.strftime("%Y/%m/%d") %></p>
+              </div>
+              <div class="mb-0 bd-highlight">
+                <p><em class="far fa-clock"></em> <%= @performance.start_time.strftime("%H:%M") %>- <%= @performance.end_time.strftime("%H:%M") %></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<div class="performance-photos">
-  <div class="tips-today">
-    <p class="m-0">Tips</p>
-    <%= render "tips/amount", amount: @performance.tips.where(state: "paid").sum(:amount_cents) %>
-  </div>
-  <div id="owl-one" class="photo-container mb-3 owl-carousel owl-theme ">
-    <!--Carousel-->
-    <%= image_tag "yoyogi2.jpg", class:"performance-photo" %>
-    <%= image_tag "yoyogi3.jpg", class:"performance-photo" %>
-    <%= image_tag "yoyogi-park-tokyo.jpg", class:"performance-photo" %>
+<div class="ro-wrapper wireframe">
+  <div class="ro-container wireframe carousel-screenwidth-container">
+    <div class="performance-photos ">
+      <div class="tips-today wireframe" style="margin-left: 20px;">
+        <p style="margin-bottom: 0px; margin-right: 10px; margin-top: 2px;">Tips</p>
+        <%= render "tips/amount", amount: @performance.tips.where(state: "paid").sum(:amount_cents) %>
+      </div>
+      <div id="owl-one" class="photo-container mb-3 owl-carousel owl-theme ">
+        <!--Carousel-->
+        <% if @performance.photos.length > 0  %>
+          <%= cl_image_tag @performance.photos[0].key, class: "performance-photo" %>
+        <% else %>
+          <%= image_tag "yoyogi2.jpg", class:"performance-photo" %>
+        <% end %>
+        <% if @performance.photos.length > 1  %>
+          <%= cl_image_tag @performance.photos[1].key, class: "performance-photo" %>
+        <% else %>
+          <%= image_tag "yoyogi3.jpg", class:"performance-photo" %>
+        <% end %>
+        <% if @performance.photos.length > 2  %>
+          <%= cl_image_tag @performance.photos[2].key, class: "performance-photo" %>
+        <% else %>
+          <%= image_tag "yoyogi-park-tokyo.jpg", class:"performance-photo" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 <!-- Cards space-->
@@ -86,3 +106,15 @@
   </div>
 </div>
 <!--Messages box-->
+<!-- songname displayer -->
+<!-- views/performances/show.html.erb -->
+<%= content_tag :div, class: "song_titles", id: "song_titles_array", data: {songs: @performance.songs, n: 0} do %>
+<% end %>
+<div class="ro-wrapper wireframe">
+  <div class="ro-container wireframe">
+    <% if @performance.artist.user == current_user %>
+      <p id="change-the-song-buttton" class="btn profile-btn">song nav</p>
+    <% else %>
+    <% end %>
+  </div>
+</div>
