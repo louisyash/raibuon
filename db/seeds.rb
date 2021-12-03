@@ -91,24 +91,37 @@ maid_three_image_file = URI.open("https://i.pinimg.com/564x/02/ee/6b/02ee6bbfa1f
 perf_one.photos.attach(io: maid_one_image_file, filename: "maid_one_image_file", content_type: 'image/jpg')
 perf_one.photos.attach(io: maid_two_image_file, filename: "maid_two_image_file", content_type: 'image/jpg')
 perf_one.photos.attach(io: maid_three_image_file, filename: "maid_three_image_file", content_type: 'image/jpg')
+perf_one.latitude = 35.673074
+perf_one.longitude = 139.693829
 
 #Performance 2 (for presentation) - 0 tips - 10 messages
 perf_two = Performance.create!(name:"Tokyo Yoyogi Live", artist: badboys, address: "Yoyogi Park", start_time: DateTime.new(2021,12,4,15,00,00), end_time: DateTime.new(2021,12,4,17,00,00), songs:["Don't leave me here", "Eternal Bomb", "遅くなりました", "初めまして", "結構やばいです。", "明日から要りません", "光の斉藤さん","闇のおじさん"])
 yoyogi_image_file = URI.open("https://ouenpage.up.seesaa.net/image/060711.ibb.jpg")
 perf_two.photos.attach(io: yoyogi_image_file, filename: "yoyogi_image_file", content_type: 'image/jpg')
+perf_two.latitude = 35.672059
+perf_two.longitude = 139.693110
 
 #Performance 3
 perf_three = Performance.create!(name:"Tokyo Bad Boys", artist: badboys, address: "Yoyogi Park", start_time: DateTime.new(2021,12,12,15,00,00), end_time: DateTime.new(2021,12,12,17,00,00), songs:["Don't leave me here", "Eternal Bomb", "遅くなりました", "初めまして", "結構やばいです。", "明日から要りません", "光の斉藤さん","闇のおじさん"])
 yoyogi_image_file = URI.open("https://ouenpage.up.seesaa.net/image/060711.ibb.jpg")
 perf_three.photos.attach(io: yoyogi_image_file, filename: "yoyogi_image_file", content_type: 'image/jpg')
+perf_two.latitude = 35.672059
+perf_two.longitude = 139.693110
 
 #This one is Currently live (badboys paradise for 90 minutes after seeding)
 badboys_perf = Performance.create!(name:"Badboys live on the streets", artist: badboys, address: "Yoyogi Park", start_time: DateTime.now, end_time: DateTime.now + 90.minutes, songs:["Don't leave me here", "Eternal Bomb", "遅くなりました", "初めまして", "結構やばいです。", "明日から要りません"])
+badboys_perf_two.latitude = 35.669765
+badboys_perf_two.longitude = 139.697671
 
 #This one will be live today. (undead girls live in 2 hours)
 undead_perf_two = Performance.create!(name:"Sonic blast", artist: undead_girls, address: "Yoyogi Park", start_time: DateTime.now - 2.hours, end_time: DateTime.now + 3.hours, songs:["The Machi", "Sad sad Donkey", "ゴキブリの一生", "ペットボトル", "キャンペーン実施中", "明日と君の犬", "Fat Trick"])
+undead_perf_two.latitude = 35.670463
+undead_perf_two.longitude = 139.693720
 #This one will be in the past
 undead_perf_three = Performance.create!(name:"Yoyogi park sonic", artist: undead_girls, address: "Yoyogi Park", start_time: 30.minutes.ago, end_time: DateTime.now)
+undead_perf_three.latitude = 35.671805
+undead_perf_three.longitude = 139.696555
+
 #This one will be in the past
 wagons_perf = Performance.create!(name:"Wagons smackdown live", artist: wagons, address: "Inokashira Park", start_time: 130.minutes.ago, end_time: DateTime.now)
 asahi_perf = Performance.create!(name:"Asahi live", artist: asahi, address: "Inokashira Park", start_time: 130.minutes.ago, end_time: DateTime.now)
