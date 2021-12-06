@@ -1,6 +1,6 @@
-# 📚 Project Name
+# 📚 Raibuon
 
-Project description goes here
+An app to tip street artist in japan!
 
 _DROP SCREENSHOT HERE_
 <br>
