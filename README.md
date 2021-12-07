@@ -53,7 +53,7 @@ rails s
 Inspired by Jane Mount's [Bibliophile](https://www.amazon.com/Bibliophile-Illustrated-Miscellany-Jane-Mount/dp/1452167230) and a story my father once told me: "Why do we keep books? ... We keep books because they remind us of the new perspectives and lessons we learned".
 
 ## Team Members
-Louis Ryo Yasuhiro (https://github.com/louisyash)
+Louis Ryo Yasuhiro (https://github.com/louisyash) <br>
 Gareth Perilli (https://github.com/gperilli)
 
 ## Contributing
