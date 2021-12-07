@@ -5,7 +5,7 @@ An app to tip street artist in japan!
 _DROP SCREENSHOT HERE_
 <br>
 App home: https://live-here-tip.herokuapp.com/
-   
+
 
 ## Getting Started
 ### Setup
@@ -53,7 +53,7 @@ rails s
 Inspired by Jane Mount's [Bibliophile](https://www.amazon.com/Bibliophile-Illustrated-Miscellany-Jane-Mount/dp/1452167230) and a story my father once told me: "Why do we keep books? ... We keep books because they remind us of the new perspectives and lessons we learned".
 
 ## Team Members
-
+Louis Ryo Yasuhiro (https://github.com/louisyash)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
@@ -64,4 +64,3 @@ This project is licensed under the MIT License
 
 
 Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
-
