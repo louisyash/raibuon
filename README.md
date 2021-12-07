@@ -1,4 +1,4 @@
-# 📚 Raibuon
+🎙 Raibuon
 
 An app to tip street artist in japan!
 
@@ -55,8 +55,8 @@ Inspired by Jane Mount's [Bibliophile](https://www.amazon.com/Bibliophile-Illust
 ## Team Members
 Louis Ryo Yasuhiro (https://github.com/louisyash) <br>
 Gareth Perilli (https://github.com/gperilli) <br>
-Anju Mogi (https://github.com/ansanigom)
-
+Anju Mogi (https://github.com/ansanigom) <br>
+Emanuel Samir Caro (https://github.com/darkemlord)
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
