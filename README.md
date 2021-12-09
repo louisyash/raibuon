@@ -2,7 +2,6 @@
 
 An app to tip street artist in japan!
 
-_DROP SCREENSHOT HERE_
 <img src="app/assets/images/Raibuon-RespDemoImg.png" width="100%" /> 
 <br>
 App home: https://live-here-tip.herokuapp.com/
