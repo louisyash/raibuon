@@ -52,6 +52,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-left: 2em;
 
   .landing-text__item-containers {
     width: 100%;
@@ -88,7 +89,7 @@
     position: relative;
     float: left;
     margin-right: 10px;
-    text-decoration: underline;
+    text-decoration: none;
     margin-left: 5px;
   }
 }
