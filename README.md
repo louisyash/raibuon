@@ -1,6 +1,6 @@
-🎙 Raibuon
+<h1>Raibuon</h1>
 
-An app to tip street artist in japan!
+A performance promtion and tipping web app for musicians.
 
 <img src="app/assets/images/Raibuon-RespDemoImg.png" width="100%" /> 
 <br>
@@ -26,7 +26,8 @@ touch .env
 ```
 Inside `.env`, set these variables. For any APIs, see group Slack channel.
 ```
-CLOUDINARY_URL=your_own_cloudinary_url_key
+CLOUDINARY_URL=cloudinary://73******your_own_cloudinary_key****
+MAPBOX_API_KEY=pk.eyJ1******your_own_mapbox_key****
 ```
 
 ### DB Setup
@@ -49,8 +50,6 @@ rails s
 - [Bootstrap](https://getbootstrap.com/) — Styling
 - [Figma](https://www.figma.com) — Prototyping
 
-## Acknowledgements
-Inspired by Jane Mount's [Bibliophile](https://www.amazon.com/Bibliophile-Illustrated-Miscellany-Jane-Mount/dp/1452167230) and a story my father once told me: "Why do we keep books? ... We keep books because they remind us of the new perspectives and lessons we learned".
 
 ## Team Members
 Louis Ryo Yasuhiro (https://github.com/louisyash) <br>
