@@ -7,13 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <!-- Favicon -->
+    <link rel="icon" href="/assets/raibuon.ico">
     <%= favicon_link_tag asset_path('raibuon.png') %>
+
     <!-- OG Facebook -->
     <meta property="og:url" content="https://raibuon.herokuapp.com/" />
     <meta property="og:type" content="website" />
@@ -27,6 +25,7 @@
     <meta name="twitter:title" content="Raibuon" />
     <meta name="twitter:description" content="Raibuon. Live music near you." />
     <meta name="twitter:image" content="https://gperilli.dev/images/ogimages/raibuon-og-share-image.png" />
+
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= stylesheet_pack_tag 'application' %>
