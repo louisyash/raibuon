@@ -66,6 +66,8 @@ galym_image_file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fil
 galym.photo.attach(io: galym_image_file, filename: "galym_image_file", content_type: 'image/jpg')
 puts "Created user: galym. User id: #{galym.id} Username: #{galym.username}."
 
+# New scraped seeds will go here
+
 puts "Creating artists..."
 
 undead_girls = Artist.new(name: "Undead Girls", user: anju, description: "We live to live! Usually play in Yoyogi park on Tuesdays. Check our facebook for more info!", facebook: 'www.facebook.com', instagram: 'www.instagram.com', spotify:'www.spotify.com', twitter:'www.twitter.com')
