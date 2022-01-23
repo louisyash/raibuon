@@ -66,7 +66,7 @@ galym_image_file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fil
 galym.photo.attach(io: galym_image_file, filename: "galym_image_file", content_type: 'image/jpg')
 puts "Created user: galym. User id: #{galym.id} Username: #{galym.username}."
 
-# New scraped seeds will go here
+# New real performances will be created here
 
 puts "Creating artists..."
 
