@@ -4,9 +4,9 @@ require 'csv'
 
 require_relative 'waiting_dots'
 require_relative 'artist_セックスマシーン_data'
+
 puts "Starting the Csvify"
 waiting_dots
-
 
 #
 puts "Putting scraped data into csv files"

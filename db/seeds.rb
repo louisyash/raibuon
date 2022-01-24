@@ -44,7 +44,8 @@ sex_machine = Artist.new(name: artist_performance_rows[0][0], user: gareth, desc
 sex_machine_image = artist_performance_rows[0][2]
 sex_machine.photo.attach(io: URI.open("db/scraped_images/sexmachine.jpg"), filename: "#{artist_performance_rows[0][0]}_profile_image", content_type: 'image/jpg')
 sex_machine_perf = Performance.create!(name: artist_performance_rows[1][0], artist: sex_machine, address: artist_performance_rows[1][1], start_time: artist_performance_rows[1][2], end_time: artist_performance_rows[1][3])
-
+sex_machine_perf.latitude = artist_performance_rows[1][4]
+sex_machine_perf.longitude = artist_performance_rows[1][5]
 
 
 
