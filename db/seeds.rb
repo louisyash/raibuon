@@ -1,5 +1,7 @@
 require "open-uri"
+require 'csv'
 
+require_relative 'waiting_dots'
 puts "Deleting everything...:0"
 
 Tip.destroy_all
@@ -31,42 +33,21 @@ louis_image_file = URI.open("https://avatars.githubusercontent.com/u/90910106?v=
 louis.photo.attach(io: louis_image_file, filename: "louis_image_file", content_type: 'image/jpg')
 puts "Created user: Louis. User id: #{louis.id} Username: #{louis.username}."
 
-yann = User.create!(password:"123456", email: "yann@lewagon.com", username: "yannk789")
-yann_image_file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_440,q_auto,w_630/v1555660191/dpjompy0xq3fgsrptoss.webp")
-yann.photo.attach(io: yann_image_file, filename: "yann_image_file", content_type: 'image/jpg')
-puts "Created user: Yann. User id: #{yann.id} Username: #{yann.username}."
 
-doug = User.create!(password:"123456", email: "doug@lewagon.com", username: "dmpg999")
-doug_image_file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_600,w_600/viqfqp0tfkmcwmj7cfwe.jpg")
-doug.photo.attach(io: doug_image_file, filename: "doug_image_file", content_type: 'image/jpg')
-puts "Created user: Doug. User id: #{doug.id} Username: #{doug.username}."
+puts "Creating real performance data from scraped csv"
+waiting_dots
+artist_performance_rows = CSV.read("db/scraped_performances/セックスマシーン_scraped_performances.csv")
 
-trouni = User.create!(password:"123456", email: "trouni@lewagon.com", username: "trouniiii89")
-trouni_image_file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_440,q_auto,w_630/v1569902527/oywemtu6jmosrgqmynh2.webp")
-trouni.photo.attach(io: trouni_image_file, filename: "trouni_image_file", content_type: 'image/jpg')
-puts "Created user: trouni. User id: #{trouni.id} Username: #{trouni.username}."
+puts "#{artist_performance_rows}"
 
-sylvain = User.create!(password:"123456", email: "sylvain@lewagon.com", username: "sylvain951")
-sylvain_image_file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_440,q_auto,w_630/v1543815823/uljycpmfoidynq2zoue9.webp")
-sylvain.photo.attach(io: sylvain_image_file, filename: "sylvain_image_file", content_type: 'image/jpg')
-puts "Created user: sylvain. User id: #{sylvain.id} Username: #{sylvain.username}."
+sex_machine = Artist.new(name: artist_performance_rows[0][0], user: gareth, description: artist_performance_rows[0][1], facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
+sex_machine_image = artist_performance_rows[0][2]
+sex_machine.photo.attach(io: URI.open("db/scraped_images/sexmachine.jpg"), filename: "#{artist_performance_rows[0][0]}_profile_image", content_type: 'image/jpg')
+sex_machine_perf = Performance.create!(name: artist_performance_rows[1][0], artist: sex_machine, address: artist_performance_rows[1][1], start_time: artist_performance_rows[1][2], end_time: artist_performance_rows[1][3])
 
-sasha = User.create!(password:"123456", email: "sasha@lewagon.com", username: "sasha123")
-sasha_image_file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_440,q_auto,w_630/v1597104558/d1r0rlaegapxsihsnkdh.webp")
-sasha.photo.attach(io: sasha_image_file, filename: "sasha_image_file", content_type: 'image/jpg')
-puts "Created user: sasha. User id: #{sasha.id} Username: #{sasha.username}."
 
-noemi = User.create!(password:"123456", email: "noemi@lewagon.com", username: "noemi7777")
-noemi_image_file = URI.open("https://lh3.googleusercontent.com/rQjx2Nblx-ekKzwn468YCDPM-87kMVS2CCuOyM6YBC-JatggpIdmAvZ0X0SUqfTzEot_lILtunN22mL3jBU_bJ5YWEsFmG7xbZk40x14mp_42nnceZ4Yd06FwVI8Qw9TAf_qJqTP")
-noemi.photo.attach(io: noemi_image_file, filename: "noemi_image_file", content_type: 'image/jpg')
-puts "Created user: noemi. User id: #{noemi.id} Username: #{noemi.username}."
 
-galym = User.create!(password:"123456", email: "galym@lewagon.com", username: "horsemeatsausage")
-galym_image_file = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1633518323/tsveff9wrxwwb3yzhz3m.jpg")
-galym.photo.attach(io: galym_image_file, filename: "galym_image_file", content_type: 'image/jpg')
-puts "Created user: galym. User id: #{galym.id} Username: #{galym.username}."
 
-# New real performances will be created here
 
 puts "Creating artists..."
 
@@ -128,7 +109,7 @@ undead_perf_three.longitude = 139.696555
 wagons_perf = Performance.create!(name:"Wagons smackdown live", artist: wagons, address: "Inokashira Park", start_time: 130.minutes.ago, end_time: DateTime.now)
 asahi_perf = Performance.create!(name:"Asahi live", artist: asahi, address: "Inokashira Park", start_time: 130.minutes.ago, end_time: DateTime.now)
 
-puts "Creating Gareth's artists and performances..."
+
 
 # Gareth artists
 mighty = Artist.new(name: "Mighty Dumplings", user: gareth, description: "British band meets Tokyo", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
@@ -139,6 +120,8 @@ mighty.photo.attach(io: mighty_image_file, filename: "mighty_image_file", conten
 mighty_perf = Performance.create!(name:"Mightys live on the streets", artist: mighty, address: "Yoyogi Park", start_time: DateTime.now + 1, end_time: DateTime.now + 1 + 90.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
 #This one will be in the past
 mighty_perf_two = Performance.create!(name:"Blast at the park", artist: mighty, address: "Nishi-Shinjuku", start_time: 250.minutes.ago, end_time: 130.minutes.ago , songs:["The Mash Up", "Fa La La", "聖なるペンギン", "暗闇のチョコ", "塩", "胡椒とラー油", "Hat Trick"])
+
+
 
 puts "1: Creating Hiroyuki artist - Sapporo"
 
@@ -152,72 +135,6 @@ hiroyuki_promo_image_two = URI.open("https://res.cloudinary.com/gperilli/image/u
 hiroyuki_perf.photos.attach(io: hiroyuki_promo_image_two, filename: "hiroyuki_promo_image_two", content_type: 'image/jpg')
 hiroyuki_promo_image_three = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638484855/raibuon/Hiroyuki-promo1_d0sitd.jpg")
 hiroyuki_perf.photos.attach(io: hiroyuki_promo_image_three, filename: "hiroyuki_promo_image_three", content_type: 'image/jpg')
-
-puts "2: Creating Noriko artist - Kyoto station"
-
-noriko = Artist.new(name: "Noriko", user: gareth, description: "Harp solist", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
-noriko_profile_image = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638489487/raibuon/Noriko-profile_tqtw3w.jpg")
-noriko.photo.attach(io: noriko_profile_image, filename: "noriko_profile_image", content_type: 'image/jpg')
-noriko_perf = Performance.create!(name:"1 hour of classical harp", artist: noriko, address: "Kyoto station", start_time: DateTime.now + 7, end_time: DateTime.now + 7 + 60.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
-noriko_promo_image_one = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638489489/raibuon/Noriko-promo1_mod1yg.jpg")
-noriko_perf.photos.attach(io: noriko_promo_image_one, filename: "noriko_promo_image_one", content_type: 'image/jpg')
-noriko_promo_image_two = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638489487/raibuon/Noriko-promo2_a5mflu.jpg")
-noriko_perf.photos.attach(io: noriko_promo_image_two, filename: "noriko_promo_image_two", content_type: 'image/jpg')
-noriko_promo_image_three = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638489487/raibuon/Noriko-promo3_xtglnm.jpg")
-noriko_perf.photos.attach(io: noriko_promo_image_three, filename: "noriko_promo_image_three", content_type: 'image/jpg')
-
-puts "3: Creating The New Orleans Club - Kochi harimaya"
-
-new_orleans_club = Artist.new(name: "New Orleans Club", user: gareth, description: "Jazz for the streets", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
-new_orleans_club_profile_image = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499292/raibuon/NewOrleansClub-profile_wstnwn.jpg")
-new_orleans_club.photo.attach(io: new_orleans_club_profile_image, filename: "new_orleans_club_profile_image", content_type: 'image/jpg')
-new_orleans_club_perf = Performance.create!(name:"Bringing the swing", artist: new_orleans_club, address: "Kochi Harimaya", start_time: DateTime.now + 5, end_time: DateTime.now + 5 + 60.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
-new_orleans_club_promo_image_one = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499297/raibuon/NewOrleansClub-promo1_wz7gah.jpg")
-new_orleans_club_perf.photos.attach(io: new_orleans_club_promo_image_one, filename: "new_orleans_club_promo_image_one", content_type: 'image/jpg')
-new_orleans_club_promo_image_two = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499289/raibuon/NewOrleansClub-promo2_katupk.jpg")
-new_orleans_club_perf.photos.attach(io: new_orleans_club_promo_image_two, filename: "new_orleans_club_promo_image_two", content_type: 'image/jpg')
-new_orleans_club_promo_image_three = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499288/raibuon/NewOrleansClub-promo3_dkinux.jpg")
-new_orleans_club_perf.photos.attach(io: new_orleans_club_promo_image_three, filename: "new_orleans_club_promo_image_three", content_type: 'image/jpg')
-
-puts "4: Creating The Smoky Pianist - kagoshima station"
-
-smoky_pianist = Artist.new(name: "The Smoky Pianist", user: gareth, description: "Ragtime with a smell of tobacco", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
-smoky_pianist_profile_image = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499692/raibuon/SmokyPianist-profile_o6bl2x.jpg")
-smoky_pianist.photo.attach(io: smoky_pianist_profile_image, filename: "smoky_pianist_profile_image", content_type: 'image/jpg')
-smoky_pianist_perf = Performance.create!(name:"Only ragtime", artist: smoky_pianist, address: "kagoshima station", start_time: DateTime.now + 7, end_time: DateTime.now + 7 + 60.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
-smoky_pianist_promo_image_one = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499691/raibuon/SmokyPianist-promo1_aj28oz.jpg")
-smoky_pianist_perf.photos.attach(io: smoky_pianist_promo_image_one, filename: "smoky_pianist_promo_image_one", content_type: 'image/jpg')
-smoky_pianist_promo_image_two = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499689/raibuon/SmokyPianist-promo2_s3s7tk.jpg")
-smoky_pianist_perf.photos.attach(io: smoky_pianist_promo_image_two, filename: "smoky_pianist_promo_image_two", content_type: 'image/jpg')
-smoky_pianist_promo_image_three = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638499688/raibuon/SmokyPianist-promo3_eyitfl.jpg")
-smoky_pianist_perf.photos.attach(io: smoky_pianist_promo_image_three, filename: "smoky_pianist_promo_image_three", content_type: 'image/jpg')
-
-puts "5: Creating Shirley Shamisen Goddess - Kamakura Yuigahama Beach"
-
-shirley_shamisenist = Artist.new(name: "Shirley Shamisen", user: gareth, description: "Shirley Shamisen Goddess", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
-shirley_shamisenist_profile_image = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638502157/raibuon/Shirley-profile_c2c44w.jpg")
-shirley_shamisenist.photo.attach(io: shirley_shamisenist_profile_image, filename: "shirley_shamisenist_profile_image", content_type: 'image/jpg')
-shirley_shamisenist_perf = Performance.create!(name:"Shamisen on the beach", artist: shirley_shamisenist, address: "Kamakura Yuigahama Beach", start_time: DateTime.now + 3, end_time: DateTime.now + 3 + 60.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
-shirley_shamisenist_promo_image_one = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638502158/raibuon/Shirley-promo1_nswstk.jpg")
-shirley_shamisenist_perf.photos.attach(io: shirley_shamisenist_promo_image_one, filename: "shirley_shamisenist_promo_image_one", content_type: 'image/jpg')
-shirley_shamisenist_promo_image_two = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638502156/raibuon/Shirley-promo2_df5zgs.jpg")
-shirley_shamisenist_perf.photos.attach(io: shirley_shamisenist_promo_image_two, filename: "shirley_shamisenist_promo_image_two", content_type: 'image/jpg')
-shirley_shamisenist_promo_image_three = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638502155/raibuon/Shirley-promo3_hkuwhp.jpg")
-shirley_shamisenist_perf.photos.attach(io: shirley_shamisenist_promo_image_three, filename: "shirley_shamisenist_promo_image_three", content_type: 'image/jpg')
-
-puts "6: Basso Fantastico - Harajuku station"
-
-basso_fantastico = Artist.new(name: "Basso Fantastico", user: gareth, description: "Two basses and som serious funk", facebook: 'www.facebook.com', soundcloud:'www.soundcloud.com', twitter:'www.twitter.com')
-basso_fantastico_profile_image = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638502157/raibuon/Shirley-profile_c2c44w.jpg")
-basso_fantastico.photo.attach(io: basso_fantastico_profile_image, filename: "basso_fantastico_profile_image", content_type: 'image/jpg')
-basso_fantastico_perf = Performance.create!(name:"Bass slapping at Harajuku", artist: basso_fantastico, address: "Harajuku station", start_time: DateTime.now + 3, end_time: DateTime.now + 3 + 60.minutes, songs:["The Breakup song", "La La La", "マジで？", "うっせえわ (cover)", "しょっぺえわ (parody)", "チョコレート"])
-basso_fantastico_promo_image_one = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638502158/raibuon/Shirley-promo1_nswstk.jpg")
-basso_fantastico_perf.photos.attach(io: basso_fantastico_promo_image_one, filename: "basso_fantastico_promo_image_one", content_type: 'image/jpg')
-basso_fantastico_promo_image_two = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638502156/raibuon/Shirley-promo2_df5zgs.jpg")
-basso_fantastico_perf.photos.attach(io: basso_fantastico_promo_image_two, filename: "basso_fantastico_promo_image_two", content_type: 'image/jpg')
-basso_fantastico_promo_image_three = URI.open("https://res.cloudinary.com/gperilli/image/upload/v1638502155/raibuon/Shirley-promo3_hkuwhp.jpg")
-basso_fantastico_perf.photos.attach(io: basso_fantastico_promo_image_three, filename: "basso_fantastico_promo_image_three", content_type: 'image/jpg')
-
 
 
 
@@ -233,7 +150,6 @@ Tip.create!(amount: 1000, user: emanuel, performance: wagons_perf)
 Tip.create!(amount: 1000, user: emanuel, performance: asahi_perf)
 Tip.create!(amount: 2000, user: emanuel, performance: perf_one)
 Tip.create!(amount: 800, user: gareth, performance: perf_one)
-Tip.create!(amount: 1000, user: yann, performance: perf_one)
 
 puts "created #{User.count} users, #{Artist.count} artists, #{Performance.count} performances, and #{Tip.count} tips!"
 
@@ -254,7 +170,7 @@ end
 15.times do
   Message.create!(
     content: messages.sample,
-    user: [emanuel, gareth, yann, doug, trouni, sylvain, sasha, galym].sample,
+    user: [emanuel, gareth].sample,
     performance: perf_one
   )
 end
